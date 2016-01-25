@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sistema de Información de Estudiantes</title>
+        <title>Sistema de Información Estudiantil</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Laravel 5: Sistema de Información Estudiantil Escuela Basica Vicente Davila</div>
             </div>
         </div>
     </body>
