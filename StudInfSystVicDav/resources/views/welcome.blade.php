@@ -39,6 +39,14 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5: Sistema de Información Estudiantil Escuela Basica Vicente Davila</div>
+                <button type="button" class="btn btn-default">Default</button><br>
+                <button type="button" class="btn btn-primary">Primary</button><br>
+                <button type="button" class="btn btn-success">Success</button><br>
+                <button type="button" class="btn btn-info">Info</button><br>
+                <button type="button" class="btn btn-warning">Warning</button><br>
+                <button type="button" class="btn btn-danger">Danger</button><br>
+                <button type="button" class="btn btn-link">Link</button><br>
+                <h1>Why does not the boostrap button (color) work here? </h1>
             </div>
         </div>
     </body>
