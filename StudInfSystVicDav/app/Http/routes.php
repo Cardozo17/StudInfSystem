@@ -1,5 +1,7 @@
 <?php
 
+use App\Student;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -12,7 +14,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	
+	return Student::all();
+
+    //return view('welcome');
 });
 
 /*
