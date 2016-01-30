@@ -12,4 +12,18 @@ class Student extends Model
      * @var string
      */
     protected $table = 'student';
+
+     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+       public function person()
+    {
+        return $this->hasOne('App\Person', 'id');
+    }
+
+
 }

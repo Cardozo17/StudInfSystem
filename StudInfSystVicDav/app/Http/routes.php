@@ -1,6 +1,8 @@
 <?php
 
 use App\Student;
+use  App\Person;
+use  App\PhoneNumbers;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,13 @@ use App\Student;
 
 Route::get('/', function () {
 	
-	return Student::all();
+	//$studentInfo = Student::find(1)->person;
+	//return $studentInfo;
 
-    //return view('welcome');
+    return view('welcome');
 });
+
+Route::get('students', 'StudentController@index');
 
 /*
 |--------------------------------------------------------------------------
