@@ -25,5 +25,29 @@ class Student extends Model
         return $this->hasOne('App\Person', 'id');
     }
 
+     public function legalRepresentative()
+    {
+        return $this->belongsTo('App\LegalRepresentative');
+    }
+
+     public function parent()
+    {
+        return $this->belongsTo('App\Paternity');
+    }
+
+     public function teacher()
+    {
+        return $this->belongsTo('App\Teacher');
+    }
+
+
+     public function brothers()
+    {
+        return $this->belongsToMany('App\Student', 'brotherhood', 'student_id', 'student_id1' );
+    }
+
+
+
+
 
 }

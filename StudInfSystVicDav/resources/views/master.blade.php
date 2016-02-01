@@ -14,6 +14,13 @@
 	 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	 	<style>
+	 	
+	 		  html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
 
 	 		.jumbotron {
 			    background-color:  	#008B8B;
@@ -26,13 +33,15 @@
 	 			width: 150px;
 	 			height: 150px;
 	 			background: #008B8B;
-	 			margin-top: 15px;
-	 			padding: 0px 0px 20px 0px;
+	 			margin-top: 0px;
+	 			padding: 0px 0px 0px 0px;
 	 		}
 
 	 		.container-fluid {
 	 			padding: 0px 0px, 0px, 0px ;
 	 		}
+
+
 
 	 	</style>	
 
@@ -41,29 +50,34 @@
 <body>
 
 	<div class="jumbotron text-center">
-		<div class= "header">
-			{{ Html::image('images/escudo.jpg', 'Logo')}}
-			<h1>Escuela Basica Vicente Davila</h1>
-			<p>
-				Escuela basica perteneciente al Ministerio del Poder Popular Para La Educación.
-				<br>
-				Ubicada en Mérida, Venezuela.
-			</p>
-		</div>
+		<div class= "row">
+			<div class= "col-md-12">		
+				<div class= "header">
+					{{ Html::image('images/escudo.jpg', 'Logo')}}
+					<h1>Escuela Basica Vicente Davila</h1>
+					<p>
+						Escuela basica perteneciente al Ministerio del Poder Popular Para La Educación.
+						<br>
+						Ubicada en Mérida, Venezuela.
+					</p>
+				</div>
+			</div>
+		</div>	
 	</div>
 
 
 	<div class="container-fluid" >
-		<div class= "col-md-3">
-		 	<label>Ménu</label>	
-		</div>
-		<div>
-			<div class= "col-md-9">
-				@yield('content')
+		<div class= "row">	
+			<div class= "col-md-3">
+			 	<label>Ménu</label>	
+			</div>
+			<div>
+				<div class= "col-md-9">
+					@yield('content')
 
+				</div>	
 			</div>	
-		</div>	
-
+		</div>
 	</div>	
 
 	@yield('footer')
