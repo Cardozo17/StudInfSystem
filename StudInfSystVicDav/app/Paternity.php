@@ -9,12 +9,12 @@ class Paternity extends Model
     protected $table = 'parent';
     public $timestamps = false;
 
-     public function person()
+    public function person()
     {
         return $this->hasOne('App\Person', 'id');
     }
 
-     public function students()
+    public function students()
     {
         return $this->hasMany('App\Student', 'parent_id');
     }

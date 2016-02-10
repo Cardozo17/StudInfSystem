@@ -25,15 +25,16 @@ class Person extends Model
         return $this->belongsTo('App\LegalRepresentative', 'id');
     }
 
- 
-    public function teacher()
-    {
-        return $this->belongsTo('App\Teacher', 'id');
-    }
 
     public function parent()
     {
         return $this->belongsTo('App\Paternity', 'id');
+    }
+
+
+    public function teacher()
+    {
+         return $this->belongsTo('App\Teacher', 'id');
     }
 
 }

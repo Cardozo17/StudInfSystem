@@ -17,9 +17,6 @@ use  App\PhoneNumbers;
 
 Route::get('/', function () {
 	
-	//$studentInfo = Student::find(1)->person;
-	//return $studentInfo;
-
     return view('welcome');
 });
 
