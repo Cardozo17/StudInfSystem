@@ -10,6 +10,17 @@ class Person extends Model
      public $timestamps = false;
 
 
+     protected $fillable= [
+
+     'document_id',
+     'name',
+     'last_name',
+     'gender',
+     'email'
+
+     ];
+
+
     public function phoneNumbers()
     {
         return $this->belongsTo('App\PhoneNumbers', 'phone_numbers_id');

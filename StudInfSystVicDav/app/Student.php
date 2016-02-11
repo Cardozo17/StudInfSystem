@@ -20,6 +20,12 @@ class Student extends Model
      */
     public $timestamps = false;
 
+    protected $fillable= [
+
+     'id',
+     'legal_representative_id'
+     ];
+
        public function person()
     {
         return $this->hasOne('App\Person', 'id');
