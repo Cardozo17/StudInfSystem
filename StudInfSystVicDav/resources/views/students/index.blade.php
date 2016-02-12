@@ -14,12 +14,12 @@
 						{{$student->person->name }} {{$student->person->last_name}}  <br>
 
 						@foreach($student->brothers as $brother)
-							<label>Sus Hermanos En La Institución: </label> {{$brother->person->name or 'Default'}} {{$brother->person->last_name or ''}}   <br>
+							<label>Sus Hermanos En La Institución: </label> {{$brother->person->name or ''}} {{$brother->person->last_name or ''}}   <br>
 
 						@endforeach
 
 						<label> Su Representante Legal: </label> {{$student->legalRepresentative->person->name}} {{$student->legalRepresentative->person->last_name}} <br>
-						<label> Su Padre o Madre: </label> {{$student->parent->person->name}} {{$student->parent->person->last_name}} <br>
+						<label> Su Padre o Madre: </label> {{$student->parent->person->name or ''}} {{$student->parent->person->last_name or ''}} <br>
 						<label> Su Profesor: </label> {{$student->teacher->person->name or 'No Asignado'}} {{$student->teacher->person->last_name or ''}}
 					 </li>
 				</ui>	 	

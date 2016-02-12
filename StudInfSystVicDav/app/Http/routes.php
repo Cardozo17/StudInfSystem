@@ -20,8 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('students', 'StudentController@index');
-Route::get('students/create', 'StudentController@create');
+Route::get('students','StudentController@index');
+Route::get('students/create', ['middleware' => 'auth', //This is working but it didn't let me get in the view even if I 
+    'uses' =>'StudentController@create']);				//am succesfully log
 Route::post('students', 'StudentController@store');
 
 /*

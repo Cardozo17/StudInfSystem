@@ -37,28 +37,31 @@ class StudentController extends Controller
 
        public function store (Request $request)
     {
-    	
+    	//getting the input from the form
     	$input= $request->all();
 
-    	Person::create($input);
+    	//registering the student in the table person
+    	$personStudentInfo= new Person (['document_id'=> $input['document_id'], 'name'=> $input['name'], 
+    		'last_name'=> $input['last_name'], 'gender'=> $input['gender'], 'email'=> $input['email']]);
+    	$personStudentInfo->save();
 
+    	//Person::create($input);
+    	//$personStudentInfo= Person::where('document_id', $input['document_id'])->get();
+
+    	//registering the legal representative in the table person
     	$repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
     		'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 'email'=> $input['repLegEmail']]);
     	$repLegPerson->save();
-
-
-    	$personStudentInfo= Person::where('document_id', $input['document_id'])->get();
-
     
+    	//after having registered the legal representative in the table person now we can register the legal representative in its table
     	$repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 'home_address'=> $input['home_address'],
     									 'work_address'=> $input['work_address']]);
     	$repLeg->save();
 
-    	//OJOOO AQUI QUEDE VER PORQUE ME DA ERROR con id
-    	$student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=> $repLeg['id']]);
+    
+    	//now that I have the student person Id and the legal representative Id I can register the student
+    	$student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id']]);
     	$student->save();							 
-
-    	//return $repLeg;	
 
     	return redirect('students');
 
