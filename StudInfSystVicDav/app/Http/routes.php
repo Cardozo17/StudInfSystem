@@ -23,8 +23,10 @@ Route::get('/', function () {
 Route::get('students','StudentController@index');
 Route::get('students/create', 'StudentController@create');		
 Route::post('students', 'StudentController@store');
+Route::get('whoWeAre', 'HomeController@aboutUs');
 
 /*
+
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
