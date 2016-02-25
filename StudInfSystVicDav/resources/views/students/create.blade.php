@@ -1,10 +1,16 @@
 @extends('master')
 
+@section('title', 'Inscribir Estudiante')
+
 @section('content')
 
-	<h1>Registrar Estudiante</h1>
+	<h1>Inscribir Estudiante</h1>
 
 	{!! Form::open(array('url' => 'students')) !!}
+
+	@foreach ($errors->all() as $error)
+    	<p class="alert alert-danger">{{ $error }}</p>
+	@endforeach
     
     <div class= "form-group">
 
@@ -131,7 +137,6 @@
 		
 	</div>
 	
-
 	{!! Form::close() !!}
 
 

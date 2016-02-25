@@ -2,11 +2,12 @@
 <html lang="vsl">
 <head>
 
-	<title>Sistema de Información Estudiantil</title>
+	<title>@yield('title')</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
 	<script 
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -41,35 +42,18 @@
 	 			padding: 0px 0px, 0px, 0px ;
 	 		}
 
-
-
 	 	</style>	
 
 </head>
 
 <body>
-
-	<div class="jumbotron text-center">
-		<div class= "row">
-			<div class= "col-md-12">		
-				<div class= "header">
-					{{ Html::image('images/escudo.jpg', 'Logo')}}
-					<h1>Escuela Basica Vicente Davila</h1>
-					<p>
-						Escuela basica perteneciente al Ministerio del Poder Popular Para La Educación.
-						<br>
-						Ubicada en Mérida, Venezuela.
-					</p>
-				</div>
-			</div>
-		</div>	
-	</div>
-
-
+	@include('shared.header')
+	
 	<div class="container-fluid" >
 		<div class= "row">	
 			<div class= "col-md-3">
-			 	<label>Ménu</label>	
+					
+			 		@include('shared.menu')	
 			</div>
 			<div>
 				<div class= "col-md-9">
@@ -81,9 +65,8 @@
 	</div>	
 
 	@yield('footer')
-
-	<button type="button" class="btn btn-danger" onclick="">LogOut</button>
-	<a href="{{URL::previous()}}">Back</a>
+	<button type="button" class="btn btn-danger" onclick="">Cerrar Sesión</button>
+	<a href="/home">Regresar a Pagina de Bienvenida</a>
 	
 </body>
 </html> 

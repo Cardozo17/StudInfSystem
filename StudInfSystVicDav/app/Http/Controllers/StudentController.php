@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\StudentFormRequest;
 
 use App\Person;
 use App\LegalRepresentative;
@@ -14,6 +15,7 @@ use DB;
 
 class StudentController extends Controller
 {
+
     
     public function index ()
     {
@@ -35,7 +37,7 @@ class StudentController extends Controller
 
     }
 
-       public function store (Request $request)
+       public function store (StudentFormRequest $request)
     {
     	//getting the input from the form
     	$input= $request->all();

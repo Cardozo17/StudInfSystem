@@ -1,5 +1,7 @@
 @extends('master')
 
+@section('title', 'Ver Estudiantes Inscritos')
+
 @section('content')
 	
 	<div class="container-fluid" >
@@ -28,6 +30,4 @@
 		</div>
 	</div>	
 		
-
-	
-@stop
+@endsection
