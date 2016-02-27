@@ -55,7 +55,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="/students">Consultar</a>
+                                        <a href="/students">Consultar Todos</a>
                                     </td>
                                 </tr>
                                 <tr>

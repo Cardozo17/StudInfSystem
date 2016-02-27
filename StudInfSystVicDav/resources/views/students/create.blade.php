@@ -146,4 +146,4 @@
 	</div>
 
 	<script src="/js/createStudent.js"></script>
-@stop
+@endsection
