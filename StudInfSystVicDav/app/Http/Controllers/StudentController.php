@@ -17,7 +17,7 @@ class StudentController extends Controller
 {
 
     
-    public function index ()
+     public function index ()
     {
     	$students = Student::All();
     	//$students = Student::with(['teacher', 'legalRepresentative', 'parent'])->get();

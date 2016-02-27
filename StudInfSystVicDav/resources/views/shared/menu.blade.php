@@ -1,10 +1,3 @@
-<style>
-body{margin-top:50px;}
-.glyphicon { margin-right:10px; }
-.panel-body { padding:0px; }
-.panel-body table tr td { padding-left: 15px }
-.panel-body .table {margin-bottom: 0px; }
-</style>
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3">
@@ -48,7 +41,7 @@ body{margin-top:50px;}
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
-                            </span>Gestionar Estudiante</a>
+                            </span>Gestion de Estudiantes</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
@@ -57,12 +50,12 @@ body{margin-top:50px;}
                              
                                 <tr>
                                     <td>
-                                        <a href="students/create">Inscribir</a>
+                                        <a href="/students/create">Inscribir</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="students">Consultar</a>
+                                        <a href="/students">Consultar</a>
                                     </td>
                                 </tr>
                                 <tr>

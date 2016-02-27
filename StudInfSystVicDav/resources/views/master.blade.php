@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vsl">
+<html lang="vsl" >
 <head>
 
 	<title>@yield('title')</title>
@@ -9,13 +9,20 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
+
 	<script 
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	 <script 
+	<script 
 	 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+	<script 
+    	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>	
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    		
 
 	 	<style>
-	 	
 	 		  html, body {
                 width: 100%;
                 height: 100%;
@@ -39,14 +46,26 @@
 	 		}
 
 	 		.container-fluid {
-	 			padding: 0px 0px, 0px, 0px ;
+	 			padding: 0px 0px, 0px, 0px;
 	 		}
 
-	 	</style>	
+	 		body{margin-top:0px;}
 
+			.glyphicon { margin-right:10px; }
+			.panel-body { padding:0px; }
+			.panel-body table tr td { padding-left: 15px }
+			.panel-body.table {margin-bottom: 0px; }
+
+			 #closeSessionButton{
+		     position:absolute;
+		     bottom:0;
+		     right:30px;
+		 	}
+
+	 	</style>	
 </head>
 
-<body>
+<body ng-app="SIEApp">
 	@include('shared.header')
 	
 	<div class="container-fluid" >
@@ -65,8 +84,6 @@
 	</div>	
 
 	@yield('footer')
-	<button type="button" class="btn btn-danger" onclick="">Cerrar Sesión</button>
-	<a href="/home">Regresar a Pagina de Bienvenida</a>
 	
 </body>
 </html> 

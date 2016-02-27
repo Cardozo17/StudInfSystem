@@ -9,6 +9,8 @@
 						<br>
 						Ubicada en Mérida, Venezuela.
 					</p>
+					<a type="button" id="closeSessionButton" class="btn btn-danger" href="/logout" onclick="">Cerrar Sesión</a>
+
 				</div>
 			</div>
 		</div>	
