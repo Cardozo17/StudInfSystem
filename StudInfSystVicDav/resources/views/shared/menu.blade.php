@@ -1,3 +1,10 @@
+<style>
+body{margin-top:50px;}
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3">
@@ -5,11 +12,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-search">
                             </span>Vicente Davila</a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
+                    <div id="collapseOne" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
@@ -40,7 +47,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list-alt">
                             </span>Gestion de Estudiantes</a>
                         </h4>
                     </div>
@@ -53,16 +60,22 @@
                                         <a href="/students/create">Inscribir</a>
                                     </td>
                                 </tr>
+                                 <tr>
+                                    <td>
+                                        <a href="">Consultar Estudiante</a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <a href="">Editar Estudiante</a>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
                                         <a href="/students">Consultar Todos</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <a href="">Editar</a>
-                                    </td>
-                                </tr>
+                             
                             </table>
                         </div>
                     </div>
@@ -70,7 +83,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-duplicate">
                             </span>Constancias</a>
                         </h4>
                     </div>
@@ -79,20 +92,20 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-usd"></span><a href="">Constancia de Estudio</a>
+                                        <span class="glyphicon glyphicon-file"></span><a href="studyConstancy">Constancia de Estudio</a>
                                     </td>
                                 </tr>
                   
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-tasks"></span><a href="">Citación</a>
+                                        <span class="glyphicon glyphicon-thumbs-down"></span><a href="">Citación</a>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
-                         <div class="panel panel-default">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
@@ -109,7 +122,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="">Notifications</a> <span class="label label-info">5</span>
+                                        <a href="">Notifications</a> 
                                     </td>
                                 </tr>
                                 <tr>
