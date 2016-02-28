@@ -17,6 +17,7 @@
 								<tr>
 									<th>Nombre </th>
 									<th>Apellido</th>
+									<th>Hermanos en la Institución</th>
 									<th> Representante Legal</th>
 									<th>Padre o Madre</th>
 									<th> Profesor </th>

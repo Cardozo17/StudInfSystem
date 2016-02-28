@@ -16,6 +16,15 @@ use DB;
 class StudentController extends Controller
 {
 
+
+
+     public function listStudents ()
+    {
+        $students = Student::All();
+
+        return $students;
+
+    }
     
      public function index ()
     {
@@ -28,6 +37,8 @@ class StudentController extends Controller
     	return view('students.index', ['students' => $students]);
 
     }
+
+
 
 
      public function create ()

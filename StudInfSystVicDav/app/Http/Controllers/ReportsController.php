@@ -11,6 +11,6 @@ class ReportsController extends Controller
 {
      public function studyConstancyPaper()
     {
-        return view('Reports.studyConstancy');
+        return view('reports.studyConstancy');
     }
 }

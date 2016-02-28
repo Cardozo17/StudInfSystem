@@ -1,9 +1,6 @@
 <style>
-body{margin-top:50px;}
-.glyphicon { margin-right:10px; }
-.panel-body { padding:0px; }
-.panel-body table tr td { padding-left: 15px }
-.panel-body .table {margin-bottom: 0px; }
+
+
 </style>
 <div class="container">
     <div class="row">
@@ -21,7 +18,7 @@ body{margin-top:50px;}
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="whoWeAre">Quienes Somos</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="/whoWeAre">Quienes Somos</a>
                                     </td>
                                 </tr>
                                 <tr>

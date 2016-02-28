@@ -21,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('students','StudentController@index');
-Route::get('students/create', 'StudentController@create');		
+Route::get('students/create', 'StudentController@create');
+Route::get('students/list', 'StudentController@listStudents');		
 Route::post('students', 'StudentController@store');
 Route::get('whoWeAre', 'HomeController@aboutUs');
 Route::get('logout', array('uses' => 'LoginController@logout'));
