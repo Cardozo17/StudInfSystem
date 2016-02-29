@@ -16,13 +16,11 @@ use DB;
 class StudentController extends Controller
 {
 
-
-
      public function listStudents ()
     {
-        $students = Student::All();
+        $students = Student::with('person', 'legalRepresentative', 'parent', 'teacher', 'brothers')->get();
 
-        return $students;
+        return $students->toJson();
 
     }
     
@@ -37,8 +35,6 @@ class StudentController extends Controller
     	return view('students.index', ['students' => $students]);
 
     }
-
-
 
 
      public function create ()

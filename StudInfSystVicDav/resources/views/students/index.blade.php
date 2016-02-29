@@ -12,23 +12,24 @@
 				<br>	
 				<div class="row">
 					<div class=" col-md-12">
-						<table ng-model= "table" id="table_id" class="table table-striped table-bordered"  cellspacing="0" width="100%">
+						<table ng-model= "table_id" id="table_id" class="table table-striped table-bordered"  cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>Nombre </th>
 									<th>Apellido</th>
-									<th>Hermanos en la Institución</th>
+								<!-- 	<th>Hermanos en la Institución</th>
 									<th> Representante Legal</th>
 									<th>Padre o Madre</th>
-									<th> Profesor </th>
-								</thead>
+									<th> Profesor </th>  -->
+								</tr>	
+							</thead>
 								<tbody>
 								</tbody>
 							</table>
 						</div>
-					</div>	
+				</div>	
 
-
+				<br>
 				@foreach ($students as $student)
 
 				 	<ui>	

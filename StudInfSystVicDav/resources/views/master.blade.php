@@ -8,7 +8,7 @@
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	
 	{!! Html::style('css/system_style.css') !!}	
 
@@ -23,7 +23,8 @@
 	<script 
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
 	<script 
-		src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>			
+		src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>	
+				
 </head>
 
 <body ng-app="SIEApp">
