@@ -28,6 +28,8 @@ Route::get('whoWeAre', 'HomeController@aboutUs');
 Route::get('logout', array('uses' => 'LoginController@logout'));
 Route::get('studyConstancy', 'ReportsController@studyConstancyPaper');
 
+Route::post('studentsById','StudentController@findOneById');
+
 /*
 
 |--------------------------------------------------------------------------

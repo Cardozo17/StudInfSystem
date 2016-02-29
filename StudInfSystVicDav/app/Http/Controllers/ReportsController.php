@@ -13,4 +13,5 @@ class ReportsController extends Controller
     {
         return view('reports.studyConstancy');
     }
+
 }

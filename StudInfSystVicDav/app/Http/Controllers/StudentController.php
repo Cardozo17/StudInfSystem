@@ -16,6 +16,29 @@ use DB;
 class StudentController extends Controller
 {
 
+    public function findOneById(Request $request)
+    {
+        $personId = $request->input('personId');
+
+       
+
+        $person = Person::where('document_id', $personId)->get();
+        $studentFound = Student::where('id', 1)->get();
+       // $studentFound = Student::find($person['id']);
+
+        //$studentId= $person->id;
+        //$studentFound = Student::find($studentId);
+       
+
+        //  $studentFound= $Person->Student()->where('id', '==',1)->get();
+        // $studentFound = $student->person()::where('document_id', $personId)->get();
+       // $studentFound = $Person->$Student::where( 'id',  1);
+        
+        //$students = Student::with('person')->get();
+       // return $Person ->toJson();
+        return $studentFound->toJson();
+    }
+
      public function listStudents ()
     {
         $students = Student::with('person', 'legalRepresentative', 'parent', 'teacher', 'brothers')->get();
