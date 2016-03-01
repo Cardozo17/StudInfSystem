@@ -18,12 +18,19 @@ class StudentController extends Controller
 
     public function findOneById(Request $request)
     {
-        $personId = $request->input('personId');
+        //$personId = $request->input('personId');
+       
+        $input= $request->all();
+        $personId= $input['personId'];
+
+        $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
+        $studentFound= $person->student()->where('id', '=', $person->id);
+        //$studentFound = Student::with('person')->where('document_id', $personId)->get();
+
+       /* $studentFound= Student::with(['person'=> function($query){
+            $query->where('id', '=', $person->id);}])->firstOrFail();*/
 
        
-
-        $person = Person::where('document_id', $personId)->get();
-        $studentFound = Student::where('id', 1)->get();
        // $studentFound = Student::find($person['id']);
 
         //$studentId= $person->id;
@@ -36,12 +43,14 @@ class StudentController extends Controller
         
         //$students = Student::with('person')->get();
        // return $Person ->toJson();
+        
         return $studentFound->toJson();
+        //return $person->toJson();
     }
 
      public function listStudents ()
     {
-        $students = Student::with('person', 'legalRepresentative', 'parent', 'teacher', 'brothers')->get();
+        $students = Student::with('person', 'legalRepresentative.person', 'parent.person', 'teacher.person', 'brothers.person')->get();
 
         return $students->toJson();
 

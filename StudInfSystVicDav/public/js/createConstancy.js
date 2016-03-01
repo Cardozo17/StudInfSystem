@@ -1,16 +1,16 @@
 angular.module('SIEApp', ['ngRoute'])
   .controller('studyConstancyController', function($scope, $http) {
 
- 
-
   	$scope.prueba= function(){
 
-  			console.log("probando angular");
   			$scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
-        
 
+         $scope.firstName= "";
+         $scope.lastName= "";
+        
         console.log($scope.personId);
+      
       $http({
         method : 'POST',
         url: 'studentsById',
@@ -24,16 +24,16 @@ angular.module('SIEApp', ['ngRoute'])
 
         if(data != "" || data != null)
         {
-          $scope.firstName = data[0].name;
-          $scope.lastName = data[0].last_name;
+          $scope.firstName = data.person.name;
+          $scope.lastName = data.person.last_name;
           $scope.age =  "NO";
         }
         else
-          console.log("no se encontro");
+          console.log("No se encontro el estudiante");
 
       }).error(function(){
 
-        console.log("Error obteniendo los estudiantes");
+        console.log("Error obteniendo el estudiante");
       })
   		
   	}
