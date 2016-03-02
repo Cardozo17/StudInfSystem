@@ -22,14 +22,15 @@ angular.module('SIEApp', ['ngRoute'])
         console.log("post hecho de buena forma");
         console.log(data);
 
-        if(data != "" || data != null)
-        {
-          $scope.firstName = data.person.name;
-          $scope.lastName = data.person.last_name;
-          $scope.age =  "NO";
-        }
-        else
+        if(data == "" || data == null)
           console.log("No se encontro el estudiante");
+        else if(data != "" || data != null)
+            {
+              $scope.firstName = data.name;
+              $scope.lastName = data.last_name;
+              $scope.age =  "NO";
+            }
+
 
       }).error(function(){
 

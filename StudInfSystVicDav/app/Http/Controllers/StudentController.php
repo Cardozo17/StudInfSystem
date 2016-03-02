@@ -18,34 +18,49 @@ class StudentController extends Controller
 
     public function findOneById(Request $request)
     {
-        //$personId = $request->input('personId');
+      $personId = $request->input('personId');
        
-        $input= $request->all();
-        $personId= $input['personId'];
+        //$input= $request->all();
+        //$personId= $input['personId'];
+
+       // $person = Person::where('document_id', $personId)->firstOrFail();
+
 
         $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
-        $studentFound= $person->student()->where('id', '=', $person->id);
-        //$studentFound = Student::with('person')->where('document_id', $personId)->get();
+
+        if($person->student== null)
+        {
+            return null;
+        }    
+
+       // $studentFound= $person->student()->where('id', '=', $person->id);
+       // $studentFound = Student::where('document_id', $personId);
 
        /* $studentFound= Student::with(['person'=> function($query){
             $query->where('id', '=', $person->id);}])->firstOrFail();*/
 
        
-       // $studentFound = Student::find($person['id']);
+      //  $studentFound = Student::where('id', $personId)->get();
 
         //$studentId= $person->id;
         //$studentFound = Student::find($studentId);
        
 
+//echo("<script>console.log('PHP: ".json_encode($personId)."');</script>");
         //  $studentFound= $Person->Student()->where('id', '==',1)->get();
-        // $studentFound = $student->person()::where('document_id', $personId)->get();
-       // $studentFound = $Person->$Student::where( 'id',  1);
+       //  $person = Person::where('document_id', $personId)->firstOrFail();
+       //$studentFound = $Person->$Student::where( 'id',  1);
+        //$person = student->person()->firstOrFail();;
+       // $students = Student::with('person')->get();
+      
+      //  $studentFound = Student::find(1);
+       
+
+     // buena   $person = $studentFound->person;
+       // $data = $person->student->person;
         
-        //$students = Student::with('person')->get();
-       // return $Person ->toJson();
-        
-        return $studentFound->toJson();
-        //return $person->toJson();
+        //return $studentFound->toJson();
+        return $person->toJson();
     }
 
      public function listStudents ()

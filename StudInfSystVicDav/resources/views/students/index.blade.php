@@ -2,7 +2,7 @@
 
 @section('title', 'Ver Estudiantes Inscritos')
 
-@section('content')
+@section('content')	
 	
 	<div ng-controller="showStudentsController">
 		<div class="container-fluid" >
@@ -15,12 +15,16 @@
 						<table ng-model= "table_id" id="table_id" class="table table-striped table-bordered"  cellspacing="0" width="100%">
 							<thead>
 								<tr>
+									<th>Cedula </th>
 									<th>Nombre </th>
 									<th>Apellido</th>
-								<!-- 	<th>Hermanos en la Institución</th>
+									<th>Hermanos en la Institución</th>
+									<th>Hermanos en la Institución Apellido</th>
 									<th> Representante Legal</th>
+									<th> Representante Legal Apellido</th>
 									<th>Padre o Madre</th>
-									<th> Profesor </th>  -->
+									<th>Padre o Madre Apellido</th>
+									<th> Profesor </th> 
 								</tr>	
 							</thead>
 								<tbody>
@@ -29,7 +33,7 @@
 						</div>
 				</div>	
 
-				<br>
+<!-- 				<br>
 				@foreach ($students as $student)
 
 				 	<ui>	
@@ -48,7 +52,7 @@
 						 </li>
 					</ui>	 	
 
-				@endforeach
+				@endforeach -->
 			</div>
 		</div>	
 	</div>

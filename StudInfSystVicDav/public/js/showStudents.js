@@ -31,10 +31,61 @@ angular.module('SIEApp', ['ngRoute'])
 			        },
 			        colReorder: true,
 			    	columns: [
+			    			  { data: 'person.document_id' },	
 			    	          { data: 'person.name' },
 			    	          { data: 'person.last_name' },
-			    	          
+			    	          {data: 'brothers', "defaultContent": ""},
+			    	          {data: 'brothers', "defaultContent": ""},
+			    	          {data: 'legal_representative.person.name'},
+			    	          {data: 'legal_representative.person.last_name'},
+			    	          {data: 'parent.person.name', "defaultContent": ""},
+			    	          {data: 'parent.person.last_name', "defaultContent": ""},
+			    	          {data: 'teacher.person.name', "defaultContent": ""},
 			    	      ],
+					"columnDefs": [	 
+						      {"width": "10%", "targets": 0},
+						      {"width": "10%", "targets": 1},
+						      {"width": "10%", "targets": 2},
+						      {"width": "20%", "targets": 3, 
+						      	"render": function ( data, type, row ) {
+
+						      				console.log(data);
+						      				console.log(data.length);
+						      				if(data.length>0)
+						      				{	
+						      					var aux= "";
+							      				for(var i=0; i<data.length; i++)
+							      				{	
+							      					if(data[i].person!= null)	
+	                   							 		aux+= data[i].person.name +' '+ data[i].person.last_name + '<br>';
+	                   							}
+
+                   							}
+
+                   							data= aux	
+                   							return data ;	
+                				}
+
+						  	  },
+						      {"width": "0%", "targets": 4, "visible": false},
+						      {"width": "20%", "targets": 5, 
+						      		"render": function ( data, type, row ) {
+                   							 return data +' '+ row.legal_representative.person.last_name;
+                							}
+                			  },
+						      {"width": "0%", "targets": 6, "visible": false},
+						      {"width": "20%", "targets": 7,
+						      		"render": function ( data, type, row ) {
+
+						      				if(row.parent!=null)
+						      				{	
+                   							 	return data +' '+ row.parent.person.last_name;
+                   							}	
+                						}
+                			  },
+						      {"width": "0%", "targets": 8, "visible": false},
+						      {"width": "10%", "targets": 9},
+						     ],     
 			    	language:      {                      //Translating DataTable to Spanish Language
 			    	    	    "sProcessing":     "Procesando...",
 			    	    	    "sLengthMenu":     "Mostrar _MENU_ registros",
