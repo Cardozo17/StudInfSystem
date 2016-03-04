@@ -13,10 +13,13 @@ class Person extends Model
      protected $fillable= [
 
      'document_id',
+     'home_address',
      'name',
      'last_name',
      'gender',
-     'email'
+     'email', 
+     'picture',
+     'phone_numbers_id'
 
      ];
 

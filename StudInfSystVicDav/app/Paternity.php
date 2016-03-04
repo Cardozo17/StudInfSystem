@@ -9,6 +9,16 @@ class Paternity extends Model
     protected $table = 'parent';
     public $timestamps = false;
 
+     protected $fillable= [
+     
+     'work_address',
+     'marital_status',
+     'instruction_grade',
+     'craft_profession',
+     'live_with_the_student'
+
+     ];
+
     public function person()
     {
         return $this->hasOne('App\Person', 'id');

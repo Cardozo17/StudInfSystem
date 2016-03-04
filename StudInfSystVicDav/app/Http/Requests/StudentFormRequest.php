@@ -24,7 +24,7 @@ class StudentFormRequest extends Request
     public function rules()
     {
         return [
-            'document_id'=> array('required', 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'),
+            'document_id'=> array('required'/*, 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'*/),
             'name'=> 'required|min:3',
             'last_name'=>'required|min:3',
             'email' =>'email'

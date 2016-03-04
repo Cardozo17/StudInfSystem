@@ -9,6 +9,13 @@ class Teacher extends Model
       protected $table = 'teacher';
       public $timestamps = false;
 
+    protected $fillable= [
+     
+     'id',
+     'grade',
+
+     ];  
+
     public function person()
     {
         return $this->hasOne('App\Person', 'id');

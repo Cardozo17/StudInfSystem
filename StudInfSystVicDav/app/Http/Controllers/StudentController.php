@@ -23,7 +23,7 @@ class StudentController extends Controller
         //$input= $request->all();
         //$personId= $input['personId'];
 
-       // $person = Person::where('document_id', $personId)->firstOrFail();
+        //$person = Person::where('document_id', $personId)->firstOrFail();
 
 
         $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
@@ -98,7 +98,7 @@ class StudentController extends Controller
 
     	//registering the student in the table person
     	$personStudentInfo= new Person (['document_id'=> $input['document_id'], 'name'=> $input['name'], 
-    		'last_name'=> $input['last_name'], 'gender'=> $input['gender'], 'email'=> $input['email']]);
+    		'last_name'=> $input['last_name'], 'home_address'=> $input['home_address'], 'gender'=> $input['gender'], 'email'=> $input['email']]);
     	$personStudentInfo->save();
 
     	//Person::create($input);
@@ -110,7 +110,7 @@ class StudentController extends Controller
     	$repLegPerson->save();
     
     	//after having registered the legal representative in the table person now we can register the legal representative in its table
-    	$repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 'home_address'=> $input['home_address'],
+    	$repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
     									 'work_address'=> $input['work_address']]);
     	$repLeg->save();
 
