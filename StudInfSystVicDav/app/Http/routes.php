@@ -26,9 +26,12 @@ Route::get('students/list', 'StudentController@listStudents');
 Route::post('students', 'StudentController@store');
 Route::get('whoWeAre', 'HomeController@aboutUs');
 Route::get('logout', array('uses' => 'LoginController@logout'));
-Route::get('studyConstancy', 'ReportsController@studyConstancyPaper');
+Route::get('studyConstancy', 'ReportController@studyConstancyPaper');
 
 Route::post('studentsById','StudentController@findOneById');
+
+Route::get('/reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
+Route::post('/reporting', ['uses' =>'ReportController@post']);
 
 /*
 

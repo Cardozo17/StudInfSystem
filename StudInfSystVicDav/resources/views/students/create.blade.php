@@ -8,8 +8,6 @@
 
 	<div ng-controller="createStudentController">
 
-		<label ng-model= "prueba">La etiqueta</label>
-
 		{!! Form::open(array('url' => 'students')) !!}
 
 		@foreach ($errors->all() as $error)
