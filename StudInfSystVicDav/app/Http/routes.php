@@ -33,6 +33,15 @@ Route::post('studentsById','StudentController@findOneById');
 Route::get('/reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
 Route::post('/reporting', ['uses' =>'ReportController@post']);
 
+//added for reporting
+Route::get('/reportePrueba','ReportController@prueba');
+
+Route::get('reportConstancyStudent','ReportController@makeConstancy');
+
+
+//Route::get('/showConstancy', ['uses' =>'ReportController@show', 'as' => 'Report']);
+//Route::post('/reportConstancyStudent', ['uses' =>'ReportController@makeConstancy']);
+
 /*
 
 |--------------------------------------------------------------------------

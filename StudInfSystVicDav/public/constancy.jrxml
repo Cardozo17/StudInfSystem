@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-03-08T10:37:37 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="constancy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92b011eb-89a7-4cf0-b3d5-86233864e73e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="parameterDocumentId" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select i.name,i.last_name,i.document_id from vicentedavila.person i,vicentedavila.student j where i.id = j.id and i.document_id = $P{parameterDocumentId}]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="document_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="56" width="555" height="21" uuid="0c21d465-de79-46da-8e4a-0d5cd96e4373"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16"/>
+				</textElement>
+				<text><![CDATA[CONSTANCIA DE ESTUDIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="555" height="40" uuid="5b433493-7c03-4b6f-a878-869a932c7436"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[REPUBLICA BOLIVARIANA DE VENEZUELA
+ESCUELA BASICA NACIONAL "VICENTE DAVILA"
+MERIDA ESTADO MERIDA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="246" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="555" height="49" uuid="627c8e2f-8080-4b6c-bb1c-34f03012acd8"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Quien suscribe, Licenciada Narda E. Hernández, Directora Encargada de la Escuela Básica Nacional "Vicente Dávila". Código DEA: OD-02561412, que funiona en la Parroquia Milla, Municipio Libertador del Estado Mérida,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="555" height="24" uuid="fe38780b-f3e9-4fa6-8fa9-fa31b43409b8"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HACE CONSTAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="107" width="144" height="16" uuid="52aa8f16-81dd-4799-bba7-ab63a0f0f09c"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Que el(a) estudiante(a): ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="107" width="190" height="16" uuid="570a2246-7167-4975-aa05-6d3f93f41b67">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[titular de la cédula de identidad Nº :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="127" width="26" height="16" uuid="b0ad730d-d399-42f8-9476-b60a8819aae8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="127" width="130" height="16" uuid="9e5d6b07-ef8f-4482-a05e-5883f35ba596">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[años de edad, cursa el]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="127" width="315" height="16" uuid="a9e133e1-7adf-4653-9621-a96ce6370b4a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[de Educación Primaria, durante el año escolar: 2015-2016]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="147" width="480" height="16" uuid="0914ce9a-908d-49a3-a278-8218eb2914a6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Constancia que se expide a petición de parte interesada, Mérida a los 15 días del mes de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="187" width="190" height="34" uuid="2033ffb5-0cb0-4f84-ab69-c1834cf1a03c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Licenciada Narda E. Hernandez
+Directora(E)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="245" width="186" height="1" uuid="860027b7-7321-48a3-873c-f78f4f65eb60"/>
+			</line>
+			<textField>
+				<reportElement x="449" y="107" width="100" height="16" uuid="02553604-259d-41aa-a1c0-23c52cb1091a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{document_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="107" width="55" height="16" uuid="a1d26ce3-6815-4ccc-ad16-77f3995ce357">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="107" width="53" height="16" uuid="86758277-5d91-4655-97d8-c5ba6a7b55b2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

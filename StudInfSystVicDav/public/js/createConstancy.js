@@ -1,9 +1,9 @@
 angular.module('SIEApp', ['ngRoute'])
   .controller('studyConstancyController', function($scope, $http) {
 
-  	$scope.prueba= function(){
+    $scope.prueba= function(){
 
-  			$scope.dataToSend = {};
+        $scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
 
          $scope.firstName= "";
@@ -36,9 +36,40 @@ angular.module('SIEApp', ['ngRoute'])
 
         console.log("Error obteniendo el estudiante");
       })
-  		
-  	}
+      
+    }
 
+    $scope.makeConstancy = function()
+    {
+      $scope.dataToSend = {};
+        $scope.dataToSend.personId = $scope.personId;
+      
+      console.log("data a enviar ");
+       console.log($scope.dataToSend);
+
+      $http({
+        method : 'GET',
+        url: 'reportConstancyStudent',
+        params: {
+                    id: $scope.personId
+            
+                }
+      }).success(function(data, status, headers, config)
+      {
+
+        console.log("post hecho de buena forma");
+        console.log(data);
+
+        var file = new Blob([data], {type: 'application/pdf'});
+       var fileURL = URL.createObjectURL(file);
+       window.open(fileURL);
+       
+      }).error(function(){
+
+        console.log("Error obteniendo el estudiante");
+      })
+
+    }
 
 
 
@@ -50,10 +81,10 @@ angular.module('SIEApp', ['ngRoute'])
 app.controller('studyConstancyController', function($scope) {
    console.log("esto es una prueba de angular jesus");
 
-		$scope.prueba= function(){
+    $scope.prueba= function(){
 
-  			console.log("probando angular");	
-  		
-  		}
+        console.log("probando angular");  
+      
+      }
 
 });*/
