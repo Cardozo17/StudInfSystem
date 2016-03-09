@@ -20,7 +20,6 @@
 				<br>
 				<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()"></button>
 				
-
 	    	</div>
 
 	    	<br>

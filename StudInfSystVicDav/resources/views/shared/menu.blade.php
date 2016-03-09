@@ -54,17 +54,17 @@
                              
                                 <tr>
                                     <td>
-                                        <a href="/students/create">Inscribir</a>
+                                        <a href="/students/create">Inscribir Estudiante</a>
                                     </td>
                                 </tr>
                                  <tr>
                                     <td>
-                                        <a href="">Consultar Estudiante</a>
+                                        <a href="/students/{id}">Consultar Estudiante</a>
                                     </td>
                                 </tr>
                                  <tr>
                                     <td>
-                                        <a href="">Editar Estudiante</a>
+                                        <a href="/students/{id}/edit">Editar Estudiante</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -89,7 +89,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file"></span><a href="studyConstancy">Constancia de Estudio</a>
+                                        <span class="glyphicon glyphicon-file"></span><a href="/studyConstancy">Constancia de Estudio</a>
                                     </td>
                                 </tr>
                   

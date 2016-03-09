@@ -77,8 +77,6 @@ class StudentController extends Controller
     	//$students = Student::with(['teacher', 'legalRepresentative', 'parent'])->get();
     	//$students= DB::table('student')->get();
 
-    	//Ver como sacar toda la informacion que necesito
-
     	return view('students.index', ['students' => $students]);
 
     }
@@ -122,4 +120,28 @@ class StudentController extends Controller
     	return redirect('students');
 
     }
+
+
+        public function show($id) 
+    {
+        //
+    }  
+
+      public function edit($id)
+    {
+        //
+    }
+
+     public function update($id)
+    {
+        //
+    }
+
+
+     public function destroy($id)
+    {
+        //
+    }  
+
+
 }

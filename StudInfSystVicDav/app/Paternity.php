@@ -11,6 +11,7 @@ class Paternity extends Model
 
      protected $fillable= [
      
+     'id',
      'work_address',
      'marital_status',
      'instruction_grade',
