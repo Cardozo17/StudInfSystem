@@ -43,7 +43,7 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
-	    			<button type="button" class="btn btn-primary form-control"> Generar Constancia</button>
+	    			<button type="button" class="btn btn-primary form-control" ng-click = "makeConstancy()"> Generar Constancia</button>
 	    			<!--{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-success form-control'])!!}-->
 	    		</div>	
 	    	</div>
