@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use \phpjasperxml;
+use JasperPHP\JasperPHP as JasperPHP;
 
 use App\Person;
 use App\LegalRepresentative;
@@ -34,13 +35,13 @@ class ReportController extends Controller
         return view('reports.report');
     }
 
-    public function prueba()
+  /* public function prueba()
     {
         error_reporting(0);
         /* 
          * To change this template, choose Tools | Templates
          * and open the template in the editor.
-         */
+         
         include_once('phpjasperxml/class/tcpdf/tcpdf.php');
         include_once("phpjasperxml/class/PHPJasperXML.inc.php");
 
@@ -74,7 +75,7 @@ class ReportController extends Controller
 
                             // return $person->toJson();
        else
-       {   */           
+       {             
             error_reporting(0);
          
             
@@ -102,26 +103,27 @@ class ReportController extends Controller
             $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
             $PHPJasperXML->outpage("I");    //page output method I:standard output  D:Download file
            
-        
-
       //  }
-
         
-    }
+    } */
 
     public function post()
     {
-        
-        $database = null;//\Config::get('database.connections.mysql');
-        $output = public_path() . '/report/'.time().'_try';
+        $jasper= new JasperPHP;
+
+        $value = 20847147;
+
+        $database = config('database.connections.mysql');
+
+        $output = public_path().time().'_constancy';
         
         $ext = "pdf";
  
-        \JasperPHP::process(
-            public_path() . '/report/try.jasper', 
+        $jasper->process(
+            public_path().'/constancy.jasper', 
             $output, 
             array($ext),
-            array(),
+            array("parameterDocumentId"=>$value),
             $database,
             false,
             false
@@ -129,7 +131,7 @@ class ReportController extends Controller
  
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_try.'.$ext);
+        header('Content-Disposition: attachment; filename='.time().'_constancy.'.$ext);
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
