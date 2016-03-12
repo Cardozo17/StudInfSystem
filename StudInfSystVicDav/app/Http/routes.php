@@ -35,7 +35,6 @@ Route::post('/reporting', ['uses' =>'ReportController@post']);
 
 //added for reporting
 Route::get('/reportePrueba','ReportController@prueba');
-
 Route::get('reportConstancyStudent','ReportController@makeConstancy');
 
 

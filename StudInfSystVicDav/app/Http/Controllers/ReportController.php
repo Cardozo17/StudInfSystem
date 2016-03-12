@@ -130,8 +130,9 @@ class ReportController extends Controller
         )->execute();
  
         header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_constancy.'.$ext);
+        header('Content-type: application/pdf');
+        //header('Content-Type: application/octet-stream');
+        header('Content-Disposition: inline; filename='.time().'_constancy.'.$ext);
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
