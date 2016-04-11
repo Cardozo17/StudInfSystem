@@ -15,6 +15,11 @@ use DB;
 
 class StudentController extends Controller
 {
+      public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware('is_admin');
+    }
 
     public function findOneById(Request $request)
     {

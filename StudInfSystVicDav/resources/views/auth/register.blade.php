@@ -38,6 +38,15 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="type"> Type</label>
+                            <select name="type" class="form-control">
+                                <option value="" disabled selected>Elige una opcion...</option>
+                                <option value="admin">Administrador</option>
+                                <option value="secretary">Secretaria</option>
+                            </select>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Password</label>
 
