@@ -17,8 +17,8 @@ class StudentController extends Controller
 {
       public function __construct()
     {
-        //$this->middleware('auth');
-        $this->middleware('is_admin');
+        $this->middleware('auth');
+        //$this->middleware('is_admin');
     }
 
     public function findOneById(Request $request)
@@ -114,7 +114,7 @@ class StudentController extends Controller
     
     	//after having registered the legal representative in the table person now we can register the legal representative in its table
     	$repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
-    									 'work_address'=> $input['work_address']]);
+    									 'work_address'=> $input['repLegWorkAddress']]);
     	$repLeg->save();
 
     

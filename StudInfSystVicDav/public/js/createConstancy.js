@@ -41,15 +41,15 @@ angular.module('SIEApp', ['ngRoute'])
 
     $scope.makeConstancy = function()
     {
-      $scope.dataToSend = {};
+        $scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
       
       console.log("data a enviar ");
-       console.log($scope.dataToSend);
+      console.log($scope.dataToSend);
 
       $http({
-        method : 'GET',
-        url: 'reportConstancyStudent',
+        method : 'POST',
+        url: '/reporting',
         params: {
                     id: $scope.personId
             
@@ -58,11 +58,11 @@ angular.module('SIEApp', ['ngRoute'])
       {
 
         console.log("post hecho de buena forma");
-        console.log(data);
+        //console.log(data);
 
-        var file = new Blob([data], {type: 'application/pdf'});
+        /*var file = new Blob([data], {type: 'application/pdf'});
        var fileURL = URL.createObjectURL(file);
-       window.open(fileURL);
+       window.open(fileURL);*/
        
       }).error(function(){
 

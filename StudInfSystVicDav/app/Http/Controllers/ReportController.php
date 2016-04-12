@@ -107,11 +107,13 @@ class ReportController extends Controller
         
     } */
 
-    public function post()
+    public function post(Request $request)
     {
+         
+
         $jasper= new JasperPHP;
 
-        $value = 20847147;
+        $personId = $request->id;
 
         $database = config('database.connections.mysql');
 
@@ -123,7 +125,7 @@ class ReportController extends Controller
             public_path().'/constancy.jasper', 
             $output, 
             array($ext),
-            array("parameterDocumentId"=>$value),
+            array("parameterDocumentId"=>$personId),
             $database,
             false,
             false

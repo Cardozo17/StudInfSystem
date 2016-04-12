@@ -144,7 +144,7 @@
 			<div class = "row">
 				<div class= "col-md-12">
 						{!! Form::label('repLegWorkAddress', 'Dirección de Trabajo: ') !!}
-						{!!Form::text('repLegWorkAddress', null, ['class'=> 'form-control', 'ng-model'=>'repLegHomeAddress']) !!}
+						{!!Form::text('repLegWorkAddress', null, ['class'=> 'form-control', 'ng-model'=>'repLegWorkAddress']) !!}
 				</div>
 			</div>
 
