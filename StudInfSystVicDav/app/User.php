@@ -24,4 +24,9 @@ class User extends Authenticatable
 
 
      public $timestamps = false;
+
+    public function hasRole($role)
+    {
+        return $this->type == $role;
+    }
 }

@@ -7,12 +7,16 @@
         <div class="col-sm-3 col-md-3">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
+                    
+                @if(Auth::user()->hasRole('admin'))
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-search">
                             </span>Vicente Davila</a>
                         </h4>
                     </div>
+
+
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
@@ -40,6 +44,8 @@
                             </table>
                         </div>
                     </div>
+                @endif 
+
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
