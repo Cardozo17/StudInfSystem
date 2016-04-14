@@ -38,6 +38,8 @@ Route::get('/reportePrueba','ReportController@prueba');
 Route::get('reportConstancyStudent','ReportController@makeConstancy');
 
 
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('auth/register', 'Auth\AuthController@getRegister');
 //Route::get('/showConstancy', ['uses' =>'ReportController@show', 'as' => 'Report']);
 //Route::post('/reportConstancyStudent', ['uses' =>'ReportController@makeConstancy']);
 

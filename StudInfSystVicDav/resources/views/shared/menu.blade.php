@@ -22,7 +22,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="/whoWeAre">Quienes Somos</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="/whoWeAre">¿Quienes Somos?</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -32,12 +32,12 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="">Vision</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="">Visión</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="">Mision</a>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="">Misión</a>
                                       
                                     </td>
                                 </tr>
@@ -51,7 +51,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list-alt">
-                            </span>Gestion de Estudiantes</a>
+                            </span>Gestión de Estudiantes</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
@@ -75,7 +75,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="/students">Consultar Todos</a>
+                                        <a href="/students">Ver Lista de Estudiantes</a>
                                     </td>
                                 </tr>
                              
@@ -87,7 +87,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-duplicate">
-                            </span>Constancias</a>
+                            </span> Gestión de Constancias</a>
                         </h4>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
@@ -98,12 +98,17 @@
                                         <span class="glyphicon glyphicon-file"></span><a href="/studyConstancy">Constancia de Estudio</a>
                                     </td>
                                 </tr>
-                  
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-thumbs-down"></span><a href="">Citación</a>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-thumbs-down"></span><a href="">Autorización</a>
+                                    </td>
+                                </tr>
+
                             </table>
                         </div>
                     </div>
@@ -112,7 +117,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
-                            </span>Account</a>
+                            </span>Gestión de Usuarios</a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
@@ -120,23 +125,18 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="">Change Password</a>
+                                        <a href="{{ url('/register') }}">Agregar Usuario</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="">Notifications</a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="">Import/Export</a>
+                                        <a href="">Editar Usuario</a> 
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-trash text-danger"></span><a href="" class="text-danger">
-                                            Delete Account</a>
+                                            Eliminar Usuario</a>
                                     </td>
                                 </tr>
                             </table>

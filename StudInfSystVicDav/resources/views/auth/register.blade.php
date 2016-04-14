@@ -5,13 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Registro de Usuario</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+                            <label class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -23,9 +24,11 @@
                                 @endif
                             </div>
                         </div>
+                    </div>
 
+                    <div class = "row">    
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <label class="col-md-4 control-label">Correo Electrónico</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -37,18 +40,24 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="type"> Type</label>
-                            <select name="type" class="form-control">
-                                <option value="" disabled selected>Elige una opcion...</option>
-                                <option value="admin">Administrador</option>
-                                <option value="secretary">Secretaria</option>
-                            </select>
-                        </div>
-
+                    </div>
+                    <div class = "row"> 
+                     <label class="col-md-4 control-label">Tipo</label>
+                        <div class="col-md-6">   
+                            <div class="form-group">
+                                <select name="type" class="form-control">
+                                    <option value="" disabled selected>Seleccione el Tipo</option>
+                                    <option value="admin">Administrador</option>
+                                    <option value="administrativePersonLevel1">Personal Administrativo Nivel 1</option>
+                                    <option value="administrativePersonLevel2">Personal Administrativo Nivel 2</option>
+                                    <option value="teacher">Profesor</option>
+                                </select>
+                            </div>
+                         </div>
+                    </div>
+                    <div class = "row"> 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
+                            <label class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
@@ -60,9 +69,10 @@
                                 @endif
                             </div>
                         </div>
-
+                    </div>
+                    <div class = "row"> 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
+                            <label class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password_confirmation">
@@ -74,11 +84,11 @@
                                 @endif
                             </div>
                         </div>
-
+                    <div class = "row"> 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
+                                    <i class="fa fa-btn fa-user"></i>Agregar Usuario
                                 </button>
                             </div>
                         </div>
