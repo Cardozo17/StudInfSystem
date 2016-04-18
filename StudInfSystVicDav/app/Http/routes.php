@@ -55,8 +55,16 @@ Route::get('reportConstancyStudent','ReportController@makeConstancy');
 |        | POST     | register                |        | App\Http\Controllers\Auth\AuthController@register               | web      
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['auth']], function () {
     //
+    // Registration Routes...
+	Route::get('register', [
+	    'middleware' => 'is_admin',
+	    'uses' => 'Auth\AuthController@showRegistrationForm'
+	]);
+
+    //Route::get('register', 'Auth\AuthController@showRegistrationForm');
+    Route::post('register', 'Auth\AuthController@register');
 });
 
 Route::group(['middleware' => 'web'], function () {
@@ -69,15 +77,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
 
-    // Registration Routes...
 
-	Route::get('register', [
-	    'middleware' => 'is_admin',
-	    'uses' => 'Auth\AuthController@showRegistrationForm'
-	]);
-
-    //Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    Route::post('register', 'Auth\AuthController@register');
 
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
