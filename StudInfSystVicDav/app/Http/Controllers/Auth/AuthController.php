@@ -71,4 +71,6 @@ class AuthController extends Controller
             'type' => $data['type'],
         ]);
     }
+
+
 }
