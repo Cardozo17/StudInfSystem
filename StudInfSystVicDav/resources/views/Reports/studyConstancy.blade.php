@@ -8,6 +8,8 @@
 
 	<div ng-controller="studyConstancyController">
 	    
+	    {{ Form::open(array('action' => array('ReportController@post', $student->id)))}}
+
 	    <div class= "form-group">
 	   	
 			<h3>Indique la Cédula</h3>    
@@ -15,7 +17,8 @@
 	    	<div class = "row">
 	    		<div class= "col-md-3"  >
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId', 'id'=>'id']) !!}
+					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId',  'name'=> 'id']) !!}
+					{{ Form::hidden('id', $student->id) }}
 				</div>
 				<br>
 				<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()"></button>
@@ -43,12 +46,14 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
-	    			<button type="button" class="btn btn-primary form-control" ng-click = "makeConstancy()"> Generar Constancia</button>
-	    			<!--{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-success form-control'])!!}-->
+	    			<!-- <button type="button" class="btn btn-primary form-control" ng-click = ""> 
+	    				Generar Constancia
+	    			</button>
+ -->	    			{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-primary form-control'])!!}
 	    		</div>	
 	    	</div>
 
-
+	    	<br>
 	    	<form class="form-horizontal" role="form" method="POST" action="/reporting">
 						First name: <input type="number" name="id" value= ""><br>
 						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -57,7 +62,7 @@
 	                            <button type="submit" class="btn btn-primary">Generar</button>
 	                        </div>
 	                    </div>
-               </form>
+            </form>
 
 		</div>
 		

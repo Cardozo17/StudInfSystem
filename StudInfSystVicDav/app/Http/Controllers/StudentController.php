@@ -23,7 +23,7 @@ class StudentController extends Controller
 
     public function findOneById(Request $request)
     {
-      $personId = $request->input('personId');
+        $personId = $request->input('personId');
        
         //$input= $request->all();
         //$personId= $input['personId'];

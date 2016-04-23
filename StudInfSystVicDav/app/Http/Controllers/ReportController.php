@@ -22,7 +22,7 @@ class ReportController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('guest');
+        $this->middleware('auth');
     }
  
     /**
@@ -109,8 +109,6 @@ class ReportController extends Controller
 
     public function post(Request $request)
     {
-         
-
         $jasper= new JasperPHP;
 
         $personId = $request->id;
