@@ -107,23 +107,13 @@ class ReportController extends Controller
         
     } */
 
-    public function post(Request $request)
+    public function makeStudyConstancy(Request $request)
     {
         $jasper= new JasperPHP;
 
         $input= $request->all();
 
-        $personId = $input['document_id']; //OJO
-
-        /*if ($request->has('personId')||$request->has('id')||$request->has('document_id')) 
-        {
-          echo "Found It \n";
-          echo "It's";
-          echo $personId;
-        }
-        else
-          echo "Didn't Found It";*/
-
+        $personId = $input['document_id']; 
       
         $database = config('database.connections.mysql');
 

@@ -24,12 +24,6 @@ class StudentController extends Controller
     public function findOneById(Request $request)
     {
         $personId = $request->input('personId');
-       
-        //$input= $request->all();
-        //$personId= $input['personId'];
-
-        //$person = Person::where('document_id', $personId)->firstOrFail();
-
 
         $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
 
@@ -38,33 +32,6 @@ class StudentController extends Controller
             return null;
         }    
 
-       // $studentFound= $person->student()->where('id', '=', $person->id);
-       // $studentFound = Student::where('document_id', $personId);
-
-       /* $studentFound= Student::with(['person'=> function($query){
-            $query->where('id', '=', $person->id);}])->firstOrFail();*/
-
-       
-      //  $studentFound = Student::where('id', $personId)->get();
-
-        //$studentId= $person->id;
-        //$studentFound = Student::find($studentId);
-       
-
-//echo("<script>console.log('PHP: ".json_encode($personId)."');</script>");
-        //  $studentFound= $Person->Student()->where('id', '==',1)->get();
-       //  $person = Person::where('document_id', $personId)->firstOrFail();
-       //$studentFound = $Person->$Student::where( 'id',  1);
-        //$person = student->person()->firstOrFail();;
-       // $students = Student::with('person')->get();
-      
-      //  $studentFound = Student::find(1);
-       
-
-     // buena   $person = $studentFound->person;
-       // $data = $person->student->person;
-        
-        //return $studentFound->toJson();
         return $person->toJson();
     }
 
@@ -125,6 +92,11 @@ class StudentController extends Controller
     	return redirect('students');
 
     }
+
+       public function showFindOneStudentWindow() 
+    {
+        return  view('students.findStudent');
+    }   
 
 
         public function show($id) 

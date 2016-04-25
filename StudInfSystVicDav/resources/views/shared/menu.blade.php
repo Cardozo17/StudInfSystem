@@ -65,7 +65,7 @@
                                 </tr>
                                  <tr>
                                     <td>
-                                        <a href="/students/{id}">Consultar Estudiante</a>
+                                        <a href="/showFindStudent">Consultar Estudiante</a>
                                     </td>
                                 </tr>
                                  <tr>

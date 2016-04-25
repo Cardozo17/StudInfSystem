@@ -4,23 +4,29 @@
 
 @section('content')
 
-	<h1>Constancia de Estudio</h1>
+	<h1>Consulta de Estudiante</h1>
 
 	<div ng-controller="studyConstancyController">
 	    
-	    {!! Form::open(array('url' => '/reporting')) !!}
+	    {!! Form::open(array('action' => array('StudentController@findOneById'))) !!}
 
 	    <div class= "form-group">
 	   	
 			<h3>Indique la Cédula</h3>    
 			<br>
 	    	<div class = "row">
-	    		<div class= "col-md-3"  >
+	    		<div class= "col-md-3" >
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
 					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId']) !!}
 				</div>
 				<br>
-				<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()"></button>
+				<div class= "col-md-1" >
+					<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()">
+				</div>
+				</button>
+				<div class= "col-md-4 col-md-push-1" >
+					 <img src="images/studentLogDefault.png" class="img-circle" alt="Foto del Estudiante"> 	
+				</div>	
 				
 	    	</div>
 
@@ -40,16 +46,17 @@
 					{!!Form::text('last_name', null, ['class'=> 'form-control', 'ng-model'=>'age','ng-disabled'=>'true']) !!}
 				</div>
 			</div>
+			
+			<br>
+			<div class = "row">
+	    		<div class= "col-md-12" ng-readonly="true">
+					{!! Form::label('address', 'Dirección: ') !!}
+					{!!Form::text('address', null, ['class'=> 'form-control', 'ng-model'=>'address','ng-disabled'=>'true']) !!}
+				</div>
+			</div>
+
 
 			<br>
-	    	<br>
-	    	<div class = "row">
-	    		<div class= "col-md-12">
-	    			{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-primary form-control'])!!}
-	    		</div>	
-	    	</div>
-
-	    	<br>
 
 		</div>
 		
