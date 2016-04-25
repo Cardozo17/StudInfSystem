@@ -113,7 +113,7 @@ class ReportController extends Controller
 
         $input= $request->all();
 
-        $personId = $input['id']; //OJO
+        $personId = $input['document_id']; //OJO
 
         /*if ($request->has('personId')||$request->has('id')||$request->has('document_id')) 
         {
