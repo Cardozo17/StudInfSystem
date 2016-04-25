@@ -111,8 +111,20 @@ class ReportController extends Controller
     {
         $jasper= new JasperPHP;
 
-        $personId = $request->id;
+        $input= $request->all();
 
+        $personId = $input['id']; //OJO
+
+        /*if ($request->has('personId')||$request->has('id')||$request->has('document_id')) 
+        {
+          echo "Found It \n";
+          echo "It's";
+          echo $personId;
+        }
+        else
+          echo "Didn't Found It";*/
+
+      
         $database = config('database.connections.mysql');
 
         $output = public_path().time().'_constancy';
