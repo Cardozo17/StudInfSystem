@@ -29,6 +29,7 @@ angular.module('SIEApp', ['ngRoute'])
               $scope.firstName = data.name;
               $scope.lastName = data.last_name;
               $scope.age =  "NO";
+              $scope.picture= data.picture;
             }
 
 

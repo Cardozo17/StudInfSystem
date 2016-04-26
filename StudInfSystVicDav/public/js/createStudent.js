@@ -1,10 +1,11 @@
   	function readURL(input) 
   	{
-  		console.log("here");
-        if (input.files && input.files[0]) {
+        if (input.files && input.files[0]) 
+        {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function (e) 
+            {
                 $('#studentPicture')
                     .attr('src', e.target.result)
                     .width(150)

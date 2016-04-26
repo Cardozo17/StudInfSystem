@@ -8,7 +8,7 @@
 
 	<div ng-controller="createStudentController">
 
-		{!! Form::open(array('url' => 'students')) !!}
+		{!! Form::open(array('url' => 'students', 'files'=>true)) !!}
 
 		@foreach ($errors->all() as $error)
 	    	<p class="alert alert-danger">{{ $error }}</p>
@@ -33,8 +33,9 @@
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Foto del Estudiante: ') !!}
-					<input type='file' onchange="readURL(this);" />
-	   				 <img id="studentPicture" src="#" alt="Foto del Estudiante" />
+					{!!Form::file('picture', ['onchange'=> 'readURL(this);'])!!}
+					<!-- <input name= "picture" type='file'  onchange="readURL(this);" /> -->
+	   				 <img  id="studentPicture" name="studentPicture" src="#" alt="Foto del Estudiante" />
 	   			</div>	 
 
 	    	</div>

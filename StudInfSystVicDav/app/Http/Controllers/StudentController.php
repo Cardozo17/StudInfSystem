@@ -15,12 +15,27 @@ use DB;
 
 class StudentController extends Controller
 {
-      public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
         //$this->middleware('is_admin');
     }
 
+         public function showFindOneStudentWindow() 
+    {
+        return  view('students.findStudent');
+    } 
+
+    public function index ()
+    {
+      $students = Student::All();
+      //$students = Student::with(['teacher', 'legalRepresentative', 'parent'])->get();
+      //$students= DB::table('student')->get();
+
+      return view('students.index', ['students' => $students]);
+
+    }
+  
     public function findOneById(Request $request)
     {
         $personId = $request->input('personId');
@@ -43,16 +58,6 @@ class StudentController extends Controller
 
     }
     
-     public function index ()
-    {
-    	$students = Student::All();
-    	//$students = Student::with(['teacher', 'legalRepresentative', 'parent'])->get();
-    	//$students= DB::table('student')->get();
-
-    	return view('students.index', ['students' => $students]);
-
-    }
-
 
      public function create ()
     {
@@ -66,10 +71,20 @@ class StudentController extends Controller
     	//getting the input from the form
     	$input= $request->all();
 
+      $imageFile=$request->file('picture');
+
     	//registering the student in the table person
     	$personStudentInfo= new Person (['document_id'=> $input['document_id'], 'name'=> $input['name'], 
     		'last_name'=> $input['last_name'], 'home_address'=> $input['home_address'], 'gender'=> $input['gender'], 'email'=> $input['email']]);
+
     	$personStudentInfo->save();
+
+      if($request->hasFile('picture')&&$request->file('picture')->isValid())
+      {
+          $personStudentInfo->picture= $request->file('picture');
+      } 
+
+      $personStudentInfo->save();
 
     	//Person::create($input);
     	//$personStudentInfo= Person::where('document_id', $input['document_id'])->get();
@@ -93,11 +108,6 @@ class StudentController extends Controller
 
     }
 
-       public function showFindOneStudentWindow() 
-    {
-        return  view('students.findStudent');
-    }   
-
 
         public function show($id) 
     {
@@ -113,7 +123,6 @@ class StudentController extends Controller
     {
         //
     }
-
 
      public function destroy($id)
     {

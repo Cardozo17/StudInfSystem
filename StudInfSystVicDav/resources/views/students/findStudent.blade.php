@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Inscribir Estudiante')
+@section('title', 'Consulta de Estudiante')
 
 @section('content')
 
@@ -46,7 +46,7 @@
 					{!!Form::text('last_name', null, ['class'=> 'form-control', 'ng-model'=>'age','ng-disabled'=>'true']) !!}
 				</div>
 			</div>
-			
+
 			<br>
 			<div class = "row">
 	    		<div class= "col-md-12" ng-readonly="true">
