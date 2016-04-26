@@ -155,7 +155,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-floppy-save"></span><a href="">Respaldar</a>
+                                        </span><a href="">Respaldar</a>
                                     </td>
                                 </tr>
                             </table>

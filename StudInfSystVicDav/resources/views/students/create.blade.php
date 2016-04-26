@@ -30,6 +30,13 @@
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
 					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'cedula']) !!}
 				</div>
+
+				<div class= "col-md-4 col-md-push-2">
+					{!! Form::label('studentPicture', 'Foto del Estudiante: ') !!}
+					<input type='file' onchange="readURL(this);" />
+	   				 <img id="studentPicture" src="#" alt="Foto del Estudiante" />
+	   			</div>	 
+
 	    	</div>
 
 	    	<br>
