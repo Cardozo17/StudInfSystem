@@ -15,7 +15,7 @@ use App\Student;
 
 class ReportController extends Controller
 {
-     public function studyConstancyPaper()
+     public function showMakeConstancyWindow()
     {
         return view('reports.studyConstancy');
     }

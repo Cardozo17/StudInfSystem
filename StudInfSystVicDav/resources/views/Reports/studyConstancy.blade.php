@@ -59,5 +59,5 @@
 
 	</div>
 
-	<script src="/js/createConstancy.js"></script>
+	<script src="/js/studyConstancy.js"></script>
 @endsection

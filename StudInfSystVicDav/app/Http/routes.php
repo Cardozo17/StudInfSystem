@@ -26,10 +26,10 @@ Route::get('students/list', 'StudentController@listStudents');
 Route::get('students','StudentController@index');		
 Route::post('students', 'StudentController@store');
 
-Route::get('studyConstancy', 'ReportController@studyConstancyPaper');
+Route::get('studyConstancy', 'ReportController@showMakeConstancyWindow');
 
-Route::post('studentsById','StudentController@findOneById');
 Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
+Route::post('studentsById','StudentController@findOneById');
 
 Route::get('reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
 Route::post('reporting', ['uses' =>'ReportController@makeStudyConstancy']);

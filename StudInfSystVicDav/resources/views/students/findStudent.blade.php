@@ -6,7 +6,7 @@
 
 	<h1>Consulta de Estudiante</h1>
 
-	<div ng-controller="studyConstancyController">
+	<div ng-controller="findStudentController">
 	    
 	    {!! Form::open(array('action' => array('StudentController@findOneById'))) !!}
 
@@ -21,11 +21,11 @@
 				</div>
 				<br>
 				<div class= "col-md-1" >
-					<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()">
+					<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "findStudentInformation()">
 				</div>
 				</button>
 				<div class= "col-md-4 col-md-push-1" >
-					 <img src="images/studentLogDefault.png" class="img-circle" alt="Foto del Estudiante"> 	
+					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Estudiante"> 	
 				</div>	
 				
 	    	</div>
@@ -66,5 +66,5 @@
 
 	</div>
 
-	<script src="/js/createConstancy.js"></script>
+	<script src="/js/findStudent.js"></script>
 @endsection

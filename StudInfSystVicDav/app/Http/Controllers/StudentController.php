@@ -81,7 +81,11 @@ class StudentController extends Controller
 
       if($request->hasFile('picture')&&$request->file('picture')->isValid())
       {
-          $personStudentInfo->picture= $request->file('picture');
+          $destinationPath = 'uploads'; // upload path
+          $extension = $request->file('picture')->getClientOriginalExtension(); // getting image extension
+          $fileName = $request->file('picture')->getCLientOriginalName().'.'.$extension; // renameing image
+          $personStudentInfo->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
+
       } 
 
       $personStudentInfo->save();
