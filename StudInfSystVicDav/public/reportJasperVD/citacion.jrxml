@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-05-02T07:42:53 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="citacion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65b36bf8-cba9-4c17-b160-fc7c17afde99">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="realPath" class="java.lang.String"/>
+	<parameter name="parameterDocumentId" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select i.name, i.last_name,  w.name, w.last_name
+from vicentedavila.person i, vicentedavila.person w,  vicentedavila.legal_representative lr, vicentedavila.student j 
+where j.legal_representative_id = lr.id and w.id = lr.id and i.id = j.id and i.document_id = $P{parameterDocumentId}]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COLUMN_3" class="java.lang.String"/>
+	<field name="COLUMN_4" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="2671e2c0-ed9e-4b21-9959-1f220e697daa"/>
+				<text><![CDATA[REPÚBLICA BOLIVARIANA DE VENEZUELA
+ESCUELA BÁSICA NACIONAL "VICENTE DÁVILA"
+MÉRIDA ESTADO MÉRIDA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="500" y="0" width="50" height="50" uuid="691e3aac-7398-4cd3-bcec-b261540d80a3"/>
+				<imageExpression><![CDATA[$P{realPath}+"escudoPng.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="63" width="555" height="30" uuid="83cc22b6-3cd6-4ff7-ab68-65c53dcfa6d4"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CITACIÓN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="0" width="30" height="16" uuid="5d571ec9-eab0-4acb-9994-5db8441e60ea">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Sr(a).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="0" width="219" height="16" uuid="b518aa17-1a87-450f-afa0-31f3a1e1009b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Representante legal de el(a) estudiante Estudiante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="554" height="16" uuid="8c633d6b-587b-4c39-93fe-29876e3c032d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[debe asistir al plantel el dia y fecha:__________________ Hora: _________ Grado y Sección: _______]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="553" height="16" uuid="64f59155-1dde-411e-bcf1-9e9ee296b9a3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Docente: __________________                         SELLO                              VºBº Dirección____________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="37" width="415" height="16" uuid="1e2603c7-19e4-4832-81da-f7362155cd7e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Para tratar con Usted asuntos de su interés, se agradece puntual asistencia.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="408" y="-1" width="71" height="16" uuid="984fae02-4b2d-47af-bed3-5237e5891033">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="-1" width="73" height="16" uuid="ea887b96-4078-4304-bb4a-a549a5338223">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="0" width="76" height="16" uuid="141aafcd-aa0d-4730-8c10-a2af370c87f4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMN_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="-1" width="70" height="16" uuid="ab806414-a4b0-487a-93d9-a19ea7b35a6c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMN_4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
