@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-05-02T04:50:42 -->
+<!-- 2016-05-02T05:15:34 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="constancy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92b011eb-89a7-4cf0-b3d5-86233864e73e">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -38,6 +38,10 @@
 ESCUELA BÁSICA NACIONAL "VICENTE DÁVILA"
 MÉRIDA ESTADO MÉRIDA]]></text>
 			</staticText>
+			<image>
+				<reportElement x="-2" y="0" width="142" height="74" uuid="e7583446-4e57-43db-af8b-b8b7830fc9b8"/>
+				<imageExpression><![CDATA["/public/images/logoMinisterioPng"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<detail>
