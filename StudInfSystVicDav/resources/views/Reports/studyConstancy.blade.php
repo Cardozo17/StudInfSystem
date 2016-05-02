@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Inscribir Estudiante')
+@section('title', 'Constancias de Estudio')
 
 @section('content')
 

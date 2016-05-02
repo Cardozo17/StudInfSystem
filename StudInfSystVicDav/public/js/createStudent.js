@@ -21,10 +21,19 @@ angular.module('SIEApp', ['ngRoute'])
   .controller('createStudentController', function($scope) 
   {
 
-  	$scope.relationshipWithStudentSelected= function()
-  	{
-  			
+    $scope.relationshipWithStudentChange= function(){
 
-  	}
+      console.log("Prueba"); 
+      console.log($scope.relationshipWithStudent);
+
+      if($scope.relationshipWithStudent== "isDad")
+        $scope.selectedRelationshipWithStudent= "PADRE";
+      else
+        if($scope.relationshipWithStudent=="isMom")
+          $scope.selectedRelationshipWithStudent= "MADRE";
+        else
+          if($scope.relationshipWithStudent== "isOther")
+            $scope.selectedRelationshipWithStudent= "";
+    }
 
   });

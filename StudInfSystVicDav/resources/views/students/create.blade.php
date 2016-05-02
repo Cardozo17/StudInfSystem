@@ -28,13 +28,13 @@
 	    	<div class = "row">
 	    		<div class= "col-md-3">
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'cedula']) !!}
+					{!!Form::text('document_id', null,['class'=> 'form-control',
+					 'value'=>"{{ old('document_id') }}", 'ng-model'=>'cedula']) !!}
 				</div>
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Foto del Estudiante: ') !!}
 					{!!Form::file('picture', ['onchange'=> 'readURL(this);'])!!}
-					<!-- <input name= "picture" type='file'  onchange="readURL(this);" /> -->
 	   				 <img  id="studentPicture" name="studentPicture" src="#" alt="Foto del Estudiante" />
 	   			</div>	 
 
@@ -86,7 +86,7 @@
 				</div>
 
 				<div class= "col-md-6">
-					{!! Form::label('born_date', 'Fecha de Nacimiento: ') !!}
+					{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
 					{!!Form::date('born_date', null, ['class'=> 'form-control', 'type'=>'date' , 'ng-model'=>'bornDate']) !!}
 				</div>
 
@@ -167,7 +167,8 @@
 				</div>
 				<div class= "col-md-4">
 						{!! Form::label('repLegWorkPhone', 'Telefono de Trabajo: ') !!}
-						{!!Form::text('repLegWorkPhone', null, ['class'=> 'form-control', 'ng-model'=>'repLegWorkPhone']) !!}
+						{!!Form::text('repLegWorkPhone', null, ['class'=> 'form-control',
+						 'ng-model'=>'repLegWorkPhone']) !!}
 				</div>
 			</div>
 
@@ -180,20 +181,25 @@
 				
 			<div class = "row">			
 				<div class= "col-md-2" >
-						<input  type="radio" ng-change="relationshipWithStudentSelected"
-						 ng-model= "relationshipWithStudent" 
-						name="isDad"  value="Dad"> Padre
+						<input  type="radio" name="relationshipWithStudent"
+						 ng-model= "relationshipWithStudent" checked 
+						 ng-change= "relationshipWithStudentChange()" 
+						 value="isDad"> Padre
 				</div>
 				<div class= "col-md-2" >		
-						<input   type="radio" ng-change="relationshipWithStudentSelected" ng-model= "relationshipWithStudent" name="isMom" value="Mom"> Madre
+						<input   type="radio" name="relationshipWithStudent"
+						 ng-model= "relationshipWithStudent" ng-change= "relationshipWithStudentChange()"
+						  value="isMom"> Madre
 				</div>
 				<div class= "col-md-2" >		
-						<input  type="radio" ng-change="relationshipWithStudentSelected" 
-						ng-model= "relationshipWithStudent" name="isOther" value="Other"> Otra
+						<input  type="radio" name="relationshipWithStudent" 
+						ng-model= "relationshipWithStudent" ng-change= "relationshipWithStudentChange()"
+						value="isOther"> Otra
 				</div>
 				<div class= "col-md-4">		
-						{!! Form::label('otherRelationshipWithStudent', 'Especifique Relación: ') !!}
-						{!!Form::text('otherRelationshipWithStudent', null, ['class'=> 'form-control', 'ng-model'=>'otherRelationshipWithStudent', 'ng-disabled'=>'relationshipWithStudent==null||relationshipWithStudent=="Dad"||relationshipWithStudent=="Mom"']) !!}
+						{!! Form::label('selectedRelationshipWithStudent', 'Especifique Relación: ') !!}
+						{!!Form::text('selecRelationshipWithStudent', null, ['class'=> 'form-control',
+						 'ng-model'=>'selectedRelationshipWithStudent', 'ng-readonly'=>'relationshipWithStudent==null||relationshipWithStudent=="isDad"||relationshipWithStudent=="isMom"']) !!}
 				</div>
 			</div>
 

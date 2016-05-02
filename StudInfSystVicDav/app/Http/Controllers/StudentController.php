@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\StudentFormRequest;
 
+use Validator;
 use App\Person;
 use App\LegalRepresentative;
 use App\Student;
+use App\PhoneNumbers;
 
 use DB;
 
@@ -66,12 +68,31 @@ class StudentController extends Controller
 
     }
 
-       public function store (StudentFormRequest $request)
+       public function store (Request $request) //StudentFormRequest $request
     {
+
+      $validator = Validator::make($request->all(),
+        [
+            'document_id'=> array('required'/*, 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'*/),
+            'name'=> 'required|min:3|max:45',
+            'last_name'=>'required|min:3|max:45',
+            'email' =>'email|max:45', 
+            'home_address'=> 'required|max:140',
+            'born_place'=>'max:45',
+            'relationship_with_legal_representative'=>'max:45',
+            'born_date'=>'date_format:Y-m-d'
+        ]);
+
+        if ($validator->fails()) 
+        {
+            return redirect('students/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
     	//getting the input from the form
     	$input= $request->all();
 
-      $imageFile=$request->file('picture');
 
     	//registering the student in the table person
     	$personStudentInfo= new Person (['document_id'=> $input['document_id'], 'name'=> $input['name'], 
@@ -79,6 +100,7 @@ class StudentController extends Controller
 
     	$personStudentInfo->save();
 
+      //registering the student picture in person table
       if($request->hasFile('picture')&&$request->file('picture')->isValid())
       {
           $destinationPath = 'uploads'; // upload path
@@ -88,16 +110,25 @@ class StudentController extends Controller
 
       } 
 
+
       $personStudentInfo->save();
 
     	//Person::create($input);
     	//$personStudentInfo= Person::where('document_id', $input['document_id'])->get();
 
+      //registering representant phones 
+      $repLegPhones= new PhoneNumbers(['home_phone'=>$input['repLegHomePhone'], 'mobile_phone'=>$input['repLegMobilePhone'], 'work_phone'=>$input['repLegWorkPhone']]);
+
+      $repLegPhones->save();
+
     	//registering the legal representative in the table person
     	$repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
-    		'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 'email'=> $input['repLegEmail']]);
+    		'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
+          'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
+          'home_address'=> $input['repLegHomeAddress']]);
     	$repLegPerson->save();
-    
+
+
     	//after having registered the legal representative in the table person now we can register the legal representative in its table
     	$repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
     									 'work_address'=> $input['repLegWorkAddress']]);
@@ -105,7 +136,10 @@ class StudentController extends Controller
 
     
     	//now that I have the student person Id and the legal representative Id I can register the student
-    	$student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id']]);
+    	$student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
+       'height'=>$input['height'], 'weight'=>$input['weight'], 
+        'born_place'=>$input['born_place'],'born_date'=>$input['born_date'], 'status'=>1, 
+        'relationship_with_legal_representative'=>$input['selecRelationshipWithStudent']]);
     	$student->save();							 
 
     	return redirect('students');

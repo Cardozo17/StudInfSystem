@@ -25,9 +25,13 @@ class StudentFormRequest extends Request
     {
         return [
             'document_id'=> array('required'/*, 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'*/),
-            'name'=> 'required|min:3',
-            'last_name'=>'required|min:3',
-            'email' =>'email'
+            'name'=> 'required|min:3|max:45',
+            'last_name'=>'required|min:3|max:45',
+            'email' =>'email|max:45', 
+            'home_address'=> 'required|max:140',
+            'born_place'=>'max:45',
+            'relationship_with_legal_representative'=>'max:45',
+            'born_date'=>'date_format:Y-m-d'
         ];
     }
 }

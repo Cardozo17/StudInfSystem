@@ -122,10 +122,10 @@ class ReportController extends Controller
         $ext = "pdf";
  
         $jasper->process(
-            public_path().'/constancy.jasper', 
+            public_path().'/reportJasperVD/constancy.jasper', 
             $output, 
             array($ext),
-            array("parameterDocumentId"=>$personId),
+            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
             $database,
             false,
             false
