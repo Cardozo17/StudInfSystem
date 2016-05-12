@@ -1,10 +1,10 @@
 @extends('master')
 
-@section('title', 'Inscribir Estudiante')
+@section('title', 'Inscribir Alumno')
 
 @section('content')
 
-	<h1>Inscribir Estudiante</h1>
+	<h1>Inscribir Alumno</h1>
 
 	<div ng-controller="createStudentController">
 
@@ -22,20 +22,20 @@
 	    
 	    <div class= "form-group">
 
-	    	<hr>
-			<h3>Información del Estudiante</h3>    
+	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
+			<h3>Información del Alumno</h3>    
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3">
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					{!!Form::text('document_id', null,['class'=> 'form-control',
-					 'value'=>"{{ old('document_id') }}", 'ng-model'=>'cedula']) !!}
+					<input type="text" class="form-control"  id="document_id" name="document_id"
+					 value="{{old('document_id') }}"  placeholder="Ingrese Cedula del Alumno" ng-model= "documentId">
 				</div>
 
 				<div class= "col-md-4 col-md-push-2">
-					{!! Form::label('studentPicture', 'Foto del Estudiante: ') !!}
-					{!!Form::file('picture', ['onchange'=> 'readURL(this);'])!!}
-	   				 <img  id="studentPicture" name="studentPicture" src="#" alt="Foto del Estudiante" />
+					{!! Form::label('studentPicture', 'Foto del Alumno: ') !!}
+					{!!Form::file('picture', old('picture'), ['onchange'=> 'readURL(this);'])!!}
+	   				 <img  id="studentPicture" name="studentPicture" src="#" alt="Foto del Alumno" />
 	   			</div>	 
 
 	    	</div>
@@ -44,12 +44,12 @@
 	    	<div class = "row">
 	    		<div class= "col-md-4">
 					{!! Form::label('name', 'Nombre: ') !!}
-					{!!Form::text('name', null, ['class'=> 'form-control', 'ng-model'=>'name']) !!}
+					<input type="text" class="form-control"  id="name" name="name" placeholder="Nombre del Alumno" value="{{Request::old('name')}}" ng-model= "name">
 				</div>
 
 				<div class= "col-md-4">
 					{!! Form::label('last_name', 'Apellido: ') !!}
-					{!!Form::text('last_name', null, ['class'=> 'form-control' , 'ng-model'=>'lastName']) !!}
+					<input type="text" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
 				</div>
 				<br>
 				<br>
@@ -63,18 +63,18 @@
 			<div class = "row">
 	    		
 				<div class= "col-md-6">
-					{!! Form::label('email', 'Correo Electronico: ') !!}
-					{!!Form::email('email', null, ['class'=> 'form-control' , 'ng-model'=>'email']) !!}
+					{!! Form::label('email', 'Correo Electrónico: ') !!}
+					<input type="email" class="form-control"  id="email" name="email" placeholder="Email del Alumno" value="{{Request::old('email')}}" ng-model= "email">
 				</div>
 
 				<div class= "col-md-3">
 					{!! Form::label('height', 'Altura: ') !!}
-					{!!Form::text('height', null, ['class'=> 'form-control' , 'ng-model'=>'height']) !!}
+					<input type="text" class="form-control"  id="height" name="height" placeholder="Altura del Alumno" value="{{Request::old('height')}}" ng-model= "height">
 				</div>
 
 				<div class= "col-md-3">
 					{!! Form::label('weight', 'Peso: ') !!}
-					{!!Form::text('weight', null, ['class'=> 'form-control' , 'ng-model'=>'weight']) !!}
+					<input type="text" class="form-control"  id="weight" name="weight" placeholder="Peso del Alumno" value="{{Request::old('weight')}}" ng-model= "weight">
 				</div>
 	    	</div>
 
@@ -82,12 +82,12 @@
 			<div class = "row">
 	    		<div class= "col-md-6">
 					{!! Form::label('born_place', 'Lugar de Nacimiento: ') !!}
-					{!!Form::text('born_place', null, ['class'=> 'form-control' , 'ng-model'=>'bornPlace']) !!}
+					<input type="text" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
 				</div>
 
 				<div class= "col-md-6">
 					{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
-					{!!Form::date('born_date', null, ['class'=> 'form-control', 'type'=>'date' , 'ng-model'=>'bornDate']) !!}
+					<input type="date" class="form-control"  id="born_date" name="born_date" placeholder="Fecha de Nacimiento del Alumno" value="{{Request::old('born_date')}}" ng-model= "bornDate">
 				</div>
 
 			</div>
@@ -96,31 +96,31 @@
 			<div class = "row">
 	    		<div class= "col-md-12">
 					{!! Form::label('home_address', 'Dirección: ') !!}
-					{!!Form::text('home_address', null, ['class'=> 'form-control' , 'ng-model'=>'homeAddresss']) !!}
+					<input type="text" class="form-control"  id="home_address" name="home_address" placeholder="Dirección del Alumno" value="{{Request::old('home_address')}}" ng-model= "homeAddress">
 				</div>
 
 			</div>
 
 			<br>
-			<hr>
-	    	<h3>Información del Representante Legal</h3>
+			<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
+	    	<h3>Información del Rep. Legal</h3>
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3">
 					{!! Form::label('repLegDocId', 'Cedula de Identidad: ') !!}
-					{!!Form::text('repLegDocId', null, ['class'=> 'form-control' , 'ng-model'=>'repLegDocId']) !!}
+					<input type="text" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cedula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
 				</div>
 	    	</div>
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-4">
 					{!! Form::label('repLegName', 'Nombre: ') !!}
-					{!!Form::text('repLegName', null, ['class'=> 'form-control' , 'ng-model'=>'repLegName']) !!}
+					<input type="text" class="form-control"  id="repLegName" name="repLegName" placeholder="Nombre del Rep. Legal" value="{{Request::old('repLegName')}}" ng-model= "repLegName">
 				</div>
 
 				<div class= "col-md-4">
 					{!! Form::label('repLegLastName', 'Apellido: ') !!}
-					{!!Form::text('repLegLastName', null, ['class'=> 'form-control' , 'ng-model'=>'repLegLastName']) !!}
+					<input type="text" class="form-control"  id="repLegLastName" name="repLegLastName" placeholder="Apellido del Rep. Legal" value="{{Request::old('repLegLastName')}}" ng-model= "repLegLastName">
 				</div>
 				<br>
 				<br>
@@ -134,8 +134,9 @@
 			<div class = "row">
 	    		
 				<div class= "col-md-6">
-					{!! Form::label('repLegEmail', 'Correo Electronico: ') !!}
-					{!!Form::text('repLegEmail', null, ['class'=> 'form-control' , 'ng-model'=>'repLegEmail']) !!}
+					{!! Form::label('repLegEmail', 'Correo Electrónico: ') !!}
+					<input type="email" class="form-control"  id="repLegEmail" name="repLegEmail" placeholder="Email del Rep. Legal" value="{{Request::old('repLegEmail')}}" ng-model= "repLegEmail">
+
 				</div>
 	    	</div>
 
@@ -143,7 +144,7 @@
 	    	<div class = "row">
 	    		<div class= "col-md-12">
 					{!! Form::label('repLegHomeAddress', 'Dirección de Casa: ') !!}
-					{!!Form::text('repLegHomeAddress', null, ['class'=> 'form-control', 'ng-model'=>'repLegHomeAddress']) !!}
+					<input type="text" class="form-control"  id="repLegHomeAddress" name="repLegHomeAddress" placeholder="Dirección de Habitación del Rep. Legal" value="{{Request::old('repLegHomeAddress')}}" ng-model= "repLegHomeAddress">
 				</div>
 
 			</div>
@@ -152,31 +153,32 @@
 			<div class = "row">
 				<div class= "col-md-12">
 						{!! Form::label('repLegWorkAddress', 'Dirección de Trabajo: ') !!}
-						{!!Form::text('repLegWorkAddress', null, ['class'=> 'form-control', 'ng-model'=>'repLegWorkAddress']) !!}
+						<input type="text" class="form-control"  id="repLegWorkAddress" name="repLegWorkAddress" placeholder="Dirección de Trabajo del Rep. Legal" value="{{Request::old('repLegWorkAddress')}}" ng-model= "repLegWorkAddress">
 				</div>
 			</div>
 
+			<br>
 			<div class = "row">
 				<div class= "col-md-4">
-						{!! Form::label('repLegHomePhone', 'Telefono Casa: ') !!}
-						{!!Form::text('repLegHomePhone', null, ['class'=> 'form-control', 'ng-model'=>'repLegHomePhone']) !!}
+						{!! Form::label('repLegHomePhone', 'Teléfono Casa: ') !!}
+						<input type="text" class="form-control"  id="repLegHomePhone" name="repLegHomePhone" placeholder="Teléfono de Habitación del Rep. Legal" value="{{Request::old('repLegHomePhone')}}" ng-model= "repLegHomePhone">
 				</div>
 				<div class= "col-md-4">
-						{!! Form::label('repLegMobilePhone', 'Telefono Movil: ') !!}
-						{!!Form::text('repLegMobilePhone', null, ['class'=> 'form-control', 'ng-model'=>'repLegMobilePhone']) !!}
+						{!! Form::label('repLegMobilePhone', 'Teléfono Movil: ') !!}
+						<input type="text" class="form-control"  id="repLegMobilePhone" name="repLegMobilePhone" placeholder="Teléfono Móvil del Rep. Legal" value="{{Request::old('repLegMobilePhone')}}" ng-model= "repLegMobilePhone">
 				</div>
 				<div class= "col-md-4">
-						{!! Form::label('repLegWorkPhone', 'Telefono de Trabajo: ') !!}
-						{!!Form::text('repLegWorkPhone', null, ['class'=> 'form-control',
-						 'ng-model'=>'repLegWorkPhone']) !!}
+						{!! Form::label('repLegWorkPhone', 'Teléfono de Trabajo: ') !!}
+						 <input type="text" class="form-control"  id="repLegWorkPhone" name="repLegWorkPhone" placeholder="Teléfono del Trabajo del Rep. Legal" value="{{Request::old('repLegWorkPhone')}}" ng-model= "repLegWorkPhone">
 				</div>
 			</div>
 
 			<br>
 			<div class = "row">
 				<div class= "col-md-12">
-						{!! Form::label('', 'Relación con el Estudiante: ') !!}
+						{!! Form::label('', 'Relación del Rep. Legal con el Alumno: (Sí es Padre o Madre la Información Sera Llenada Automaticamente Para Luego Ser Almacenada en La Base de Datos. Asegurese de Haber Llenado Todos los Datos del Rep. Legal Antes de Seleccionar Algún Item) ') !!}
 				</div>
+				<!-- OJOOO SI ES PADRE O MADRE TENEMOS QUE VER QUIE EN EL CONTROLADOR STORE GUARDE A LA PERSON UNA SOLA VEZ Y LA USE TANTO PARA REP LEG COMO PARA PADRE O MADRE -->
 			</div>
 				
 			<div class = "row">			
@@ -198,14 +200,19 @@
 				</div>
 				<div class= "col-md-4">		
 						{!! Form::label('selectedRelationshipWithStudent', 'Especifique Relación: ') !!}
-						{!!Form::text('selecRelationshipWithStudent', null, ['class'=> 'form-control',
-						 'ng-model'=>'selectedRelationshipWithStudent', 'ng-readonly'=>'relationshipWithStudent==null||relationshipWithStudent=="isDad"||relationshipWithStudent=="isMom"']) !!}
+					
+						 <input type="text" class="form-control"  id="selectedRelationshipWithStudent" 
+						 name="selectedRelationshipWithStudent" placeholder="Relación Seleccionada"
+						  value="{{Request::old('selectedRelationshipWithStudent')}}"
+						  ng-model= "selectedRelationshipWithStudent" 
+						  ng-readonly= 'relationshipWithStudent==null||relationshipWithStudent=="isDad"||relationshipWithStudent=="isMom"' >
 				</div>
 			</div>
 
+			<br>
 			<div class = "row">
-				<div class= "col-md-4" >
-					<label>Registrar Información Adicional</label>
+				<div class= "col-md-12" >
+					<label>¿Desea Registrar Información de los Padres? (Sí en la Opción Anterior Selecciono el Padre o Madre Solo Se le Permitira Registrar Al Otro Padre No Seleccionado)</label>
 				</div>
 			</div>
 
@@ -213,7 +220,7 @@
 			<div class = "row">
 				<div class= "col-md-4" >		
 							<input  type="checkbox" ng-change="" 
-							ng-model= "informationFromFather" name="infMother" value="true"> Información del Padre
+							ng-model= "informationFromFather" name="infFather" value="true"> Información del Padre
 				</div>
 				<div class= "col-md-4" >		
 							<input  type="checkbox" ng-change="" 
@@ -222,13 +229,14 @@
 			</div>				
 
 			<br>
-	    	<hr>
+	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 	    	<h3 ng-show= "informationFromFather||informationFromMother">Información de los Padres</h3>
 	    	
 	    	<br>
 
 	    	<div ng-show= "informationFromFather">
-		    	<h4>Padre</h4>
+	    		<hr>
+		    	<h4>Datos del Padre</h4>
 		    	<div class = "row">
 		    		<div class= "col-md-3">
 						{!! Form::label('fatherDocId', 'Cedula de Identidad: ') !!}
@@ -237,7 +245,7 @@
 
 					<div class= "col-md-3">	
 						<input name="fatherLiveWithTheStudent" ng-model= "fatherLiveWithStudent" type="checkbox" value="true"> 
-						Vive con el Estudiante
+						Vive con el Alumno
 					</div>	
 		    	</div>
 		    	<br>
@@ -258,7 +266,7 @@
 				<br>
 				<div class = "row">
 					<div class= "col-md-6">
-						{!! Form::label('fatherEmail', 'Correo Electronico: ') !!}
+						{!! Form::label('fatherEmail', 'Correo Electrónico: ') !!}
 						{!!Form::text('fatherEmail', null, ['class'=> 'form-control', 'ng-model'=>'fatherEmail']) !!}
 					</div>
 		    	</div>
@@ -283,22 +291,22 @@
 				<br>
 				<div class = "row">
 					<div class= "col-md-4">
-							{!! Form::label('fatherHomePhone', 'Telefono Casa: ') !!}
+							{!! Form::label('fatherHomePhone', 'Teléfono Casa: ') !!}
 							{!!Form::text('fatherHomePhone', null, ['class'=> 'form-control', 'ng-model'=>'fatherHomePhone']) !!}
 					</div>
 					<div class= "col-md-4">
-							{!! Form::label('fatherMobilePhone', 'Telefono Movil: ') !!}
+							{!! Form::label('fatherMobilePhone', 'Teléfono Movil: ') !!}
 							{!!Form::text('fatherMobilePhone', null, ['class'=> 'form-control', 'ng-model'=>'fatherMobilePhone']) !!}
 					</div>
 					<div class= "col-md-4">
-							{!! Form::label('fatherWorkPhone', 'Telefono de Trabajo: ') !!}
+							{!! Form::label('fatherWorkPhone', 'Teléfono de Trabajo: ') !!}
 							{!!Form::text('fatherWorkPhone', null, ['class'=> 'form-control', 'ng-model'=>'fatherWorkPhone']) !!}
 					</div>
 				</div>
 			</div>	
-			<br>
 			<div ng-show= "informationFromMother">
-		    	<h4>Madre</h4>
+				<hr>
+		    	<h4>Datos de la Madre</h4>
 		    	<div class = "row">
 		    		<div class= "col-md-3">
 						{!! Form::label('motherDocId', 'Cedula de Identidad: ') !!}
@@ -306,7 +314,7 @@
 					</div>
 					<div class= "col-md-3">	
 						<input name="motherLiveWithTheStudent" ng-model= "motherLiveWithStudent" type="checkbox" value="true"> 
-						Vive con el Estudiante
+						Vive con el Alumno
 					</div>	
 		    	</div>
 		    	<br>
@@ -328,7 +336,7 @@
 				<div class = "row">
 		    		
 					<div class= "col-md-6">
-						{!! Form::label('motherEmail', 'Correo Electronico: ') !!}
+						{!! Form::label('motherEmail', 'Correo Electrónico: ') !!}
 						{!!Form::text('motherEmail', null, ['class'=> 'form-control', 'ng-model'=>'motherEmail']) !!}
 					</div>
 		    	</div>
@@ -353,15 +361,15 @@
 				<br>
 				<div class = "row">
 					<div class= "col-md-4">
-							{!! Form::label('motherHomePhone', 'Telefono Casa: ') !!}
+							{!! Form::label('motherHomePhone', 'Teléfono Casa: ') !!}
 							{!!Form::text('fatherHomePhone', null, ['class'=> 'form-control', 'ng-model'=>'fatherHomePhone']) !!}
 					</div>
 					<div class= "col-md-4">
-							{!! Form::label('motherMobilePhone', 'Telefono Movil: ') !!}
+							{!! Form::label('motherMobilePhone', 'Teléfono Movil: ') !!}
 							{!!Form::text('motherMobilePhone', null, ['class'=> 'form-control', 'ng-model'=>'motherMobilePhone']) !!}
 					</div>
 					<div class= "col-md-4">
-							{!! Form::label('motherWorkPhone', 'Telefono de Trabajo: ') !!}
+							{!! Form::label('motherWorkPhone', 'Teléfono de Trabajo: ') !!}
 							{!!Form::text('motherWorkPhone', null, ['class'=> 'form-control', 'ng-model'=>'motherWorkPhone']) !!}
 					</div>
 				</div>		
@@ -370,7 +378,7 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
-	    			{!!Form::submit('Registrar Estudiante', ['class'=> 'btn btn-primary form-control'])!!}
+	    			{!!Form::submit('Registrar Alumno', ['class'=> 'btn btn-primary form-control'])!!}
 	    		</div>	
 	    	</div>
 		

@@ -1,10 +1,10 @@
 @extends('master')
 
-@section('title', 'Consulta de Estudiante')
+@section('title', 'Consulta de Alumno')
 
 @section('content')
 
-	<h1>Consulta de Estudiante</h1>
+	<h1>Consulta de Alumno</h1>
 
 	<div ng-controller="findStudentController">
 	    
@@ -25,7 +25,7 @@
 				</div>
 				</button>
 				<div class= "col-md-4 col-md-push-1" >
-					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Estudiante"> 	
+					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Alumno"> 	
 				</div>	
 				
 	    	</div>

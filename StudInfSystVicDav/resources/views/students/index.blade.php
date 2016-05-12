@@ -1,13 +1,13 @@
 @extends('master')
 
-@section('title', 'Ver Estudiantes Inscritos')
+@section('title', 'Ver Alumnos Inscritos')
 
 @section('content')	
 	
 	<div ng-controller="showStudentsController">
 		<div class="container-fluid" >
 			<div class= "col-md-12">
-				<h2>Estudiantes Registrados</h2>
+				<h2>Alumnos Registrados</h2>
 
 				<br>	
 				<div class="row">

@@ -27,10 +27,20 @@ angular.module('SIEApp', ['ngRoute'])
       console.log($scope.relationshipWithStudent);
 
       if($scope.relationshipWithStudent== "isDad")
+      {  
         $scope.selectedRelationshipWithStudent= "PADRE";
+        $scope.informationFromFather=true;
+        $scope.informationFromMother= false;
+        //Aqui va que se llene la información de padre con la de repLeg y se active lo de padre
+      } 
       else
         if($scope.relationshipWithStudent=="isMom")
+         { 
           $scope.selectedRelationshipWithStudent= "MADRE";
+          $scope.informationFromMother=true;
+          $scope.informationFromFather=false;
+          //Aqui va que se llene la información de padre con la de repLeg y se active lo de padre
+         }
         else
           if($scope.relationshipWithStudent== "isOther")
             $scope.selectedRelationshipWithStudent= "";

@@ -8,7 +8,7 @@
                 <div class="panel-heading">Bienvenido</div>
 
                 <div class="panel-body">
-                    La Página Inicial del Sistema de Registro de Estudiantes
+                    La Página Inicial del Sistema de Registro de Alumnos
                 </div>
             </div>
         </div>

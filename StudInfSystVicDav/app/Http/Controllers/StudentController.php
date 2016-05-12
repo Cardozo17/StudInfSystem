@@ -70,24 +70,26 @@ class StudentController extends Controller
 
        public function store (Request $request) //StudentFormRequest $request
     {
+      $messages = [
+      'last_name.required' => 'El campo apellido es obligatorio.',
+      ]; 
 
-      $validator = Validator::make($request->all(),
+      $validator = Validator::make(
+        $request->all(),
         [
             'document_id'=> array('required'/*, 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'*/),
             'name'=> 'required|min:3|max:45',
             'last_name'=>'required|min:3|max:45',
             'email' =>'email|max:45', 
             'home_address'=> 'required|max:140',
-            'born_place'=>'max:45',
+            'born_place'=>'max:45|required',
             'relationship_with_legal_representative'=>'max:45',
-            'born_date'=>'date_format:Y-m-d'
-        ]);
+            'born_date'=>'date_format:Y-m-d|required'
+        ], $messages);
 
         if ($validator->fails()) 
         {
-            return redirect('students/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return redirect('students/create')->withInput()->withErrors($validator);
         }
 
     	//getting the input from the form
