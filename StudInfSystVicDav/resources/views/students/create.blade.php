@@ -10,6 +10,7 @@
 
 		{!! Form::open(array('url' => 'students', 'files'=>true)) !!}
 
+
 		@foreach ($errors->all() as $error)
 	    	<p class="alert alert-danger">{{ $error }}</p>
 		@endforeach
@@ -19,7 +20,7 @@
 				{{ session('status') }}
 			</div>
 		@endif
-	    
+
 	    <div class= "form-group">
 
 	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
@@ -29,7 +30,9 @@
 	    		<div class= "col-md-3">
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
 					<input type="text" class="form-control"  id="document_id" name="document_id"
-					 value="{{old('document_id') }}"  placeholder="Ingrese Cedula del Alumno" ng-model= "documentId">
+					 value="{{old('document_id')}}"  placeholder="Ingrese Cedula del Alumno" ng-model= "documentId">
+					  {!! var_dump(old())!!}
+					  {!! var_dump(old('document_id'))!!}
 				</div>
 
 				<div class= "col-md-4 col-md-push-2">
@@ -381,13 +384,11 @@
 	    			{!!Form::submit('Registrar Alumno', ['class'=> 'btn btn-primary form-control'])!!}
 	    		</div>	
 	    	</div>
-		
-			
 		</div>
 		
 		{!! Form::close() !!}
 
 	</div>
 
-	<script src="/js/createStudent.js"></script>
+	<!-- <script src="/js/createStudent.js"></script>  OJOOOO ME TUMBA LA VALIDACION DE LARAVEL VER POR QUE-->
 @endsection

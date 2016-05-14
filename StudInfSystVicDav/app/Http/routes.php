@@ -21,10 +21,11 @@ Route::get('/', function ()
 });
 
 Route::get('whoWeAre', 'HomeController@aboutUs');
-Route::get('students/create', 'StudentController@create');
+Route::get('students/create', 'StudentController@showCreateStudentWindow');
+Route::post('students', 'StudentController@store');
 Route::get('students/list', 'StudentController@listStudents');
 Route::get('students','StudentController@index');		
-Route::post('students', 'StudentController@store');
+
 
 Route::get('studyConstancy', 'ReportController@showMakeConstancyWindow');
 
@@ -43,9 +44,7 @@ Route::post('reporting', ['uses' =>'ReportController@makeStudyConstancy']);
 |
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-| GET|HEAD | register                |        | App\Http\Controllers\Auth\AuthController@showRegistrationForm   | web        |
-|        | POST     | register                |        | App\Http\Controllers\Auth\AuthController@register               | web      
+| kernel and includes session state, CSRF protection, and more.  
 */
 
 Route::group(['middleware' => ['auth']], function () 
@@ -59,6 +58,7 @@ Route::group(['middleware' => ['auth']], function ()
 
     //Route::get('register', 'Auth\AuthController@showRegistrationForm');
     Route::post('register', 'Auth\AuthController@register');
+
 });
 
 Route::group(['middleware' => 'web'], function () 
@@ -72,12 +72,11 @@ Route::group(['middleware' => 'web'], function ()
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
 
-
-
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'Auth\PasswordController@reset');
+
 });
 
 Route::get('notAutorized', 'NotAutorizedController@showNotAutorized');

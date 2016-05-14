@@ -60,7 +60,7 @@ MÉRIDA ESTADO MÉRIDA]]></text>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<text><![CDATA[Representante legal de el(a) estudiante Estudiante]]></text>
+				<text><![CDATA[Representante legal de el(a) Alumno Alumno]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="18" width="554" height="16" uuid="8c633d6b-587b-4c39-93fe-29876e3c032d">

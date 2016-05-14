@@ -23,7 +23,7 @@ angular.module('SIEApp', ['ngRoute'])
         console.log(data);
 
         if(data == "" || data == null)
-          console.log("No se encontro el estudiante");
+          console.log("No se encontro el Alumno");
         else if(data != "" || data != null)
             {
               $scope.firstName = data.name;
@@ -35,7 +35,7 @@ angular.module('SIEApp', ['ngRoute'])
 
       }).error(function(){
 
-        console.log("Error obteniendo el estudiante");
+        console.log("Error obteniendo el Alumno");
       })
       
     }
@@ -111,7 +111,7 @@ angular.module('SIEApp', ['ngRoute'])
        
       }).error(function(){
 
-        console.log("Error obteniendo el estudiante");
+        console.log("Error obteniendo el Alumno");
       })
 
     }
