@@ -29,6 +29,6 @@ class HomeController extends Controller
 
     public function aboutUs()
     {
-         return view('whoWeAre');
+         return view('pages.about');
     }
 }

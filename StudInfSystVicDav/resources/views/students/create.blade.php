@@ -21,6 +21,7 @@
 			</div>
 		@endif
 
+
 	    <div class= "form-group">
 
 	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
@@ -37,8 +38,9 @@
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Foto del Alumno: ') !!}
-					{!!Form::file('picture', old('picture'), ['onchange'=> 'readURL(this);'])!!}
-	   				 <img  id="studentPicture" name="studentPicture" src="#" alt="Foto del Alumno" />
+					<input type="file" id="picture" name="picture" onchange="readURL(this);" 
+					 value="{{old('picture')}}" >
+	   				 <img  id="studentPicture" name="studentPicture" src="picture" alt="Foto del Alumno" />
 	   			</div>	 
 
 	    	</div>
@@ -223,11 +225,11 @@
 			<div class = "row">
 				<div class= "col-md-4" >		
 							<input  type="checkbox" ng-change="" 
-							ng-model= "informationFromFather" name="infFather" value="true"> Información del Padre
+							ng-model= "informationFromFather"  id="infFather" name="infFather" value="true"> Información del Padre
 				</div>
 				<div class= "col-md-4" >		
 							<input  type="checkbox" ng-change="" 
-							ng-model= "informationFromMother" name="infMother" value="true"> Información de la Madre
+							ng-model= "informationFromMother" id="infMother" name="infMother" value="true"> Información de la Madre
 				</div>
 			</div>				
 
@@ -236,7 +238,6 @@
 	    	<h3 ng-show= "informationFromFather||informationFromMother">Información de los Padres</h3>
 	    	
 	    	<br>
-
 	    	<div ng-show= "informationFromFather">
 	    		<hr>
 		    	<h4>Datos del Padre</h4>
@@ -306,7 +307,7 @@
 							{!!Form::text('fatherWorkPhone', null, ['class'=> 'form-control', 'ng-model'=>'fatherWorkPhone']) !!}
 					</div>
 				</div>
-			</div>	
+			</div>
 			<div ng-show= "informationFromMother">
 				<hr>
 		    	<h4>Datos de la Madre</h4>
@@ -390,5 +391,5 @@
 
 	</div>
 
-	<!-- <script src="/js/createStudent.js"></script>  OJOOOO ME TUMBA LA VALIDACION DE LARAVEL VER POR QUE-->
+	 <script src="/js/createStudent.js"></script> 
 @endsection

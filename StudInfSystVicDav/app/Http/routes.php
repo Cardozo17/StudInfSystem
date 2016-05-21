@@ -17,10 +17,13 @@ use  App\PhoneNumbers;
 
 Route::get('/', function () 
 {
-    return view('welcome');
+    if(Auth::check())
+     return view('pages.about');
+    else
+        return view('welcome');
 });
 
-Route::get('whoWeAre', 'HomeController@aboutUs');
+Route::get('about', 'HomeController@aboutUs');
 Route::get('students/create', 'StudentController@showCreateStudentWindow');
 Route::post('students', 'StudentController@store');
 Route::get('students/list', 'StudentController@listStudents');
@@ -34,6 +37,7 @@ Route::post('studentsById','StudentController@findOneById');
 
 Route::get('reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
 Route::post('reporting', ['uses' =>'ReportController@makeStudyConstancy']);
+Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 
 /*
@@ -56,15 +60,12 @@ Route::group(['middleware' => ['auth']], function ()
 	    'uses' => 'Auth\AuthController@showRegistrationForm'
 	]);
 
-    //Route::get('register', 'Auth\AuthController@showRegistrationForm');
     Route::post('register', 'Auth\AuthController@register');
 
 });
 
 Route::group(['middleware' => 'web'], function () 
 {
-   // Route::auth();
-
     Route::get('/home', 'HomeController@index');
 
 	// Authentication Routes...
@@ -78,5 +79,3 @@ Route::group(['middleware' => 'web'], function ()
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
 });
-
-Route::get('notAutorized', 'NotAutorizedController@showNotAutorized');
