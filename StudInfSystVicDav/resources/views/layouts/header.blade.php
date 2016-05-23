@@ -2,7 +2,10 @@
 		<div class= "row">
 			<div class= "col-md-12">		
 				<div class= "header">
-					{{ Html::image('images/escudo.jpg', 'Logo')}}
+
+					<a href="/home">
+						{{ Html::image('images/escudo.jpg', 'Logo' )}} 
+					</a>	
 					<h1>Escuela Básica Vicente Dávila</h1>
 					<p>
 						Escuela Básica Perteneciente al Ministerio del Poder Popular para La Educación.

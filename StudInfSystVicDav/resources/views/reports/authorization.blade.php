@@ -4,11 +4,11 @@
 
 @section('content')
 
-	<h1>Constancia de Estudio</h1>
+	<h1>Autorización a Alumno</h1>
 
-	<div ng-controller="studyConstancyController">
+	<div ng-controller="authorizationController">
 	    
-	    {!! Form::open(array('url' => '/repStudyConstancy')) !!}
+	    {!! Form::open(array('url' => '/repAuthorization')) !!}
 
 	    <div class= "form-group">
 	   	
@@ -45,7 +45,7 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
-	    			{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-primary form-control'])!!}
+	    			{!!Form::submit('Generar Autorización', ['class'=> 'btn btn-primary form-control'])!!}
 	    		</div>	
 	    	</div>
 
@@ -59,5 +59,5 @@
 
 	</div>
 
-	<script src="/js/studyConstancy.js"></script>
+	<script src="/js/authorization.js"></script>
 @endsection

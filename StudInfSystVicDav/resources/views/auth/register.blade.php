@@ -3,9 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">Registro de Usuario</div>
+                <div class="panel-heading">Registro de Usuario del Sistema</div>
+                <br>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}

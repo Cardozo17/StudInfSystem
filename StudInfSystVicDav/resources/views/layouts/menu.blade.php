@@ -11,7 +11,8 @@
                 @if(Auth::user()->hasRole('admin'))
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-search">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-info-sign">
                             </span>Vicente Dávila</a>
                         </h4>
                     </div>
@@ -22,25 +23,25 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="/about">¿Quiénes Somos?</a>
+                                        <span class="glyphicon glyphicon-question-sign text-primary"></span><a href="/about">¿Quiénes Somos?</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="">Contacto</a>
+                                        <span class="glyphicon glyphicon-phone text-success"></span><a href="/contact">Contacto</a>
+                                    </td>
+                                </tr>
+                       <!--          <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-eye-open text-info"></span><a href="">Visión</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="">Visión</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="">Misión</a>
+                                        <span class="glyphicon glyphicon-fire text-success"></span><a href="">Misión</a>
                                       
                                     </td>
-                                </tr>
+                                </tr> -->
                             </table>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-duplicate">
-                            </span> Gestión de Constancias</a>
+                            </span> Gestión de Documentos</a>
                         </h4>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
@@ -95,17 +96,17 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file"></span><a href="/studyConstancy">Constancia de Estudio</a>
+                                        <span class="glyphicon glyphicon-file"></span><a href="/repStudyConstancy">Constancia de Estudio</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-thumbs-down"></span><a href="">Citación</a>
+                                        <span class="glyphicon glyphicon-thumbs-down"></span><a href="/repCitation">Citación</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-thumbs-down"></span><a href="">Autorización</a>
+                                        <span class="glyphicon glyphicon-thumbs-up"></span><a href="/repAuthorization">Autorización</a>
                                     </td>
                                 </tr>
 

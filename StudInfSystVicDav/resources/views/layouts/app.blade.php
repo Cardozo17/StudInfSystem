@@ -23,6 +23,21 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .navbar {
+            background-color: #008B8B;
+        }
+
+        #initSession{
+
+            color:white;
+        }
+
+         #initSession:hover{
+
+            color:black;
+        }
+
     </style>
 </head>
 <body id="app-layout">
@@ -41,11 +56,14 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                <h4 style="color: white">Sistema de Información Estudiantil</h4>
+                </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Inicio de Sesión</a></li>
+                        <li><a  href="{{ url('/login') }}" id="initSession">Inicio de Sesión</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

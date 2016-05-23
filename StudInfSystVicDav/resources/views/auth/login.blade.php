@@ -1,13 +1,14 @@
 @extends('layouts.app')
+@section('title', 'Sistema de Información Estudiantil')
 
 @section('content')
 
 <style>
-body {
-    background-image: url(/images/bg.jpg);
-    background-position: center top;
-    background-size: 100% auto;
-}
+    body {
+        background-image: url(/images/blue-bg.jpg);
+        background-position: center top;
+        background-size: 100% auto;
+    }
 </style>
 
 <body>
@@ -64,7 +65,7 @@ body {
                                         <i class="fa fa-btn fa-sign-in"></i>Ingresar
                                     </button>
 
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Olvidaste tu contraseña?</a>
+                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">¿Olvidaste tu contraseña?</a>
                                 </div>
                             </div>
                         </form>

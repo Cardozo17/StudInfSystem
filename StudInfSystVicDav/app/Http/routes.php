@@ -1,6 +1,6 @@
 <?php
 
-use App\Student;
+use  App\Student;
 use  App\Person;
 use  App\PhoneNumbers;
 
@@ -18,25 +18,39 @@ use  App\PhoneNumbers;
 Route::get('/', function () 
 {
     if(Auth::check())
-     return view('pages.about');
+     return view('home');
     else
         return view('welcome');
 });
 
-Route::get('about', 'HomeController@aboutUs');
+Route::get('/home', function () 
+{
+    if(Auth::check())
+     return view('home');
+    else
+        return view('welcome');
+});
+
+Route::get('about', 'HomeController@showAboutUsWindow');
+Route::get('contact', 'HomeController@showContactWindow');
 Route::get('students/create', 'StudentController@showCreateStudentWindow');
 Route::post('students', 'StudentController@store');
 Route::get('students/list', 'StudentController@listStudents');
 Route::get('students','StudentController@index');		
-
-
-Route::get('studyConstancy', 'ReportController@showMakeConstancyWindow');
-
 Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
 Route::post('studentsById','StudentController@findOneById');
 
-Route::get('reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
-Route::post('reporting', ['uses' =>'ReportController@makeStudyConstancy']);
+//Reports Routes//
+Route::get('repStudyConstancy', ['uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
+Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
+
+Route::get('repCitation', ['uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
+Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
+
+Route::get('repAuthorization', ['uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
+Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 
@@ -66,7 +80,7 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['middleware' => 'web'], function () 
 {
-    Route::get('/home', 'HomeController@index');
+   /* Route::get('/home', 'HomeController@index');*/
 
 	// Authentication Routes...
     Route::get('login', 'Auth\AuthController@showLoginForm');

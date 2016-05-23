@@ -24,11 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/students');
+        return view('/home');
     }
 
-    public function aboutUs()
+    public function showAboutUsWindow()
     {
          return view('pages.about');
+    }
+
+     public function showContactWindow()
+    {
+         return view('pages.contact');
     }
 }
