@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ elixir('css/system_style.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
@@ -57,7 +57,7 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
-                <h4 style="color: white">Sistema de Información Estudiantil</h4>
+                    <h4 style="color: white">Sistema de Información Estudiantil</h4>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

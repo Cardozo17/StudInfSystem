@@ -23,7 +23,7 @@ class StudentController extends Controller
         //$this->middleware('is_admin');
     }
 
-         public function showFindOneStudentWindow() 
+    public function showFindOneStudentWindow() 
     {
         return  view('students.findStudent');
     } 
@@ -68,7 +68,7 @@ class StudentController extends Controller
 
     }
 
-       public function store (Request $request) //StudentFormRequest $request
+     public function store (Request $request) //StudentFormRequest $request
     {
 
       $messages = [
@@ -145,7 +145,6 @@ class StudentController extends Controller
         return redirect('students');
 
     }
-
 
         public function show($id) 
     {

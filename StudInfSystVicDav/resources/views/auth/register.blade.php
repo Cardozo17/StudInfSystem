@@ -1,9 +1,10 @@
 @extends('layouts.master')
+@section('title', 'Registrar Usuario')
 
 @section('content')
-<div class="container">
+
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Registro de Usuario del Sistema</div>
                 <br>
@@ -98,5 +99,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
