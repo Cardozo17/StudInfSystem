@@ -7,8 +7,6 @@
         <div class="col-sm-3 col-md-3">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
-                    
-                @if(Auth::user()->hasRole('admin'))
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -45,9 +43,8 @@
                             </table>
                         </div>
                     </div>
-                @endif 
-
                 </div>
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -84,6 +81,9 @@
                         </div>
                     </div>
                 </div>
+                @endif 
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
+                 || Auth::user()->hasRole('administrativePersonLevel2'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -114,6 +114,8 @@
                         </div>
                     </div>
                 </div>
+                 @endif 
+                 @if(Auth::user()->hasRole('admin'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -163,6 +165,7 @@
                         </div>
                     </div>
                 </div>
+                @endif 
             </div>
         </div>
     </div>

@@ -33,22 +33,14 @@ Route::get('/home', function ()
 
 Route::get('about', 'HomeController@showAboutUsWindow');
 Route::get('contact', 'HomeController@showContactWindow');
-Route::get('students/create', 'StudentController@showCreateStudentWindow');
-Route::post('students', 'StudentController@store');
+
+
 Route::get('students/list', 'StudentController@listStudents');
 Route::get('students','StudentController@index');		
 Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
 Route::post('studentsById','StudentController@findOneById');
 
-//Reports Routes//
-Route::get('repStudyConstancy', ['uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
-Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
 
-Route::get('repCitation', ['uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
-Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
-
-Route::get('repAuthorization', ['uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
-Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('notAutorized', 'ErrorsController@showNotAutorized');
@@ -59,7 +51,7 @@ Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
-|
+|is_adminTeacherAdminitrativePersonLevel1and2
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
 | kernel and includes session state, CSRF protection, and more.  
@@ -76,6 +68,28 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::post('register', 'Auth\AuthController@register');
 
+
+});
+
+Route::group(['middleware' => ['is_adminTeacherAdminitrativePersonLevel1']], function () 
+{
+   Route::get('students/create', 'StudentController@showCreateStudentWindow');
+   Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
+   Route::post('students', 'StudentController@store');
+
+});
+
+Route::group(['middleware' => ['is_adminTeacherAdminitrativePersonLevel1and2']], function () 
+{
+     //Reports Routes//
+    Route::get('repStudyConstancy', ['uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
+    Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
+
+    Route::get('repCitation', ['uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
+    Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
+
+    Route::get('repAuthorization', ['uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
+    Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
 });
 
 Route::group(['middleware' => 'web'], function () 

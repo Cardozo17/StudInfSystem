@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Middleware;
 use Illuminate\Contracts\Auth\Guard;
 use Closure;
 
-class IsAdmin
+
+class AdminTeacherAdminitrativePersonLevel1
 {
     protected $auth;
 
@@ -12,18 +12,17 @@ class IsAdmin
     {
         $this->auth = $auth;
     }
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+   
     public function handle($request, Closure $next)
     {
-        if ($this->auth->user()->type != 'admin') 
+        if ($this->auth->user()->type == 'admin' ||  $this->auth->user()->type == 'teacher' || $this->auth->user()->type == 'administrativePersonLevel1') 
         {
-            // $this->auth->logout();
+            return $next($request);
+           
+        }
+        else
+        {
+             // $this->auth->logout();
             
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
@@ -32,6 +31,6 @@ class IsAdmin
             }
         }
 
-        return $next($request);
+    
     }
 }
