@@ -68,34 +68,38 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::post('register', 'Auth\AuthController@register');
 
+//
+    Route::get('students/create', [
+        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
+        'uses' => 'StudentController@showCreateStudentWindow'
+    ]);
 
-});
+    Route::post('students', 'StudentController@store');
 
-Route::group(['middleware' => ['is_adminTeacherAdminitrativePersonLevel1']], function () 
-{
-   Route::get('students/create', 'StudentController@showCreateStudentWindow');
-   Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
-   Route::post('students', 'StudentController@store');
+    Route::get('showFindStudent', [
+        'middleware' => 'is_admin',
+        'StudentController@showFindOneStudentWindow'
+    ]);
 
-});
-
-Route::group(['middleware' => ['is_adminTeacherAdminitrativePersonLevel1and2']], function () 
-{
-     //Reports Routes//
-    Route::get('repStudyConstancy', ['uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
+    Route::get('repStudyConstancy', [
+        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+        'uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
     Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
 
-    Route::get('repCitation', ['uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
+    Route::get('repCitation', [
+        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+        'uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
     Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
 
-    Route::get('repAuthorization', ['uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
+    Route::get('repAuthorization', [
+        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+        'uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
     Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
+//
 });
 
 Route::group(['middleware' => 'web'], function () 
 {
-   /* Route::get('/home', 'HomeController@index');*/
-
 	// Authentication Routes...
     Route::get('login', 'Auth\AuthController@showLoginForm');
     Route::post('login', 'Auth\AuthController@login');

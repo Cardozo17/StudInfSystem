@@ -390,6 +390,5 @@
 		{!! Form::close() !!}
 
 	</div>
-
-	 <script src="/js/createStudent.js"></script> 
+	 <!-- <script src="/js/createStudent.js"></script>  -->
 @endsection
