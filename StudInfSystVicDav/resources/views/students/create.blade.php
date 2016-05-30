@@ -10,17 +10,25 @@
 
 		{!! Form::open(array('url' => 'students', 'files'=>true)) !!}
 
-
 		@foreach ($errors->all() as $error)
 	    	<p class="alert alert-danger">{{ $error }}</p>
 		@endforeach
 
-		@if (session('status'))
+		@if(session('status'))
 			<div class="alert alert-success">
 				{{ session('status') }}
 			</div>
 		@endif
 
+		<!-- Getting the oldInput if form fails to use it to repopulate the form -->
+		<?php
+			$oldInput= old();
+		?>
+
+		<script>
+			var oldInput = <?php echo json_encode($oldInput); ?>;
+		</script>
+		<!-- ////////////////////////////////////////////////////////////////// -->		
 
 	    <div class= "form-group">
 
@@ -29,15 +37,15 @@
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3">
-					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					<input type="text" class="form-control"  id="document_id" name="document_id"
-					 value="{{old('document_id')}}"  placeholder="Ingrese Cedula del Alumno" ng-model= "documentId">
-					  {!! var_dump(old())!!}
-					  {!! var_dump(old('document_id'))!!}
+					{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
+					<input type="text" class="form-control"  data-toggle="tooltip" title="Cédula: V00000000 &#013; Escolar: 116V00000000" id="document_id" name="document_id" tooltip=""
+					 value="{{old('document_id')}}"  placeholder="Ingrese Cédula del Alumno" ng-model= "documentId">
+					 <!-- {!! var_dump(old())!!}
+					 {!! var_dump(old('document_id'))!!} -->
 				</div>
 
 				<div class= "col-md-4 col-md-push-2">
-					{!! Form::label('studentPicture', 'Foto del Alumno: ') !!}
+					{!! Form::label('studentPicture', 'Fotografía: ') !!}
 					<input type="file" id="picture" name="picture" onchange="readURL(this);" 
 					 value="{{old('picture')}}" >
 	   				 <img  id="studentPicture" name="studentPicture" src="picture" alt="Foto del Alumno" />
@@ -49,12 +57,12 @@
 	    	<div class = "row">
 	    		<div class= "col-md-4">
 					{!! Form::label('name', 'Nombre: ') !!}
-					<input type="text" class="form-control"  id="name" name="name" placeholder="Nombre del Alumno" value="{{Request::old('name')}}" ng-model= "name">
+					<input type="text" data-toggle="tooltip" title="Nombre del Alumno"  class="form-control"  id="name" name="name" placeholder="Nombre del Alumno" value="{{Request::old('name')}}" ng-model= "name">
 				</div>
 
 				<div class= "col-md-4">
 					{!! Form::label('last_name', 'Apellido: ') !!}
-					<input type="text" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
+					<input type="text" data-toggle="tooltip" title="Apellido del Alumno" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
 				</div>
 				<br>
 				<br>
@@ -66,20 +74,14 @@
 
 			<br>
 			<div class = "row">
-	    		
-				<div class= "col-md-6">
-					{!! Form::label('email', 'Correo Electrónico: ') !!}
-					<input type="email" class="form-control"  id="email" name="email" placeholder="Email del Alumno" value="{{Request::old('email')}}" ng-model= "email">
+				<div class= "col-md-4">
+					{!! Form::label('height', 'Estatura (m): ') !!}
+					<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="height" name="height" placeholder="Altura del Alumno" value="{{Request::old('height')}}" ng-model= "height">
 				</div>
 
-				<div class= "col-md-3">
-					{!! Form::label('height', 'Altura: ') !!}
-					<input type="text" class="form-control"  id="height" name="height" placeholder="Altura del Alumno" value="{{Request::old('height')}}" ng-model= "height">
-				</div>
-
-				<div class= "col-md-3">
-					{!! Form::label('weight', 'Peso: ') !!}
-					<input type="text" class="form-control"  id="weight" name="weight" placeholder="Peso del Alumno" value="{{Request::old('weight')}}" ng-model= "weight">
+				<div class= "col-md-4">
+					{!! Form::label('weight', 'Peso (kg): ') !!}
+					<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="weight" name="weight" placeholder="Peso del Alumno" value="{{Request::old('weight')}}" ng-model= "weight">
 				</div>
 	    	</div>
 
@@ -87,12 +89,12 @@
 			<div class = "row">
 	    		<div class= "col-md-6">
 					{!! Form::label('born_place', 'Lugar de Nacimiento: ') !!}
-					<input type="text" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
+					<input type="text" data-toggle="tooltip" title="Lugar de Nacimiento del Alumno" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
 				</div>
 
 				<div class= "col-md-6">
 					{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
-					<input type="date" class="form-control"  id="born_date" name="born_date" placeholder="Fecha de Nacimiento del Alumno" value="{{Request::old('born_date')}}" ng-model= "bornDate">
+					<input type="text" data-toggle="tooltip" title="Formato: 1995-04-17" class="form-control"  id="born_date" name="born_date" placeholder="Fecha de Nacimiento del Alumno" value="{{Request::old('born_date')}}" ng-model= "bornDate">
 				</div>
 
 			</div>
@@ -108,12 +110,12 @@
 
 			<br>
 			<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
-	    	<h3>Información del Rep. Legal</h3>
+	    	<h3>Información del Representante Legal</h3>
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3">
 					{!! Form::label('repLegDocId', 'Cedula de Identidad: ') !!}
-					<input type="text" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cedula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
+					<input type="text" data-toggle="tooltip" title="Cédula: V00000000" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cédula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
 				</div>
 	    	</div>
 	    	<br>
@@ -140,7 +142,7 @@
 	    		
 				<div class= "col-md-6">
 					{!! Form::label('repLegEmail', 'Correo Electrónico: ') !!}
-					<input type="email" class="form-control"  id="repLegEmail" name="repLegEmail" placeholder="Email del Rep. Legal" value="{{Request::old('repLegEmail')}}" ng-model= "repLegEmail">
+					<input type="text" class="form-control"  id="repLegEmail" name="repLegEmail" placeholder="Email del Rep. Legal" value="{{Request::old('repLegEmail')}}" ng-model= "repLegEmail">
 
 				</div>
 	    	</div>
@@ -181,7 +183,7 @@
 			<br>
 			<div class = "row">
 				<div class= "col-md-12">
-						{!! Form::label('', 'Relación del Rep. Legal con el Alumno: (Sí es Padre o Madre la Información Sera Llenada Automaticamente Para Luego Ser Almacenada en La Base de Datos. Asegurese de Haber Llenado Todos los Datos del Rep. Legal Antes de Seleccionar Algún Item) ') !!}
+						{!! Form::label('', 'Relación del Rep. Legal con el Alumno: (Sí es Padre o Madre la información sera llenada automáticamente para luego ser almacenada en el registro. Asegurese de haber llenado todos los datos del Rep. Legal antes de seleccionar algúna de las opciones) ') !!}
 				</div>
 				<!-- OJOOO SI ES PADRE O MADRE TENEMOS QUE VER QUIE EN EL CONTROLADOR STORE GUARDE A LA PERSON UNA SOLA VEZ Y LA USE TANTO PARA REP LEG COMO PARA PADRE O MADRE -->
 			</div>
@@ -212,6 +214,13 @@
 						  ng-model= "selectedRelationshipWithStudent" 
 						  ng-readonly= 'relationshipWithStudent==null||relationshipWithStudent=="isDad"||relationshipWithStudent=="isMom"' >
 				</div>
+			</div>
+			<div class = "row">
+				<div class= "col-md-6">
+				{!! Form::label('authorizedBy', 'Autorizado Por: ') !!}
+					<input type="text" class="form-control"  id="authorizedBy" name="authorizedBy" placeholder="¿Quien Autoriza a Ser Representante Legal del Alumno?" value="{{Request::old('authorizedBy')}}" ng-model= "authorizedBy">
+				</div>	
+
 			</div>
 
 			<br>
@@ -390,5 +399,6 @@
 		{!! Form::close() !!}
 
 	</div>
-	 <!-- <script src="/js/createStudent.js"></script>  -->
+	
+	<script src="/js/createStudent.js"></script>  
 @endsection

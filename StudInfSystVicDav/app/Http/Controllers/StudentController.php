@@ -71,22 +71,24 @@ class StudentController extends Controller
      public function store (Request $request) //StudentFormRequest $request
     {
 
-      $messages = [
-      'last_name.required' => 'El campo apellido es obligatorio.',
-      ]; 
-
       $validator = Validator::make(
         $request->all(),
         [
-        'document_id'=> array('required'/*, 'regex:#^[[V|E|v|e]\d\d\d\d\d\d\d\d]{0,9}#'*/),
+        'document_id'=> array('required', 'regex: /^[[V|E|J|G]\d\d\d\d\d\d\d\d?]{0,9}$|^\d\d\d[[V|E|J|G]\d\d\d\d\d\d\d\d]{0,9}$/', 'max:45'),
         'name'=> 'required|min:3|max:45',
         'last_name'=>'required|min:3|max:45',
-        'email' =>'email|max:45', 
         'home_address'=> 'required|max:140',
         'born_place'=>'max:45|required',
         'relationship_with_legal_representative'=>'max:45',
-        'born_date'=>'date_format:Y-m-d|required'
-        ], $messages);
+        'born_date'=>'date_format:Y-m-d|required',
+        'born_place'=>'required|max:45',
+        'height'=> 'numeric',
+        'weight'=>'numeric',
+        'repLegDocId' => array('required', 'regex: /^[[V|E|J|G]\d\d\d\d\d\d\d\d?]{0,9}$/', 'max:45'),
+        'repLegName'=> 'required|min:3|max:45',
+        'repLegLastName'=> 'required|min:3|max:45',
+        'repLegEmail' => 'email|max:45',
+        ]);
 
       if ($validator->fails()) 
       {
@@ -98,7 +100,7 @@ class StudentController extends Controller
 
     	//registering the student in the table person
       $personStudentInfo= new Person (['document_id'=> $input['document_id'], 'name'=> $input['name'], 
-        'last_name'=> $input['last_name'], 'home_address'=> $input['home_address'], 'gender'=> $input['gender'], 'email'=> $input['email']]);
+        'last_name'=> $input['last_name'], 'home_address'=> $input['home_address'], 'gender'=> $input['gender']]);
 
       $personStudentInfo->save();
 
@@ -139,10 +141,10 @@ class StudentController extends Controller
         $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
          'height'=>$input['height'], 'weight'=>$input['weight'], 
          'born_place'=>$input['born_place'],'born_date'=>$input['born_date'], 'status'=>1, 
-         'relationship_with_legal_representative'=>$input['selecRelationshipWithStudent']]);
+         'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent']]);
         $student->save();							 
 
-        return redirect('students');
+        return redirect('students/create')->with('status','Estudiante Inscrito Satisfactoriamente');
 
     }
 
