@@ -34,7 +34,8 @@ class Student extends Model
      'teacher_id',
      'relationship_with_legal_representative',
      'parent_id',
-     'legal_representative_id'
+     'legal_representative_id',
+     'grade_to_be_register'
      
      ];
 

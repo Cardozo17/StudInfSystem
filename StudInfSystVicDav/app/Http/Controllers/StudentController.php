@@ -141,7 +141,7 @@ class StudentController extends Controller
         $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
          'height'=>$input['height'], 'weight'=>$input['weight'], 
          'born_place'=>$input['born_place'],'born_date'=>$input['born_date'], 'status'=>1, 
-         'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent']]);
+         'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent'], 'grade_to_be_register'=>$input['grade_to_be_register']]);
         $student->save();							 
 
         return redirect('students/create')->with('status','Estudiante Inscrito Satisfactoriamente');

@@ -38,17 +38,15 @@
 	    	<div class = "row">
 	    		<div class= "col-md-3">
 					{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
-					<input type="text" class="form-control"  data-toggle="tooltip" title="Cédula: V00000000 &#013; Escolar: 116V00000000" id="document_id" name="document_id" tooltip=""
+					<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 &#013; Escolar: 116V00000000" id="document_id" name="document_id" tooltip=""
 					 value="{{old('document_id')}}"  placeholder="Ingrese Cédula del Alumno" ng-model= "documentId">
-					 <!-- {!! var_dump(old())!!}
-					 {!! var_dump(old('document_id'))!!} -->
+					 {!! var_dump(old())!!}
 				</div>
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
-					<input type="file" id="picture" name="picture" onchange="readURL(this);" 
-					 value="{{old('picture')}}" >
-	   				 <img  id="studentPicture" name="studentPicture" src="picture" alt="Foto del Alumno" />
+					<input type="file" id="picture" name="picture" ng-model="picture"  onchange="readURL(this);">
+	   				 <img  id="studentPicture" name="studentPicture" ng-model="studentPicture" src="picture" alt="Foto del Alumno" />
 	   			</div>	 
 
 	    	</div>
@@ -109,6 +107,15 @@
 			</div>
 
 			<br>
+			<div class = "row">
+					<div class = "col-md-6">
+						{!! Form::label('grade_to_be_register', 'Grado Donde se Inscribe el Alumno: ') !!}
+						{!!Form::select('grade_to_be_register', array('1°' => '1°', '2°' => '2°', '3°' => '3°', '4°' => '4°', '5°' => '5°', '6°' => '6°')) !!}
+					</div>
+			</div>
+
+
+			<br>
 			<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 	    	<h3>Información del Representante Legal</h3>
 	    	<br>
@@ -117,6 +124,11 @@
 					{!! Form::label('repLegDocId', 'Cedula de Identidad: ') !!}
 					<input type="text" data-toggle="tooltip" title="Cédula: V00000000" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cédula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
 				</div>
+				<div class= "col-md-4 col-md-push-2">
+					{!! Form::label('studentPicture', 'Fotografía: ') !!}
+					<input type="file" id="repLegPicture" name="repLegPicture" ng-model="repLegPicture" onchange="readURL(this);">
+	   				 <img  id="repPicture" name="repPicture" ng-model="repPicture" src="repPicture" alt="Foto del Rep. Legal" />
+	   			</div>	 
 	    	</div>
 	    	<br>
 	    	<div class = "row">

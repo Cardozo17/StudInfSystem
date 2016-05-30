@@ -30,6 +30,7 @@ angular.module('SIEApp', ['ngRoute'])
 
     //Form Old Input To Use if Validation Fails:
     $scope.documentId= oldInput.document_id;
+    $scope.picture= oldInput.picture;
     $scope.name= oldInput.name;
     $scope.lastName= oldInput.last_name;
     $scope.gender= oldInput.gender;
@@ -54,11 +55,8 @@ angular.module('SIEApp', ['ngRoute'])
     $scope.informationFromMother= oldInput.infMother=="true"? true: false;
     $scope.informationFromFather= oldInput.infFather=="true"? true: false;
 
-
-
     $scope.relationshipWithStudentChange= function(){
 
-      console.log("Prueba"); 
       console.log($scope.relationshipWithStudent);
 
       if($scope.relationshipWithStudent== "isDad")

@@ -5,7 +5,6 @@ angular.module('SIEApp', ['ngRoute'])
 			$scope.table= {};
 			$scope.selectedRow= null;
 
-			console.log("Angular funciona WIII");
 
 			$http({
 				method : 'GET',
@@ -13,11 +12,9 @@ angular.module('SIEApp', ['ngRoute'])
 				
 			}).success(function(data){
 
-				console.log("Get Done");
-				console.log(data);
 				$scope.students= data;
+				console.log($scope.students)
 
-				console.log($scope.students[0].person.name)
 				//Initializing Table to show all inventoryMasters 
 				// Data Grid(DataTables)  Settings 
 				$(document).ready( function () 
@@ -34,19 +31,21 @@ angular.module('SIEApp', ['ngRoute'])
 			    			  { data: 'person.document_id' },	
 			    	          { data: 'person.name' },
 			    	          { data: 'person.last_name' },
-			    	          {data: 'brothers', "defaultContent": ""},
-			    	          {data: 'brothers', "defaultContent": ""},
-			    	          {data: 'legal_representative.person.name'},
-			    	          {data: 'legal_representative.person.last_name'},
-			    	          {data: 'parent.person.name', "defaultContent": ""},
-			    	          {data: 'parent.person.last_name', "defaultContent": ""},
-			    	          {data: 'teacher.person.name', "defaultContent": ""},
+			    	          { data: 'grade_to_be_register'},
+			    	          { data: 'brothers', "defaultContent": ""},
+			    	          { data: 'brothers', "defaultContent": ""},
+			    	          { data: 'legal_representative.person.name'},
+			    	          { data: 'legal_representative.person.last_name'},
+			    	          { data: 'parent.person.name', "defaultContent": ""},
+			    	          { data: 'parent.person.last_name', "defaultContent": ""},
+			    	          { data: 'teacher.person.name', "defaultContent": ""},
 			    	      ],
 					"columnDefs": [	 
 						      {"width": "10%", "targets": 0},
 						      {"width": "10%", "targets": 1},
 						      {"width": "10%", "targets": 2},
-						      {"width": "20%", "targets": 3, 
+						      {"width": "10%", "targets": 3, "className": "text-center" },
+						      {"width": "20%", "targets": 4, 
 						      	"render": function ( data, type, row ) {
 
 						      				console.log(data);
@@ -67,14 +66,14 @@ angular.module('SIEApp', ['ngRoute'])
                 				}
 
 						  	  },
-						      {"width": "0%", "targets": 4, "visible": false},
-						      {"width": "20%", "targets": 5, 
+						      {"width": "0%", "targets": 6, "visible": false},
+						      {"width": "20%", "targets": 7, 
 						      		"render": function ( data, type, row ) {
                    							 return data +' '+ row.legal_representative.person.last_name;
                 							}
                 			  },
-						      {"width": "0%", "targets": 6, "visible": false},
-						      {"width": "20%", "targets": 7,
+						      {"width": "0%", "targets": 7, "visible": false},
+						      {"width": "20%", "targets": 8,
 						      		"render": function ( data, type, row ) {
 
 						      				if(row.parent!=null)
@@ -83,8 +82,8 @@ angular.module('SIEApp', ['ngRoute'])
                    							}	
                 						}
                 			  },
-						      {"width": "0%", "targets": 8, "visible": false},
-						      {"width": "10%", "targets": 9},
+						      {"width": "0%", "targets": 9, "visible": false},
+						      {"width": "10%", "targets": 10},
 						     ],     
 			    	language:      {                      //Translating DataTable to Spanish Language
 			    	    	    "sProcessing":     "Procesando...",

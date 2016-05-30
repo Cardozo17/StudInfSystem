@@ -18,6 +18,7 @@
 									<th>Cedula </th>
 									<th>Nombre </th>
 									<th>Apellido</th>
+									<th>Grado</th>
 									<th>Hermanos en la Institución</th>
 									<th>Hermanos en la Institución Apellido</th>
 									<th> Representante Legal</th>
