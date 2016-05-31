@@ -124,17 +124,27 @@ class StudentController extends Controller
         $repLegPhones->save();
 
     	//registering the legal representative in the table person
-        $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
-          'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
-          'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
-          'home_address'=> $input['repLegHomeAddress']]);
-        $repLegPerson->save();
+
+      //registering the student picture in person table
+      if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
+      {
+          $destinationPath = 'uploads'; // upload path
+          $extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+          $fileName = $request->file('repLegPicture')->getCLientOriginalName().'.'.$extension; // renameing image
+          $repLegPerson->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
+      } 
+
+      $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
+        'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
+        'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
+        'home_address'=> $input['repLegHomeAddress']]);
+      $repLegPerson->save();
 
 
     	//after having registered the legal representative in the table person now we can register the legal representative in its table
-        $repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
-          'work_address'=> $input['repLegWorkAddress']]);
-        $repLeg->save();
+      $repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
+        'work_address'=> $input['repLegWorkAddress']]);
+      $repLeg->save();
 
 
     	//now that I have the student person Id and the legal representative Id I can register the student

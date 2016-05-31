@@ -58,7 +58,17 @@
                              
                                 <tr>
                                     <td>
-                                        <a href="/students/create">Inscribir Alumno</a>
+                                        <a href="/students/create">Inscribir Alumno Nuevo Ingreso</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="">Inscribir Alumno Regular</a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <a href="">Inscribir Alumno Inscripción Tardía</a>
                                     </td>
                                 </tr>
                                  <tr>
@@ -74,6 +84,11 @@
                                 <tr>
                                     <td>
                                         <a href="/students">Ver Lista de Alumnos</a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <a href="">Retirar Alumno</a>
                                     </td>
                                 </tr>
                              

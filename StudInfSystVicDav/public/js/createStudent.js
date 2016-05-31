@@ -27,7 +27,6 @@ angular.module('SIEApp', ['ngRoute'])
   {
 
     console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
-
     //Form Old Input To Use if Validation Fails:
     $scope.documentId= oldInput.document_id;
     $scope.picture= oldInput.picture;
@@ -55,6 +54,34 @@ angular.module('SIEApp', ['ngRoute'])
     $scope.informationFromMother= oldInput.infMother=="true"? true: false;
     $scope.informationFromFather= oldInput.infFather=="true"? true: false;
 
+    $scope.clearFatherInformation = function()
+    {
+          $scope.fatherDocId= "";
+          $scope.fatherName=  "";
+          $scope.fatherLastName= "";
+          $scope.fatherEmail= "";
+          $scope.fatherHomeAddress= "";
+          $scope.fatherWorkAddress= "";
+          $scope.fatherHomePhone= "";
+          $scope.fatherWorkPhone= "";
+          $scope.fatherMobilePhone= "";
+    }
+
+     $scope.clearMotherInformation = function()
+    {
+          $scope.motherDocId= "";
+          $scope.motherName=  "";
+          $scope.motherLastName= "";
+          $scope.motherEmail= "";
+          $scope.motherHomeAddress= "";
+          $scope.motherWorkAddress= "";
+          $scope.motherHomePhone= "";
+          $scope.motherWorkPhone= "";
+          $scope.motherMobilePhone= "";
+
+
+    }
+
     $scope.relationshipWithStudentChange= function(){
 
       console.log($scope.relationshipWithStudent);
@@ -64,7 +91,19 @@ angular.module('SIEApp', ['ngRoute'])
         $scope.selectedRelationshipWithStudent= "PADRE";
         $scope.informationFromFather=true;
         $scope.informationFromMother= false;
+        $scope.clearMotherInformation();
+
         //Aqui va que se llene la información de padre con la de repLeg y se active lo de padre
+        $scope.fatherDocId= $scope.repLegDocId;
+        $scope.fatherName=  $scope.repLegName;
+        $scope.fatherLastName= $scope.repLegLastName;
+        $scope.fatherEmail= $scope.repLegEmail;
+        $scope.fatherHomeAddress= $scope.repLegHomeAddress;
+        $scope.fatherWorkAddress= $scope.repLegWorkAddress;
+        $scope.fatherHomePhone= $scope.repLegHomePhone;
+        $scope.fatherWorkPhone= $scope.repLegWorkPhone;
+        $scope.fatherMobilePhone= $scope.repLegMobilePhone;
+
       } 
       else
         if($scope.relationshipWithStudent=="isMom")
@@ -72,11 +111,27 @@ angular.module('SIEApp', ['ngRoute'])
           $scope.selectedRelationshipWithStudent= "MADRE";
           $scope.informationFromMother=true;
           $scope.informationFromFather=false;
+           $scope.clearFatherInformation();
+
           //Aqui va que se llene la información de padre con la de repLeg y se active lo de padre
+          $scope.motherDocId= $scope.repLegDocId;
+          $scope.motherName=  $scope.repLegName;
+          $scope.motherLastName= $scope.repLegLastName;
+          $scope.motherEmail= $scope.repLegEmail;
+          $scope.motherHomeAddress= $scope.repLegHomeAddress;
+          $scope.motherWorkAddress= $scope.repLegWorkAddress;
+          $scope.motherHomePhone= $scope.repLegHomePhone;
+          $scope.motherWorkPhone= $scope.repLegWorkPhone;
+          $scope.motherMobilePhone= $scope.repLegMobilePhone;
+
          }
         else
           if($scope.relationshipWithStudent== "isOther")
+          { 
             $scope.selectedRelationshipWithStudent= "";
+            $scope.informationFromFather=false;
+            $scope.informationFromMother= false;
+          } 
     }
 
   });
