@@ -33,11 +33,9 @@ Route::get('/home', function ()
 
 Route::get('about', 'HomeController@showAboutUsWindow');
 Route::get('contact', 'HomeController@showContactWindow');
-
-
 Route::get('students/list', 'StudentController@listStudents');
 Route::get('students','StudentController@index');		
-Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
+/*Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');*/ //OJOOOOO JESUS
 Route::post('studentsById','StudentController@findOneById');
 
 
@@ -68,7 +66,7 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::post('register', 'Auth\AuthController@register');
 
-//
+    //
     Route::get('students/create', [
         'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
         'uses' => 'StudentController@showCreateStudentWindow'
@@ -76,10 +74,10 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::post('students', 'StudentController@store');
 
-    Route::get('showFindStudent', [
+   /* Route::get('showFindStudent', [   //OJOOOOO JESUS
         'middleware' => 'is_admin',
         'StudentController@showFindOneStudentWindow'
-    ]);
+    ]);*/
 
     Route::get('repStudyConstancy', [
         'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
