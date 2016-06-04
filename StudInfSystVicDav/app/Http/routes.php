@@ -31,12 +31,6 @@ Route::get('/home', function ()
         return view('welcome');
 });
 
-Route::get('about', 'HomeController@showAboutUsWindow');
-Route::get('contact', 'HomeController@showContactWindow');
-Route::get('students/list', 'StudentController@listStudents');
-Route::get('students','StudentController@index');		
-/*Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');*/ //OJOOOOO JESUS
-Route::post('studentsById','StudentController@findOneById');
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +51,14 @@ Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 Route::group(['middleware' => ['auth']], function () 
 {
+    Route::get('about', 'HomeController@showAboutUsWindow');
+    Route::get('contact', 'HomeController@showContactWindow');
+    //Route::get('students/list', 'StudentController@listStudents');
+    Route::get('students','StudentController@index');
+    Route::post('students', 'StudentController@store');       
+    Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
+    Route::post('studentsById','StudentController@findOneById');
+
     //
     // Registration Routes...
 	Route::get('register', [
@@ -72,12 +74,6 @@ Route::group(['middleware' => ['auth']], function ()
         'uses' => 'StudentController@showCreateStudentWindow'
     ]);
 
-    Route::post('students', 'StudentController@store');
-
-   /* Route::get('showFindStudent', [   //OJOOOOO JESUS
-        'middleware' => 'is_admin',
-        'StudentController@showFindOneStudentWindow'
-    ]);*/
 
     Route::get('repStudyConstancy', [
         'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
