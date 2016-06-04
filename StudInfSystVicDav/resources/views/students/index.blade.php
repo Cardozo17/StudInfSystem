@@ -7,7 +7,7 @@
 	<div ng-controller="showStudentsController">
 		<div class="container-fluid" >
 			<div class= "col-md-12">
-				<h2>Alumnos Registrados</h2>
+				<h2>Alumnos Inscritos en la Escuela</h2>
 
 				<br>	
 				<div class="row">
@@ -15,14 +15,15 @@
 						<table ng-model= "table_id" id="table_id" class="table table-striped table-bordered"  cellspacing="0" width="100%">
 							<thead>
 								<tr>
-									<th>Cedula </th>
-									<th>Nombre </th>
+									<th>Cédula</th>
+									<th>Alumno</th>
 									<th>Apellido</th>
 									<th>Grado</th>
 									<th>Hermanos en la Institución</th>
 									<th>Hermanos en la Institución Apellido</th>
 									<th> Representante Legal</th>
 									<th> Representante Legal Apellido</th>
+									<th> Cédula del Rep. Legal</th>
 									<th>Padre o Madre</th>
 									<th>Padre o Madre Apellido</th>
 									<th> Profesor </th> 
