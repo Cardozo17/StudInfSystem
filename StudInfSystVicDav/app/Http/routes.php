@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function ()
 {
     Route::get('about', 'HomeController@showAboutUsWindow');
     Route::get('contact', 'HomeController@showContactWindow');
-    //Route::get('students/list', 'StudentController@listStudents');
+    Route::get('students/list', 'StudentController@listStudents');
     Route::get('students','StudentController@index');
     Route::post('students', 'StudentController@store');       
     Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
