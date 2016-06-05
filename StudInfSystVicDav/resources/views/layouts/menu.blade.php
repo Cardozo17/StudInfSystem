@@ -1,6 +1,4 @@
 <style>
-
-
 </style>
 <div class="container">
     <div class="row">
@@ -44,7 +42,8 @@
                         </div>
                     </div>
                 </div>
-                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
+                || Auth::user()->hasRole('administrativePersonLevel2'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -55,7 +54,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
-                             
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                 <tr>
                                     <td>
                                         <a href="/students/create">Inscribir Alumno Nuevo Ingreso</a>
@@ -71,16 +70,23 @@
                                         <a href="">Inscribir Alumno Inscripción Tardía</a>
                                     </td>
                                 </tr>
+                                 @endif 
+                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
+                                 || Auth::user()->hasRole('administrativePersonLevel2'))
                                  <tr>
                                     <td>
                                         <a href="/showFindStudent">Consultar Alumno</a>
                                     </td>
                                 </tr>
+                                @endif 
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
                                     <td>
                                         <a href="/students/{id}/edit">Editar Alumno</a>
                                     </td>
                                 </tr>
+                                @endif
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')) 
                                 <tr>
                                     <td>
                                         <a href="/students">Ver Lista de Alumnos</a>
@@ -91,7 +97,7 @@
                                         <a href="">Retirar Alumno</a>
                                     </td>
                                 </tr>
-                             
+                                @endif
                             </table>
                         </div>
                     </div>
@@ -109,11 +115,14 @@
                     <div id="collapseFour" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')
+                                || Auth::user()->hasRole('administrativePersonLevel2'))
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-file"></span><a href="/repStudyConstancy">Constancia de Estudio</a>
                                     </td>
                                 </tr>
+                                @endif
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-thumbs-down"></span><a href="/repCitation">Citación</a>
@@ -129,8 +138,8 @@
                         </div>
                     </div>
                 </div>
-                 @endif 
-                 @if(Auth::user()->hasRole('admin'))
+                @endif
+                @if(Auth::user()->hasRole('admin'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -148,7 +157,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="">Editar Usuario</a> 
+                                        <a href="/edit">Editar Usuario</a> 
                                     </td>
                                 </tr>
                                 <tr>
@@ -161,6 +170,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')) 
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">

@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 use Illuminate\Contracts\Auth\Guard;
 use Closure;
 
-
-class AdminTeacherAdminitrativePersonLevel1
+class AdminAdministrativePersonLevel1
 {
-    protected $auth;
+     protected $auth;
 
     public function __construct(Guard $auth)
     {
@@ -16,7 +15,7 @@ class AdminTeacherAdminitrativePersonLevel1
    
     public function handle($request, Closure $next)
     {
-        if ($this->auth->user()->type == 'admin' ||  $this->auth->user()->type == 'teacher' || $this->auth->user()->type == 'administrativePersonLevel1') 
+        if ($this->auth->user()->type == 'admin' || $this->auth->user()->type == 'administrativePersonLevel1') 
         {
             return $next($request);
            
@@ -34,4 +33,3 @@ class AdminTeacherAdminitrativePersonLevel1
 
     
     }
-}

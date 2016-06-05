@@ -31,15 +31,9 @@ Route::get('/home', function ()
         return view('welcome');
 });
 
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
-
 /*
-
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
@@ -51,45 +45,60 @@ Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 Route::group(['middleware' => ['auth']], function () 
 {
-    Route::get('about', 'HomeController@showAboutUsWindow');
-    Route::get('contact', 'HomeController@showContactWindow');
+    /**********************************************************/
+        Route::get('about', 'HomeController@showAboutUsWindow');
+        Route::get('contact', 'HomeController@showContactWindow');
+    /**********************************************************/
+
+    /**********************************************************/
+        Route::get('students/create', [
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
+            'uses' => 'StudentController@showCreateStudentWindow'
+        ]);
+
+        Route::get('showFindStudent', [
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+            'uses' => 'StudentController@showFindOneStudentWindow'
+        ]);
+
+        Route::get('students','StudentController@index');
+        Route::post('students', 'StudentController@store');
+    /**********************************************************/
+
+    /**********************************************************/
+        Route::get('repStudyConstancy', [
+            'middleware' => 'is_adminAdministrativePersonLevel1and2',
+            'uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
+        Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
+
+        Route::get('repCitation', [
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+            'uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
+        Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
+
+        Route::get('repAuthorization', [
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+            'uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
+        Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
+    /**********************************************************/
+
+    /**********************************************************/
+        Route::get('register', [
+            'middleware' => 'is_admin',
+            'uses' => 'Auth\AuthController@showRegistrationForm'
+        ]);
+
+        Route::post('register', 'Auth\AuthController@register');
+
+        Route::get('edit', [
+            'middleware' => 'is_admin',
+            'uses' => 'Auth\AuthController@editingUser'
+        ]);
+    /**********************************************************/
+
     Route::get('students/list', 'StudentController@listStudents');
-    Route::get('students','StudentController@index');
-    Route::post('students', 'StudentController@store');       
-    Route::get('showFindStudent', 'StudentController@showFindOneStudentWindow');
     Route::post('studentsById','StudentController@findOneById');
 
-    //
-    // Registration Routes...
-	Route::get('register', [
-	    'middleware' => 'is_admin',
-	    'uses' => 'Auth\AuthController@showRegistrationForm'
-	]);
-
-    Route::post('register', 'Auth\AuthController@register');
-
-    //
-    Route::get('students/create', [
-        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
-        'uses' => 'StudentController@showCreateStudentWindow'
-    ]);
-
-
-    Route::get('repStudyConstancy', [
-        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
-        'uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
-    Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
-
-    Route::get('repCitation', [
-        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
-        'uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
-    Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
-
-    Route::get('repAuthorization', [
-        'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
-        'uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
-    Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
-//
 });
 
 Route::group(['middleware' => 'web'], function () 

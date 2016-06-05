@@ -54,6 +54,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'type' => 'required',
         ]);
     }
 
@@ -83,7 +84,13 @@ class AuthController extends Controller
       //  Auth::guard($this->getGuard())->login($this->create($request->all()));
         $this->create($request->all());
        
-        return redirect($this->redirectPath())->with('message', 'success|Record updated.');;
+        return redirect('register')->with('message', 'success|Record updated.');;
+    }
+
+
+    public function editingUser()
+    {
+        return view('auth.edit');
     }
 
 }

@@ -59,5 +59,7 @@ class Kernel extends HttpKernel
         'is_admin' => \App\Http\Middleware\IsAdmin::class,
         'is_adminTeacherAdminitrativePersonLevel1' => \App\Http\Middleware\AdminTeacherAdminitrativePersonLevel1::class,
         'is_adminTeacherAdminitrativePersonLevel1and2' => \App\Http\Middleware\AdminTeacherAdminitrativePersonLevel1and2::class,
+        'is_adminAdministrativePersonLevel1' => \App\Http\Middleware\AdminAdministrativePersonLevel1::class,
+        'is_adminAdministrativePersonLevel1and2' => \App\Http\Middleware\AdminAdministrativePersonLevel1and2::class
     ];
 }
