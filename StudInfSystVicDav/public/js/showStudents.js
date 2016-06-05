@@ -5,7 +5,6 @@ angular.module('SIEApp', ['ngRoute'])
 			$scope.table= {};
 			$scope.selectedRow= null;
 
-
 			$http({
 				method : 'GET',
 				url: 'students/list',
@@ -23,12 +22,9 @@ angular.module('SIEApp', ['ngRoute'])
 				    	
 			    	data: $scope.students,
 			    	"dom": 'Zlfrtip',  //Columns Resizable
-			    	"colResize": {
-			            "tableWidthFixed": false,
-			        },
 			        colReorder: true,
 			    	columns: [
-			    			  { data: 'person.document_id' },	
+			    			  { data: 'person.document_id'},	
 			    	          { data: 'person.name' },
 			    	          { data: 'person.last_name' },
 			    	          { data: 'grade_to_be_register'},
@@ -36,20 +32,28 @@ angular.module('SIEApp', ['ngRoute'])
 			    	          { data: 'brothers', "defaultContent": ""},
 			    	          { data: 'legal_representative.person.name'},
 			    	          { data: 'legal_representative.person.last_name'},
+			    	          { data: 'legal_representative.person.document_id'},
 			    	          { data: 'parent.person.name', "defaultContent": ""},
 			    	          { data: 'parent.person.last_name', "defaultContent": ""},
 			    	          { data: 'teacher.person.name', "defaultContent": ""},
 			    	      ],
 					"columnDefs": [	 
-						      {"width": "10%", "targets": 0},
-						      {"width": "10%", "targets": 1},
-						      {"width": "10%", "targets": 2},
-						      {"width": "10%", "targets": 3, "className": "text-center" },
-						      {"width": "20%", "targets": 4, 
+						      { "width": "20%", "targets": 0},
+						      { "width": "20%", "targets": 1,
+						      	"render": function ( data, type, row ) 
+						      	{
+						      				if(row.person!=null)
+						      				{	
+                   							 	return data +' '+ row.person.last_name;
+                   							}	
+                				}
+						  	  },
+						      { "width": "0%", "targets": 2, "visible": false},
+						      { "width": "20%", "targets": 3, "className": "text-center" },
+						      { "width": "20%", "targets": 4, 
 						      	"render": function ( data, type, row ) {
 
-						      				console.log(data);
-						      				console.log(data.length);
+						      				//console.log(data)
 						      				if(data.length>0)
 						      				{	
 						      					var aux= "";
@@ -58,22 +62,23 @@ angular.module('SIEApp', ['ngRoute'])
 							      					if(data[i].person!= null)	
 	                   							 		aux+= data[i].person.name +' '+ data[i].person.last_name + '<br>';
 	                   							}
-
                    							}
 
-                   							data= aux	
+                   							data= aux;	
                    							return data ;	
                 				}
 
 						  	  },
-						      {"width": "0%", "targets": 6, "visible": false},
-						      {"width": "20%", "targets": 7, 
+						      { "width": "0%", "targets": 5, "visible": false},
+						      { "width": "20%", "targets": 6, 
 						      		"render": function ( data, type, row ) {
+
                    							 return data +' '+ row.legal_representative.person.last_name;
                 							}
                 			  },
-						      {"width": "0%", "targets": 7, "visible": false},
-						      {"width": "20%", "targets": 8,
+                			  { "width": "0%","targets": 7, "visible": false},
+						      { "width": "20%", "targets": 8},
+						      { "width": "20%", "targets": 9,
 						      		"render": function ( data, type, row ) {
 
 						      				if(row.parent!=null)
@@ -82,8 +87,8 @@ angular.module('SIEApp', ['ngRoute'])
                    							}	
                 						}
                 			  },
-						      {"width": "0%", "targets": 9, "visible": false},
-						      {"width": "10%", "targets": 10},
+						      { "width": "0%", "targets": 10, "visible": false},
+						      { "width": "20%", "targets": 11},
 						     ],     
 			    	language:      {                      //Translating DataTable to Spanish Language
 			    	    	    "sProcessing":     "Procesando...",
@@ -108,14 +113,12 @@ angular.module('SIEApp', ['ngRoute'])
 			    	    	        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 			    	    	        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			    	    	    }
-			    	    	},      
-			    	//responsive: true,
-			    	//fixedColums: true, 	    	
+			    	    	},       	    	
 			    	paging: true,
 			    	scrollY: 300,
 			    	scrollX: 500,
 			    	scrollCollapse: true,
-			    	select:							//Setting you can select only one row at the time option
+			    	select:							//Setting you can select only one row at the time option(Need to download something)
 			    		{
 			    			style: 'single'
 			    		} 
@@ -130,10 +133,9 @@ angular.module('SIEApp', ['ngRoute'])
 		        	 console.log(JSON.stringify( $scope.selectedRow ));
 		        	 console.log($scope.selectedRow);
 
-		        } )
+		        })
 			        
 				}); 
-
 
 			}).error(function(){
 
