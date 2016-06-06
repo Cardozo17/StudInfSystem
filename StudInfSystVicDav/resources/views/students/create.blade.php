@@ -10,10 +10,9 @@
 
 		{!! Form::open(array('url' => 'students', 'files'=>true)) !!}
 
-		@foreach ($errors->all() as $error)
+<!-- 		@foreach ($errors->all() as $error)
 	    	<p class="alert alert-danger">{{ $error }}</p>
-		@endforeach
-
+		@endforeach -->
 		@if(session('status'))
 			<div class="alert alert-success">
 				{{ session('status') }}
@@ -36,8 +35,8 @@
 			<h3>Información del Alumno</h3>    
 			<br>
 	    	<div class = "row">
-	    		<div class="form-group{{ $errors->has('document_id') ? ' has-error' : '' }}">
-	    			<div class= "col-md-4">
+	    		<div class= "col-md-4">
+	    			<div class="form-group{{ $errors->has('document_id') ? ' has-error' : '' }}">
 	    				{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
 	    				<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 ó &#013; Escolar: 116V00000000" id="document_id" name="document_id"
 	    				value="{{old('document_id')}}"  placeholder="Cédula del Alumno" ng-model= "documentId">
@@ -56,22 +55,38 @@
 					<input type="file" id="picture" name="picture" ng-model="picture"  onchange="readURLStudent(this);">
 	   				 <img  id="studentPicture" name="studentPicture" ng-model="studentPicture" src="picture" alt="Foto del Alumno" />
 	   			</div>	 
-
 	    	</div>
 
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-4">
-					{!! Form::label('name', 'Nombre: ') !!}
-					<input type="text" data-toggle="tooltip" title="Nombre del Alumno"  class="form-control"  id="name" name="name" placeholder="Nombre del Alumno" value="{{Request::old('name')}}" ng-model= "name">
-				</div>
+	    			<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+	    				{!! Form::label('name', 'Nombre: ') !!}
+	    				<input type="text" data-toggle="tooltip" title="Nombre del Alumno"  class="form-control"  id="name" name="name" placeholder="Nombre del Alumno" value="{{Request::old('name')}}" ng-model= "name">
 
-				<div class= "col-md-4">
-					{!! Form::label('last_name', 'Apellido: ') !!}
-					<input type="text" data-toggle="tooltip" title="Apellido del Alumno" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
-				</div>
-				<br>
-				<br>
+	    				@if ($errors->has('name'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('name') }}</strong>
+	    				</span>
+	    				@endif 
+	    			</div>
+	    		</div>	 
+
+	    		
+	    		<div class= "col-md-4">
+	    			<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">	
+	    				{!! Form::label('last_name', 'Apellido: ') !!}
+	    				<input type="text" data-toggle="tooltip" title="Apellido del Alumno" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
+
+	    				@if ($errors->has('last_name'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('last_name') }}</strong>
+	    				</span>
+	    				@endif
+	    			</div>
+	    		</div>	
+
+	    		<br>
 				<div class = "col-md-4">
 					{!! Form::label('gender', 'Genero: ') !!}
 					{!!Form::select('gender', array('MALE' => 'Masculino', 'FEMALE' => 'Femenino')) !!}
@@ -80,23 +95,49 @@
 
 			<br>
 			<div class = "row">
-	    		<div class= "col-md-6">
-					{!! Form::label('born_place', 'Lugar de Nacimiento: ') !!}
-					<input type="text" data-toggle="tooltip" title="Lugar de Nacimiento del Alumno" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
+				<div class= "col-md-6">
+					<div class="form-group{{ $errors->has('born_place') ? ' has-error' : '' }}">
+						{!! Form::label('born_place', 'Lugar de Nacimiento: ') !!}
+						<input type="text" data-toggle="tooltip" title="Lugar de Nacimiento del Alumno" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
+					
+						@if ($errors->has('born_place'))
+						<span class="help-block">
+							<strong>{{ $errors->first('born_place') }}</strong>
+						</span>
+						@endif
+
+					</div>
 				</div>
 
+				
 				<div class= "col-md-6">
-					{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
-					<input type="text" data-toggle="tooltip" title="Formato: 1995-04-17" class="form-control"  id="born_date" name="born_date" placeholder="Fecha de Nacimiento del Alumno" value="{{Request::old('born_date')}}" ng-model= "bornDate">
+					<div class="form-group{{ $errors->has('born_date') ? ' has-error' : '' }}">
+						{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
+						<input type="text" data-toggle="tooltip" title="Formato: 1995-04-17" class="form-control"  id="born_date" name="born_date" placeholder="Fecha de Nacimiento del Alumno" value="{{Request::old('born_date')}}" ng-model= "bornDate">
+
+						@if ($errors->has('born_date'))
+						<span class="help-block">
+							<strong>{{ $errors->first('born_date') }}</strong>
+						</span>
+						@endif
+					</div>
 				</div>
 
 			</div>
 
 			<br>
 			<div class = "row">
-	    		<div class= "col-md-12">
-					{!! Form::label('home_address', 'Dirección: ') !!}
-					<input type="text" class="form-control"  id="home_address" name="home_address" placeholder="Dirección del Alumno" value="{{Request::old('home_address')}}" ng-model= "homeAddress">
+				<div class= "col-md-12">
+					<div class="form-group{{ $errors->has('home_address') ? ' has-error' : '' }}">
+						{!! Form::label('home_address', 'Dirección: ') !!}
+						<input type="text" class="form-control"  id="home_address" name="home_address" placeholder="Dirección del Alumno" value="{{Request::old('home_address')}}" ng-model= "homeAddress">
+
+						@if ($errors->has('home_address'))
+						<span class="help-block">
+							<strong>{{ $errors->first('home_address') }}</strong>
+						</span>
+						@endif
+					</div>
 				</div>
 
 			</div>
@@ -112,13 +153,30 @@
 			<br>
 			<div class = "row">
 				<div class= "col-md-4">
-					{!! Form::label('height', 'Estatura (m): ') !!}
-					<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="height" name="height" placeholder="Altura del Alumno" value="{{Request::old('height')}}" ng-model= "height">
+					<div class="form-group{{ $errors->has('height') ? ' has-error' : '' }}">
+						{!! Form::label('height', 'Estatura (m): ') !!}
+						<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="height" name="height" placeholder="Altura del Alumno" value="{{Request::old('height')}}" ng-model= "height">
+
+						@if ($errors->has('height'))
+						<span class="help-block">
+							<strong>{{ $errors->first('height') }}</strong>
+						</span>
+						@endif
+					</div>
 				</div>
 
 				<div class= "col-md-4">
-					{!! Form::label('weight', 'Peso (kg): ') !!}
-					<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="weight" name="weight" placeholder="Peso del Alumno" value="{{Request::old('weight')}}" ng-model= "weight">
+					<div class="form-group{{ $errors->has('weight') ? ' has-error' : '' }}">
+						{!! Form::label('weight', 'Peso (kg): ') !!}
+						<input type="text" data-toggle="tooltip" title="Use punto (.) como separador decimal" class="form-control"  id="weight" name="weight" placeholder="Peso del Alumno" value="{{Request::old('weight')}}" ng-model= "weight">
+
+						@if ($errors->has('weight'))
+						<span class="help-block">
+							<strong>{{ $errors->first('weight') }}</strong>
+						</span>
+						@endif
+
+					</div>
 				</div>
 	    	</div>
 
@@ -128,9 +186,17 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-4">
-					{!! Form::label('repLegDocId', 'Cedula de Identidad: ') !!}
-					<input type="text" data-toggle="tooltip" title="Cédula: V00000000" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cédula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
-				</div>
+	    			<div class="form-group{{ $errors->has('repLegDocId') ? ' has-error' : '' }}">
+	    				{!! Form::label('repLegDocId', 'Cedula de Identidad: ') !!}
+	    				<input type="text" data-toggle="tooltip" title="Cédula: V00000000" class="form-control"  id="repLegDocId" name="repLegDocId" placeholder="Cédula del Rep. Legal" value="{{Request::old('repLegDocId')}}" ng-model= "repLegDocId">
+
+	    				@if ($errors->has('repLegDocId'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('repLegDocId') }}</strong>
+	    				</span>
+	    				@endif
+	    			</div>
+	    		</div>
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
 					<input type="file" id="repLegPicture" name="repLegPicture" ng-model="repLegPicture" onchange="readURLRepLeg(this);">
@@ -140,62 +206,127 @@
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-4">
-					{!! Form::label('repLegName', 'Nombre: ') !!}
-					<input type="text" class="form-control"  id="repLegName" name="repLegName" placeholder="Nombre del Rep. Legal" value="{{Request::old('repLegName')}}" ng-model= "repLegName">
-				</div>
+	    			<div class="form-group{{ $errors->has('repLegName') ? ' has-error' : '' }}">
+	    				{!! Form::label('repLegName', 'Nombre: ') !!}
+	    				<input type="text" class="form-control"  id="repLegName" name="repLegName" placeholder="Nombre del Rep. Legal" value="{{Request::old('repLegName')}}" ng-model= "repLegName">
 
-				<div class= "col-md-4">
-					{!! Form::label('repLegLastName', 'Apellido: ') !!}
-					<input type="text" class="form-control"  id="repLegLastName" name="repLegLastName" placeholder="Apellido del Rep. Legal" value="{{Request::old('repLegLastName')}}" ng-model= "repLegLastName">
-				</div>
-				<br>
-				<br>
+	    				@if ($errors->has('repLegName'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('repLegName') }}</strong>
+	    				</span>
+	    				@endif
+	    			</div>
+	    		</div>
+
+	    		<div class= "col-md-4">
+	    			<div class="form-group{{ $errors->has('repLegLastName') ? ' has-error' : '' }}">
+	    				{!! Form::label('repLegLastName', 'Apellido: ') !!}
+	    				<input type="text" class="form-control"  id="repLegLastName" name="repLegLastName" placeholder="Apellido del Rep. Legal" value="{{Request::old('repLegLastName')}}" ng-model= "repLegLastName">
+
+	    				@if ($errors->has('repLegLastName'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('repLegLastName') }}</strong>
+	    				</span>
+	    				@endif
+
+	    			</div>
+	    		</div>
+
+	    		<br>
 				<div class= "col-md-4">
 					{!! Form::label('repLegGender', 'Genero: ') !!}
 					{!!Form::select('repLegGender', array('MALE' => 'Masculino', 'FEMALE' => 'Femenino')) !!}
 				</div>
 			</div>
-
+	
 			<br>
 			<div class = "row">
-	    		
 				<div class= "col-md-6">
-					{!! Form::label('repLegEmail', 'Correo Electrónico: ') !!}
-					<input type="text" class="form-control"  id="repLegEmail" name="repLegEmail" placeholder="Email del Rep. Legal" value="{{Request::old('repLegEmail')}}" ng-model= "repLegEmail">
+					<div class="form-group{{ $errors->has('repLegEmail') ? ' has-error' : '' }}">
+						{!! Form::label('repLegEmail', 'Correo Electrónico: ') !!}
+						<input type="text" class="form-control"  id="repLegEmail" name="repLegEmail" placeholder="Email del Rep. Legal" value="{{Request::old('repLegEmail')}}" ng-model= "repLegEmail">
 
+						@if ($errors->has('repLegEmail'))
+						<span class="help-block">
+							<strong>{{ $errors->first('repLegEmail') }}</strong>
+						</span>
+						@endif
+
+					</div>	
 				</div>
-	    	</div>
+			</div>
 
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
-					{!! Form::label('repLegHomeAddress', 'Dirección de Casa: ') !!}
-					<input type="text" class="form-control"  id="repLegHomeAddress" name="repLegHomeAddress" placeholder="Dirección de Habitación del Rep. Legal" value="{{Request::old('repLegHomeAddress')}}" ng-model= "repLegHomeAddress">
-				</div>
+	    			<div class="form-group{{ $errors->has('repLegHomeAddress') ? ' has-error' : '' }}">
+	    				{!! Form::label('repLegHomeAddress', 'Dirección de Casa: ') !!}
+	    				<input type="text" class="form-control"  id="repLegHomeAddress" name="repLegHomeAddress" placeholder="Dirección de Habitación del Rep. Legal" value="{{Request::old('repLegHomeAddress')}}" ng-model= "repLegHomeAddress">
+
+	    				@if ($errors->has('repLegHomeAddress'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('repLegHomeAddress') }}</strong>
+	    				</span>
+	    				@endif
+	    			</div>
+	    		</div>
 
 			</div>
 
 			<br>
 			<div class = "row">
 				<div class= "col-md-12">
+					<div class="form-group{{ $errors->has('repLegWorkAddress') ? ' has-error' : '' }}">
 						{!! Form::label('repLegWorkAddress', 'Dirección de Trabajo: ') !!}
 						<input type="text" class="form-control"  id="repLegWorkAddress" name="repLegWorkAddress" placeholder="Dirección de Trabajo del Rep. Legal" value="{{Request::old('repLegWorkAddress')}}" ng-model= "repLegWorkAddress">
+
+						@if ($errors->has('repLegWorkAddress'))
+						<span class="help-block">
+							<strong>{{ $errors->first('repLegWorkAddress') }}</strong>
+						</span>
+						@endif
+					</div>
 				</div>
 			</div>
 
 			<br>
 			<div class = "row">
 				<div class= "col-md-4">
+					<div class="form-group{{ $errors->has('repLegHomePhone') ? ' has-error' : '' }}">
 						{!! Form::label('repLegHomePhone', 'Teléfono Casa: ') !!}
 						<input type="text" class="form-control"  id="repLegHomePhone" name="repLegHomePhone" placeholder="Teléfono de Habitación del Rep. Legal" value="{{Request::old('repLegHomePhone')}}" ng-model= "repLegHomePhone">
+
+						@if ($errors->has('repLegHomePhone'))
+						<span class="help-block">
+							<strong>{{ $errors->first('repLegHomePhone') }}</strong>
+						</span>
+						@endif
+					</div>
 				</div>
 				<div class= "col-md-4">
+					<div class="form-group{{ $errors->has('repLegMobilePhone') ? ' has-error' : '' }}">
 						{!! Form::label('repLegMobilePhone', 'Teléfono Movil: ') !!}
 						<input type="text" class="form-control"  id="repLegMobilePhone" name="repLegMobilePhone" placeholder="Teléfono Móvil del Rep. Legal" value="{{Request::old('repLegMobilePhone')}}" ng-model= "repLegMobilePhone">
+
+						@if ($errors->has('repLegMobilePhone'))
+						<span class="help-block">
+							<strong>{{ $errors->first('repLegMobilePhone') }}</strong>
+						</span>
+						@endif
+					</div>	
 				</div>
 				<div class= "col-md-4">
+					<div class="form-group{{ $errors->has('repLegWorkPhone') ? ' has-error' : '' }}">
 						{!! Form::label('repLegWorkPhone', 'Teléfono de Trabajo: ') !!}
-						 <input type="text" class="form-control"  id="repLegWorkPhone" name="repLegWorkPhone" placeholder="Teléfono del Trabajo del Rep. Legal" value="{{Request::old('repLegWorkPhone')}}" ng-model= "repLegWorkPhone">
+						<input type="text" class="form-control"  id="repLegWorkPhone" name="repLegWorkPhone" placeholder="Teléfono del Trabajo del Rep. Legal" value="{{Request::old('repLegWorkPhone')}}" ng-model= "repLegWorkPhone">
+
+						@if ($errors->has('repLegWorkPhone'))
+						<span class="help-block">
+							<strong>{{ $errors->first('repLegWorkPhone') }}</strong>
+						</span>
+						@endif
+						
+					</div>
 				</div>
 			</div>
 
