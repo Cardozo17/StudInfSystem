@@ -12,12 +12,12 @@
 
 	    <div class= "form-group">
 	   	
-			<h3>Indique la Cédula</h3>    
+			<h3>Indique la Cédula del Alumno</h3>    
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3"  >
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId']) !!}
+					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId', 'data-toggle'=>"tooltip", 'title'=>"Cédula: V00000000 ó &#013; Escolar: 116V00000000", 'placeholder'=>"Cédula del Alumno"]) !!}
 				</div>
 				<br>
 				<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()"></button>
@@ -59,5 +59,5 @@
 
 	</div>
 
-	<script src="/js/authorization.js"></script>
+	<script src="/js/dynamism_pages/authorization.js"></script>
 @endsection

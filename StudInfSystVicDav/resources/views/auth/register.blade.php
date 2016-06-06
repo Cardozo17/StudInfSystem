@@ -22,6 +22,7 @@
                             {{ session('message') }}
                         </div>
                    @endif
+                   
                     <div class = "row">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Nombre</label>
@@ -53,19 +54,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row"> 
-                     <label class="col-md-4 control-label">Tipo</label>
-                        <div class="col-md-6">   
-                            <div class="form-group">
-                                <select name="type" class="form-control">
-                                    <option value="" disabled selected>Seleccione el Tipo</option>
-                                    <option value="admin">Administrador</option>
-                                    <option value="administrativePersonLevel1">Personal Administrativo Nivel 1</option>
-                                    <option value="administrativePersonLevel2">Personal Administrativo Nivel 2</option>
-                                    <option value="teacher">Profesor</option>
-                                </select>
+                    <div class = "row">
+                           <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}"> 
+                               <label class="col-md-4 control-label">Tipo</label>
+                               <div class="col-md-6">   
+                                <div class="form-group">
+                                    <select name="type" class="form-control">
+                                        <option value="" disabled selected>Seleccione el Tipo</option>
+                                        <option value="admin">Administrador</option>
+                                        <option value="administrativePersonLevel1">Personal Administrativo Nivel 1</option>
+                                        <option value="administrativePersonLevel2">Personal Administrativo Nivel 2</option>
+                                        <option value="teacher">Profesor</option>
+                                    </select>
+                                    @if ($errors->has('type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                    @endif
+
+                                </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
                     <div class = "row"> 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">

@@ -17,7 +17,7 @@
 	    	<div class = "row">
 	    		<div class= "col-md-3" >
 					{!! Form::label('document_id', 'Cedula de Identidad: ') !!}
-					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId']) !!}
+					{!!Form::text('document_id', null, ['class'=> 'form-control', 'ng-model'=>'personId', 'data-toggle'=>"tooltip", 'title'=>"Cédula: V00000000 ó &#013; Escolar: 116V00000000", 'placeholder'=>"Cédula del Alumno"]) !!}
 				</div>
 				<br>
 				<div class= "col-md-1" >
@@ -66,5 +66,5 @@
 
 	</div>
 
-	<script src="/js/findStudent.js"></script>
+	<script src="/js/dynamism_pages/findStudent.js"></script>
 @endsection

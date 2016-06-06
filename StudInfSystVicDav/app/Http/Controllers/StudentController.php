@@ -74,7 +74,7 @@ class StudentController extends Controller
       $validator = Validator::make(
         $request->all(),
         [
-        'document_id'=> array('required', 'regex: /^[[V|E|J|G]\d\d\d\d\d\d\d\d?]{0,9}$|^\d\d\d[[V|E|J|G]\d\d\d\d\d\d\d\d]{0,9}$/', 'max:45'),
+        'document_id'=> array('required', 'regex: /^[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$|^\d\d\d[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$/', 'max:45'),
         'name'=> 'required|min:3|max:45',
         'last_name'=>'required|min:3|max:45',
         'home_address'=> 'required|max:140',
@@ -108,8 +108,8 @@ class StudentController extends Controller
       if($request->hasFile('picture')&&$request->file('picture')->isValid())
       {
           $destinationPath = 'uploads'; // upload path
-          $extension = $request->file('picture')->getClientOriginalExtension(); // getting image extension
-          $fileName = $request->file('picture')->getCLientOriginalName().'.'.$extension; // renameing image
+          //$extension = $request->file('picture')->getClientOriginalExtension(); // getting image extension
+          $fileName = $request->file('picture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
           $personStudentInfo->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
       } 
 
@@ -124,22 +124,20 @@ class StudentController extends Controller
         $repLegPhones->save();
 
     	//registering the legal representative in the table person
-
-      //registering the student picture in person table
+        $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
+          'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
+          'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
+          'home_address'=> $input['repLegHomeAddress']]);
+        $repLegPerson->save();
+ 
+      //registering the legRepresentative picture in person table
       if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
       {
           $destinationPath = 'uploads'; // upload path
-          $extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
-          $fileName = $request->file('repLegPicture')->getCLientOriginalName().'.'.$extension; // renameing image
-          $repLegPerson->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
+          //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+          $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+          $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
       } 
-
-      $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
-        'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
-        'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
-        'home_address'=> $input['repLegHomeAddress']]);
-      $repLegPerson->save();
-
 
     	//after having registered the legal representative in the table person now we can register the legal representative in its table
       $repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 

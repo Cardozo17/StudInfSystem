@@ -25,7 +25,7 @@
                                 <label class="col-md-4 control-label">Correo Electrónico</label>
 
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <input type="text" class="form-control" id= "email" name="email" value="{{ old('email') }}">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -39,7 +39,7 @@
                                 <label class="col-md-4 control-label">Contraseña</label>
 
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" id= "password" name="password">
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">

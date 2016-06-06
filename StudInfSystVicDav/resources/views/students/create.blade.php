@@ -36,16 +36,24 @@
 			<h3>Información del Alumno</h3>    
 			<br>
 	    	<div class = "row">
-	    		<div class= "col-md-4">
-					{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
-					<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 &#013; Escolar: 116V00000000" id="document_id" name="document_id"
-					 value="{{old('document_id')}}"  placeholder="Cédula del Alumno" ng-model= "documentId">
-					 {!! var_dump(old())!!}
-				</div>
+	    		<div class="form-group{{ $errors->has('document_id') ? ' has-error' : '' }}">
+	    			<div class= "col-md-4">
+	    				{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
+	    				<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 ó &#013; Escolar: 116V00000000" id="document_id" name="document_id"
+	    				value="{{old('document_id')}}"  placeholder="Cédula del Alumno" ng-model= "documentId">
+	    				<!--  {!! var_dump(old())!!} -->
+
+	    				@if ($errors->has('document_id'))
+	    				<span class="help-block">
+	    					<strong>{{ $errors->first('document_id') }}</strong>
+	    				</span>
+	    				@endif
+	    			</div>
+	    		</div>
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
-					<input type="file" id="picture" name="picture" ng-model="picture"  onchange="readURL(this);">
+					<input type="file" id="picture" name="picture" ng-model="picture"  onchange="readURLStudent(this);">
 	   				 <img  id="studentPicture" name="studentPicture" ng-model="studentPicture" src="picture" alt="Foto del Alumno" />
 	   			</div>	 
 
@@ -125,7 +133,7 @@
 				</div>
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
-					<input type="file" id="repLegPicture" name="repLegPicture" ng-model="repLegPicture" onchange="readURL(this);">
+					<input type="file" id="repLegPicture" name="repLegPicture" ng-model="repLegPicture" onchange="readURLRepLeg(this);">
 	   				 <img  id="repPicture" name="repPicture" ng-model="repPicture" src="repPicture" alt="Foto del Rep. Legal" />
 	   			</div>	 
 	    	</div>
@@ -412,5 +420,5 @@
 
 	</div>
 	
-	<script src="/js/createStudent.js"></script>  
+	<script src="/js/dynamism_pages/createStudent.js"></script>  
 @endsection

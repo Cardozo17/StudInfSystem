@@ -60,7 +60,17 @@ return [
         'repLegEmail' => [
             'email' => 'El campo Correo del Rep. Legal debe tener un formato válido!',
         ],
-        
+        'email' => [
+            'email' => 'El campo Correo Electrónico debe tener un formato válido!',
+            'required' => 'El campo Correo Electrónico es obligatorio!',
+        ],
+        'type' => [
+            'required' => 'El campo Tipo es obligatorio!',
+        ],
+        'password' => [
+            'required' => 'El campo Contraseña es obligatorio!',
+            'confirmed'=> 'La confirmación de contraseña no coincide'
+        ],
 
 
     ],
