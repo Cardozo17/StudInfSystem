@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use \phpjasperxml;
 use JasperPHP\JasperPHP as JasperPHP;
 
 use App\Person;
@@ -34,78 +33,6 @@ class ReportController extends Controller
     {
         $this->middleware('auth');
     }
-
-  /* public function prueba()
-    {
-        error_reporting(0);
-        /* 
-         * To change this template, choose Tools | Templates
-         * and open the template in the editor.
-         
-        include_once('phpjasperxml/class/tcpdf/tcpdf.php');
-        include_once("phpjasperxml/class/PHPJasperXML.inc.php");
-
-        $server = "localhost";
-        $user = "root";
-        $pass = "root";
-        $db = "vicentedavila";
-
-        $value = 20200366;
-        $PHPJasperXML = new PHPJasperXML();
-        //$PHPJasperXML->debugsql=true;
-        $PHPJasperXML->arrayParameter=array("parametroOsa"=>$value);
-        $PHPJasperXML->load_xml_file("mm.jrxml");
-
-        $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
-        $PHPJasperXML->outpage("I");    //page output method I:standard output  D:Download file
-    }
-
-     public function makeConstancy(Request $request)
-    {
-       $personId = $request->id;
-
-     /*   $personId = $request->input('personId');
-           
-       $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
-
-        if($person->student == null)
-        {
-            return null;
-        }    
-
-                            // return $person->toJson();
-       else
-       {             
-            error_reporting(0);
-         
-            
-            include_once('phpjasperxml/class/tcpdf/tcpdf.php');
-            include_once("phpjasperxml/class/PHPJasperXML.inc.php");
-
-            $server = "localhost";
-            $user = "root";
-            $pass = "root";
-            $db = "vicentedavila";
-
-          $value = 20200366;
-          $PHPJasperXML = new PHPJasperXML();
-          //$PHPJasperXML->debugsql=true;
-          $PHPJasperXML->arrayParameter=array("parameterDocumentId"=>$value);
-          $PHPJasperXML->load_xml_file("constancy.jrxml");
-          
-
-          //  $PHPJasperXML = new PHPJasperXML();
-            //$PHPJasperXML->debugsql=true;
-            //$PHPJasperXML->arrayParameter=array("parametroOsa"=>$value);
-            //$PHPJasperXML->load_xml_file("mm.jrxml");
-
-
-            $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
-            $PHPJasperXML->outpage("I");    //page output method I:standard output  D:Download file
-           
-      //  }
-        
-    } */
 
     public function makeStudyConstancy(Request $request)
     {
@@ -151,6 +78,8 @@ class ReportController extends Controller
     {
         $jasper= new JasperPHP;
 
+        $jasper->compile(public_path().'/reportJasperVD/citacion.jrxml')->execute();
+
         $input= $request->all();
 
         $personId = $input['document_id']; 
@@ -183,8 +112,6 @@ class ReportController extends Controller
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext); // deletes the temporary file
-
-        output();
         
         return Redirect::to('/showMakeCitationWindow');
     }
