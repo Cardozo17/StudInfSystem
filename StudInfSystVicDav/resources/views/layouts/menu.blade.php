@@ -157,7 +157,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="/edit">Editar Usuario</a> 
+                                        <a href="/editUser">Editar Usuario</a> 
                                     </td>
                                 </tr>
                                 <tr>
@@ -184,7 +184,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        </span><a href="">Respaldar</a>
+                                        </span><a href="/studentsInfoBackUp">Respaldar Información de Estudiantes</a>
                                     </td>
                                 </tr>
                             </table>

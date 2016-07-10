@@ -84,15 +84,31 @@ class AuthController extends Controller
                 $request, $validator
             );
         }
-      //  Auth::guard($this->getGuard())->login($this->create($request->all()));
+      
+        //Auth::guard($this->getGuard())->login($this->create($request->all()));
         $this->create($request->all());
        
         return redirect('register')->with('message', 'El usuario ha sido creado exitosamente');;
     }
 
-    public function editingUser()
+    public function showEditUserWindow()
     {
         return view('auth.edit');
+    }
+
+    public function findOneUserByEmail(Request $request)
+    {
+        $userEmail= $request->input('email');
+
+        $user= User::where('email', $userEmail)->first();
+
+        if($user==null)
+        {   
+            return redirect()->back()->with('status', 'Usuario no encontrado'); 
+        }
+
+        return redirect()->back()->with('data', $user);
+
     }
 
 }

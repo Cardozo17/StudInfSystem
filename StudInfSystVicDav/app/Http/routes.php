@@ -72,6 +72,10 @@ Route::group(['middleware' => ['auth']], function ()
 
         Route::get('students','StudentController@index');
         Route::post('students', 'StudentController@store');
+
+        Route::get('students/list', 'StudentController@listStudents');
+        Route::post('studentsById','StudentController@findOneById');
+
     /**********************************************************/
 
     /**********************************************************/
@@ -92,21 +96,30 @@ Route::group(['middleware' => ['auth']], function ()
     /**********************************************************/
 
     /**********************************************************/
+        Route::post('register', 'Auth\AuthController@register');
+
         Route::get('register', [
             'middleware' => 'is_admin',
             'uses' => 'Auth\AuthController@showRegistrationForm'
         ]);
 
-        Route::post('register', 'Auth\AuthController@register');
-
-        Route::get('edit', [
+        Route::get('editUser', [
             'middleware' => 'is_admin',
-            'uses' => 'Auth\AuthController@editingUser'
+            'uses' => 'Auth\AuthController@showEditUserWindow'
         ]);
+
+         Route::post('findOneUserByEmail','Auth\AuthController@findOneUserByEmail');
+
+
     /**********************************************************/
 
-    Route::get('students/list', 'StudentController@listStudents');
-    Route::post('studentsById','StudentController@findOneById');
+    /**********************************************************/
+        Route::get('studentsInfoBackUp', [
+                'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
+                'uses' => 'BackUpController@showBackUpWindow'
+            ]);
+
+    /**********************************************************/
 
 });
 
