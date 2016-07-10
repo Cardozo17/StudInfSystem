@@ -42,7 +42,7 @@ class StudentController extends Controller
     {
         $personId = $request->input('personId');
 
-        $person = Person::with('student')->where('document_id', $personId)->firstOrFail();
+        $person = Person::with('student','student.legalRepresentative.person','student.legalRepresentative.person.phoneNumbers' )->where('document_id', $personId)->firstOrFail();
 
         if($person->student== null)
         {

@@ -120,7 +120,7 @@ class ReportController extends Controller
         $output = public_path().time().'_constancy';
         
         $ext = "pdf";
- 
+      
         $jasper->process(
             public_path().'/reportJasperVD/constancy.jasper', 
             $output, 
@@ -130,7 +130,7 @@ class ReportController extends Controller
             false,
             false
         )->execute();
- 
+
         header('Content-Description: File Transfer');
         header('Content-type: application/pdf');
         //header('Content-Type: application/octet-stream');
