@@ -152,7 +152,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="{{ url('/register') }}">Registrar Usuario</a>
+                                        <a href="{{ url('/registerUser') }}">Registrar Usuario</a>
                                     </td>
                                 </tr>
                                 <tr>

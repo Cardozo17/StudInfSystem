@@ -41,6 +41,7 @@ Route::get('/home', function ()
  Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
  Route::post('password/reset', 'Auth\PasswordController@reset');
 
+ //Not Authorized Message
  Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 /*
@@ -71,10 +72,10 @@ Route::group(['middleware' => ['auth']], function ()
         ]);
 
         Route::get('students','StudentController@index');
-        Route::post('students', 'StudentController@store');
-
         Route::get('students/list', 'StudentController@listStudents');
-        Route::post('studentsById','StudentController@findOneById');
+        
+        Route::post('students', 'StudentController@store');
+        Route::post('studentById','StudentController@findStudentById');
 
     /**********************************************************/
 
@@ -82,23 +83,23 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('repStudyConstancy', [
             'middleware' => 'is_adminAdministrativePersonLevel1and2',
             'uses' =>'ReportController@showMakeStudyConstancyWindow', 'as' => 'Report1']);
-        Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
 
         Route::get('repCitation', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
             'uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
-        Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
-
+       
         Route::get('repAuthorization', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
             'uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
+
+        Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
+        Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
         Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
     /**********************************************************/
 
     /**********************************************************/
-        Route::post('register', 'Auth\AuthController@register');
-
-        Route::get('register', [
+        
+        Route::get('registerUser', [
             'middleware' => 'is_admin',
             'uses' => 'Auth\AuthController@showRegistrationForm'
         ]);
@@ -108,7 +109,9 @@ Route::group(['middleware' => ['auth']], function ()
             'uses' => 'Auth\AuthController@showEditUserWindow'
         ]);
 
-         Route::post('findOneUserByEmail','Auth\AuthController@findOneUserByEmail');
+        Route::post('registerUser', 'Auth\AuthController@register');
+        Route::post('userByEmail','Auth\AuthController@findUserByEmail');
+        Route::post('editUser','Auth\AuthController@editUser');
 
 
     /**********************************************************/

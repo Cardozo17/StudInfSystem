@@ -38,15 +38,20 @@ class StudentController extends Controller
 
     }
   
-    public function findOneById(Request $request)
+    public function findStudentById(Request $request)
     {
         $personId = $request->input('personId');
 
-        $person = Person::with('student','student.legalRepresentative.person','student.legalRepresentative.person.phoneNumbers' )->where('document_id', $personId)->firstOrFail();
+        $person = Person::with('student','student.legalRepresentative.person','student.legalRepresentative.person.phoneNumbers' )->where('document_id', $personId)->first();
+
+        if($person== null)
+        {
+            return ['error_status' => 'El alumno no fue encontrado en la base de datos'];
+        }  
 
         if($person->student== null)
         {
-            return null;
+            return ['error_status' => 'Esta persona esta en el sistema pero no es un alumno'];
         }    
 
         return $person->toJson();

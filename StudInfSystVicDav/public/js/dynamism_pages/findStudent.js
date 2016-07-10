@@ -5,11 +5,11 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
   .controller('findStudentController', function($scope, $http) {
 
 
-      $('#showAlert').hide();
+    $('#errorAlert').hide();
     
     $scope.inputEdited = function()
     {
-      $('#showAlert').hide();
+      $('#errorAlert').hide();
 
         $scope.firstName = "";
         $scope.lastName = "";
@@ -36,7 +36,6 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
 
     $scope.findStudentInformation = function()
     {
-
         $scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
 
@@ -46,18 +45,22 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
       
       $http({
         method : 'POST',
-        url: 'studentsById',
+        url: 'studentById',
         data: $scope.dataToSend,
         responseType:'json'
       }).success(function(data, status, headers, config)
       {
 
-        console.log("post hecho de buena forma");
+        console.log("Post hecho exitosamente");
         console.log(data);
 
-        if(data == "" || data == null)
+        if(data.error_status!=null)
+        { 
           console.log("No se encontro el estudiante");
-        else if(data != "" || data != null)
+          $scope.error_status= data.error_status;
+          $('#errorAlert').show();
+        } 
+        else 
             {
               $scope.firstName = data.name;
               $scope.lastName = data.last_name;
@@ -91,95 +94,13 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
               $scope.relationshipLR = data.student.legal_representative.relationship_with_legal_representative;
               $scope.directionLR = data.student.legal_representative.person.home_address;
 
-
-              console.log($scope.picture);
             }
-
 
       }).error(function(status){
         $('#showAlert').show();
-        console.log("error o no se encontro");
+        console.log("Error obteniendo estudiante");
       })
       
     }
-
-    $scope.postToMakeConstancy= function ()
-    {
-       console.log("here"); 
-       console.log($scope.personId);
-       $scope.personId= "20847147";
-
-
-       var params= {};
-
-       params: {
-                    id: $scope.personId
-            
-                }
-
-       console.log(params);         
-
-      var path= "/reporting"
-      var method = "post"; // Set method to post by default if not specified.
-
-      // The rest of this code assumes you are not using a library.
-      // It can be made less wordy if you use one.
-      var form = document.createElement("form");
-      form.setAttribute("method", method);
-      form.setAttribute("action", path);
-
-     for(var key in params) 
-      {
-          if(params.hasOwnProperty(key)) 
-          {
-              var hiddenField = document.createElement("input");
-              hiddenField.setAttribute("type", "hidden");
-              hiddenField.setAttribute("name", key);
-              hiddenField.setAttribute("value", params[key]);
-
-              form.appendChild(hiddenField);
-           }
-      }
-
-      document.body.appendChild(form);
-
-      form.submit();
-
-    }
-
-    $scope.makeConstancy = function()
-    {
-        $scope.dataToSend = {};
-        $scope.dataToSend.personId = $scope.personId;
-      
-      console.log("data a enviar ");
-      console.log($scope.dataToSend);
-
-      $http({
-        method : 'POST',
-        url: '/reporting',
-        params: {
-                    id: $scope.personId
-            
-                }
-      }).success(function(data, status, headers, config)
-      {
-
-        console.log("post hecho de buena forma");
-        //console.log(data);
-
-        /*var file = new Blob([data], {type: 'application/pdf'});
-       var fileURL = URL.createObjectURL(file);
-       window.open(fileURL);*/
-       
-      }).error(function(){
-
-        console.log("Error obteniendo el estudiante");
-      })
-
-    }
-
-
-
-
+    
   });

@@ -9,7 +9,7 @@
                 <div class="panel-heading">Registro de Usuario del Sistema</div>
                 <br>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/registerUser') }}">
                         {!! csrf_field() !!}
 
 
@@ -55,7 +55,7 @@
                     </div>
                     <div class = "row">
                            <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}"> 
-                               <label class="col-md-4 control-label">Tipo</label>
+                               <label class="col-md-4 control-label">Tipo de Usuario</label>
                                <div class="col-md-6">   
                                 <div class="form-group">
                                     <select name="type" class="form-control">

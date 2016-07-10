@@ -58,6 +58,23 @@ class AuthController extends Controller
         ]);
     }
 
+     /**
+     * Get a validator for an incoming edit User request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validatorEdit(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|confirmed|min:6',
+            'type' => 'required',
+        ]);
+    }
+
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -85,7 +102,6 @@ class AuthController extends Controller
             );
         }
       
-        //Auth::guard($this->getGuard())->login($this->create($request->all()));
         $this->create($request->all());
        
         return redirect('register')->with('message', 'El usuario ha sido creado exitosamente');;
@@ -96,7 +112,7 @@ class AuthController extends Controller
         return view('auth.edit');
     }
 
-    public function findOneUserByEmail(Request $request)
+    public function findUserByEmail(Request $request)
     {
         $userEmail= $request->input('email');
 
@@ -104,10 +120,38 @@ class AuthController extends Controller
 
         if($user==null)
         {   
-            return redirect()->back()->with('status', 'Usuario no encontrado'); 
+             return ['error_status' => 'Usuario no encontrado'];
         }
 
-        return redirect()->back()->with('data', $user);
+        return $user->toJson();
+
+    }
+
+    public function editUser (Request $request)
+    {
+        $currentUserEmail= $request->input('email');
+        $currentUser= User::where('email', $currentUserEmail)->first();
+
+        if($currentUser== null)
+        {
+             return ['error_status' => 'EL usuario que desea editar no se encuentra en la base de datos'];    
+        }   
+
+        $validator = $this->validatorEdit($request->all());
+        
+        if ($validator->fails()) 
+        {
+             return redirect('editUser')->withInput()->withErrors($validator);
+        }
+
+        $currentUser->name= $request->input('name');
+        $currentUser->email= $request->input('emailToChange');
+        $currentUser->password= bcrypt($request->input('password'));
+        $currentUser->type= $request->input('type');
+
+        $currentUser->save();
+
+        return redirect('editUser')->with('message', 'El usuario ha sido editado exitosamente');;
 
     }
 

@@ -8,10 +8,12 @@
 
 	<div ng-controller="findStudentController">
 	    
-	    {!! Form::open(array('action' => array('StudentController@findOneById'))) !!}
-	    <div class="alert alert-danger fade in" id = "showAlert">
-				No se encontro el estudiante
-		</div>
+	    {!! Form::open(array('action' => array('StudentController@findStudentById'))) !!}
+
+
+	    <!-- Error Message -->    
+	    <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlert">
+	    </div>
 
 	    <div class= "form-group">
 
@@ -140,8 +142,6 @@
 		</div>
 		
 		{!! Form::close() !!}
-
-
 
 	</div>
 
