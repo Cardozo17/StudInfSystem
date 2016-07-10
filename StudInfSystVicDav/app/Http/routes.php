@@ -15,6 +15,7 @@ use  App\PhoneNumbers;
 |
 */
 
+//Home and / pages routes and logic
 Route::get('/', function () 
 {
     if(Auth::check())
@@ -31,13 +32,21 @@ Route::get('/home', function ()
         return view('welcome');
 });
 
-Route::get('notAutorized', 'ErrorsController@showNotAutorized');
+ // Authentication Routes...   
+ Route::get('login', 'Auth\AuthController@getLogin');
+ Route::post('login', 'Auth\AuthController@postLogin');
+
+ // Password Reset Routes...
+ Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+ Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+ Route::post('password/reset', 'Auth\PasswordController@reset');
+
+ Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
 /*
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
-|is_adminTeacherAdminitrativePersonLevel1and2
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
 | kernel and includes session state, CSRF protection, and more.  
@@ -103,14 +112,7 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['middleware' => 'web'], function () 
 {
-	// Authentication Routes...
-    Route::get('login', 'Auth\AuthController@showLoginForm');
-    Route::post('login', 'Auth\AuthController@login');
+	// Logout Routes...
     Route::get('logout', 'Auth\AuthController@logout');
-
-    // Password Reset Routes...
-    Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-    Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-    Route::post('password/reset', 'Auth\PasswordController@reset');
 
 });

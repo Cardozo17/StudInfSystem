@@ -73,10 +73,13 @@ class AuthController extends Controller
             'type' => $data['type'],
         ]);
     }
+    
    public function register(Request $request)
     {
         $validator = $this->validator($request->all());
-        if ($validator->fails()) {
+        
+        if ($validator->fails()) 
+        {
             $this->throwValidationException(
                 $request, $validator
             );
@@ -84,9 +87,8 @@ class AuthController extends Controller
       //  Auth::guard($this->getGuard())->login($this->create($request->all()));
         $this->create($request->all());
        
-        return redirect('register')->with('message', 'success|Record updated.');;
+        return redirect('register')->with('message', 'El usuario ha sido creado exitosamente');;
     }
-
 
     public function editingUser()
     {

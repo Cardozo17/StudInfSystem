@@ -13,10 +13,9 @@
                         {!! csrf_field() !!}
 
 
-                    @foreach ($errors->all() as $error)
+                  <!--   @foreach ($errors->all() as $error)
                         <p class="alert alert-danger">{{ $error }}</p>
-                    @endforeach
-
+                    @endforeach -->
                     @if(session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
