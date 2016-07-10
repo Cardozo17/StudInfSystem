@@ -20,6 +20,17 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         $scope.bornPlace = "";
         $scope.height = "";
         $scope.weight = "";
+        $scope.gradeToBeRegister= data.student.grade_to_be_register;
+
+        $scope.personIdLR = "";
+        $scope.firstNameLR = "";
+        $scope.lastNameLR = "";
+        $scope.mailLR = "";
+        $scope.home_phoneLR ="";
+        $scope.mobile_phoneLR = "";
+        $scope.work_phoneLR = "";
+        $scope.relationshipLR = "";
+        $scope.directionLR = "";
 
     }
 
