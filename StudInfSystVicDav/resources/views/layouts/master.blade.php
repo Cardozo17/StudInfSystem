@@ -40,7 +40,7 @@
 			<div class= "col-md-3" id="menu">
 				@include('layouts.menu')	
 			</div>
-			<div class= "col-md-9" id="content" style=" padding-left: 2%; padding-right: 2%">
+			<div class= "col-md-9" id="content" style=" padding-left: 0%; padding-right: 2%">
 				@yield('content')
 
 			</div>		

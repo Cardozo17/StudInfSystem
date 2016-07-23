@@ -33,6 +33,7 @@ return [
         'document_id' => [
             'required' => 'El campo Cédula es obligatorio!',
             'regex'=>'El campo Cédula debe tener un formato válido',
+            'unique'=>'Ya existe un alumno con esta Cédula registrado en el sistema',
         ],
         'name' => [
             'required' => 'El campo Nombre es obligatorio!',
@@ -51,18 +52,27 @@ return [
             'numeric' => 'El campo Peso debe ser un número!',
         ],
          'born_date' => [
-            'date_format' => 'El cmapo Fecha de Nacimiento no concuerda con el formato AAAA-MM-DD!',
+            'required'=>  'El campo Fecha de Nacimiento es obligatorio!',
+            'date_format' => 'El campo Fecha de Nacimiento no concuerda con el formato AAAA-MM-DD!',
+        ],
+         'born_place' => [
+            'required'=>  'El campo Lugar de Nacimiento es obligatorio!',
+        ],
+         'home_address' => [
+            'required'=>  'El campo Dirección es obligatorio!',
         ],
         'repLegDocId' => [
             'required' => 'El campo Cédula del Rep. Legal es obligatorio!',
             'regex'=>'El campo Cédula del Rep. Legal debe tener un formato válido',
         ],
-        'repLegEmail' => [
-            'email' => 'El campo Correo del Rep. Legal debe tener un formato válido!',
+        'repLegName' => [
+            'required' => 'El campo Nombre del Rep. Legal es obligatorio!',
         ],
-        'email' => [
+         'repLegLastName' => [
+            'required' => 'El campo Apellido del Rep. Legal es obligatorio!',
+        ],
+        'repLegEmail' => [
             'email' => 'El campo Correo Electrónico debe tener un formato válido!',
-            'required' => 'El campo Correo Electrónico es obligatorio!',
         ],
         'type' => [
             'required' => 'El campo Tipo es obligatorio!',
@@ -70,6 +80,9 @@ return [
         'password' => [
             'required' => 'El campo Contraseña es obligatorio!',
             'confirmed'=> 'La confirmación de contraseña no coincide'
+        ],
+         'selectedRelationshipWithStudent' => [
+            'required' => 'El campo Relación del Rep. Legal con el Alumno es obligatorio!',
         ],
 
 

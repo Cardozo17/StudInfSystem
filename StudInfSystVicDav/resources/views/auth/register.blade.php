@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Registro de Usuario del Sistema</div>
-                <br>
+            
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/registerUser') }}">
                         {!! csrf_field() !!}
@@ -21,6 +21,9 @@
                             {{ session('message') }}
                         </div>
                    @endif
+
+                    <h3>Datos para Crear el Usuario</h3>
+                    <br>
                    
                     <div class = "row">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -79,13 +79,13 @@ class StudentController extends Controller
       $validator = Validator::make(
         $request->all(),
         [
-        'document_id'=> array('required', 'regex: /^[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$|^\d\d\d[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$/', 'max:45'),
+        'document_id'=> array('required', 'regex: /^[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$|^\d\d\d[[V|v|E|e|J|j|G|g]\d\d\d\d\d\d\d\d?]{0,9}$/', 'max:45', 'unique:person,document_id'),
         'name'=> 'required|min:3|max:45',
         'last_name'=>'required|min:3|max:45',
         'home_address'=> 'required|max:140',
-        'born_place'=>'max:45|required',
+        'born_place'=>'required|max:45',
         'relationship_with_legal_representative'=>'max:45',
-        'born_date'=>'date_format:Y-m-d|required',
+        'born_date'=>'required|date_format:Y-m-d',
         'born_place'=>'required|max:45',
         'height'=> 'numeric',
         'weight'=>'numeric',
@@ -118,44 +118,81 @@ class StudentController extends Controller
           $personStudentInfo->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
       } 
 
-        $personStudentInfo->save();
+      $personStudentInfo->save();
 
     	//Person::create($input);
     	//$personStudentInfo= Person::where('document_id', $input['document_id'])->get();
 
       //registering representant phones 
-        $repLegPhones= new PhoneNumbers(['home_phone'=>$input['repLegHomePhone'], 'mobile_phone'=>$input['repLegMobilePhone'], 'work_phone'=>$input['repLegWorkPhone']]);
+      $repLegPhones= new PhoneNumbers(['home_phone'=>$input['repLegHomePhone'], 'mobile_phone'=>$input['repLegMobilePhone'], 'work_phone'=>$input['repLegWorkPhone']]);
 
-        $repLegPhones->save();
+      $repLegPhones->save();
 
-    	//registering the legal representative in the table person
-        $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
-          'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
-          'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
-          'home_address'=> $input['repLegHomeAddress']]);
-        $repLegPerson->save();
- 
-      //registering the legRepresentative picture in person table
-      if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
+      //checking if the legal representative is not already registered
+
+      //if it's registered I update it with the new information
+      if(Person::where('document_id', $input['repLegDocId'])->first()!= null)
       {
-          $destinationPath = 'uploads'; // upload path
-          //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
-          $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
-          $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
-      } 
+          $repLegPerson= Person::where('document_id', $input['repLegDocId'])->first();
 
-    	//after having registered the legal representative in the table person now we can register the legal representative in its table
-      $repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
-        'work_address'=> $input['repLegWorkAddress']]);
-      $repLeg->save();
+          $repLegPerson->update(['name'=> $input['repLegName'], 
+                'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
+                'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
+                'home_address'=> $input['repLegHomeAddress']]);
 
+          //registering the legRepresentative picture in person table
+          if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
+          {
+              $destinationPath = 'uploads'; // upload path
+              //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+              $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+              $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
+
+              $repLegPerson->save();
+          } 
+
+          //after having registered the legal representative in the table person now we can register the legal representative in its table
+            $repLeg=  LegalRepresentative::where('id', $repLegPerson->id);
+
+            $repLeg->update(['id'=>$repLegPerson['id'], 
+              'work_address'=> $input['repLegWorkAddress']]);
+
+      }  
+      else
+        { 
+            //if it's not registered I registered in the dataBase
+
+            //registering the legal representative in the table person
+            $repLegPerson= new Person(['document_id'=> $input['repLegDocId'], 'name'=> $input['repLegName'], 
+                'last_name'=> $input['repLegLastName'], 'gender'=> $input['repLegGender'], 
+                'email'=> $input['repLegEmail'], 'phone_numbers_id'=>$repLegPhones['id'],  
+                'home_address'=> $input['repLegHomeAddress']]);
+       
+            //registering the legRepresentative picture in person table
+            if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
+            {
+                $destinationPath = 'uploads'; // upload path
+                //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+                $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+                $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
+            } 
+
+             $repLegPerson->save();
+
+            //after having registered the legal representative in the table person now we can register the legal representative in its table
+            $repLeg= new LegalRepresentative(['id'=>$repLegPerson['id'], 
+              'work_address'=> $input['repLegWorkAddress']]);
+            
+            $repLeg->save();
+
+        }
 
     	//now that I have the student person Id and the legal representative Id I can register the student
-        $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
+      $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
          'height'=>$input['height'], 'weight'=>$input['weight'], 
          'born_place'=>$input['born_place'],'born_date'=>$input['born_date'], 'status'=>1, 
          'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent'], 'grade_to_be_register'=>$input['grade_to_be_register']]);
-        $student->save();							 
+       $student->save();							 
 
         return redirect('students/create')->with('status','Estudiante Inscrito Satisfactoriamente');
 

@@ -9,13 +9,13 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
     
     $scope.inputEdited = function()
     {
-      $('#errorAlert').hide();
+        $('#errorAlert').hide();
 
         $scope.firstName = "";
         $scope.lastName = "";
         $scope.age = "";
         $scope.address = "";;
-        $scope.picture = "";
+        $scope.picture = " ";
         $scope.bornDate = "";
         $scope.bornPlace = "";
         $scope.height = "";
@@ -31,17 +31,16 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         $scope.work_phoneLR = "";
         $scope.relationshipLR = "";
         $scope.directionLR = "";
+        $scope.legRepPicture= " ";
 
     }
 
     $scope.findStudentInformation = function()
     {
-        $scope.dataToSend = {};
-        $scope.dataToSend.personId = $scope.personId;
+      $scope.dataToSend = {};
+      $scope.dataToSend.personId = $scope.personId;
 
-        $scope.inputEdited();
-
-        console.log($scope.personId);
+      $scope.inputEdited();
       
       $http({
         method : 'POST',
@@ -69,14 +68,16 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
               $scope.picture = data.picture;
               $scope.bornDate = data.student.born_date;
               $scope.bornPlace = data.student.born_place;
-              $scope.height = data.student.height;
-              $scope.weight = data.student.weight;
+              $scope.height = data.student.height==0? "": data.student.height;
+              $scope.weight = data.student.weight==0? "": data.student.weight;
               $scope.gradeToBeRegister= data.student.grade_to_be_register;
 
               $scope.personIdLR = data.student.legal_representative.person.document_id;
               $scope.firstNameLR = data.student.legal_representative.person.name;
               $scope.lastNameLR = data.student.legal_representative.person.last_name;
               $scope.mailLR = data.student.legal_representative.person.email;
+              $scope.legRepPicture= data.student.legal_representative.person.picture;
+              $scope.relationshipLR = data.student.relationship_with_legal_representative;
 
               if(data.student.legal_representative.person.phone_numbers != null)
               {
@@ -91,7 +92,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
                 $scope.work_phoneLR = "";
               }
 
-              $scope.relationshipLR = data.student.legal_representative.relationship_with_legal_representative;
+             
               $scope.directionLR = data.student.legal_representative.person.home_address;
 
             }

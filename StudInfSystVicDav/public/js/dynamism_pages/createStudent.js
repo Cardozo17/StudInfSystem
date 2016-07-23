@@ -45,6 +45,7 @@ angular.module('SIEApp', ['ngRoute'])
   .controller('createStudentController', function($scope) 
   {
     console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
+    
     //Form Old Input To Use if Validation Fails:
     $scope.documentId= oldInput.document_id;
     $scope.picture= oldInput.picture;
@@ -72,6 +73,9 @@ angular.module('SIEApp', ['ngRoute'])
     $scope.informationFromMother= oldInput.infMother=="true"? true: false;
     $scope.informationFromFather= oldInput.infFather=="true"? true: false;
 
+    //Defaults
+    $scope.legRepNeedsAuthorization= false;
+
     $scope.clearFatherInformation = function()
     {
           $scope.fatherDocId= "";
@@ -97,7 +101,6 @@ angular.module('SIEApp', ['ngRoute'])
           $scope.motherWorkPhone= "";
           $scope.motherMobilePhone= "";
 
-
     }
 
     $scope.relationshipWithStudentChange= function(){
@@ -122,6 +125,8 @@ angular.module('SIEApp', ['ngRoute'])
         $scope.fatherWorkPhone= $scope.repLegWorkPhone;
         $scope.fatherMobilePhone= $scope.repLegMobilePhone;
 
+         $scope.legRepNeedsAuthorization= false;
+
       } 
       else
         if($scope.relationshipWithStudent=="isMom")
@@ -142,6 +147,8 @@ angular.module('SIEApp', ['ngRoute'])
           $scope.motherWorkPhone= $scope.repLegWorkPhone;
           $scope.motherMobilePhone= $scope.repLegMobilePhone;
 
+           $scope.legRepNeedsAuthorization= false;
+
          }
         else
           if($scope.relationshipWithStudent== "isOther")
@@ -149,6 +156,8 @@ angular.module('SIEApp', ['ngRoute'])
             $scope.selectedRelationshipWithStudent= "";
             $scope.informationFromFather=false;
             $scope.informationFromMother= false;
+
+            $scope.legRepNeedsAuthorization= true;
           } 
     }
 

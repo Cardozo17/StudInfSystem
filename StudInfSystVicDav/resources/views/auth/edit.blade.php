@@ -8,8 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Editando Usuario del Sistema</div>
-                <br>
+                <div class="panel-heading">Edición de Usuario del Sistema</div>
                 <div class="panel-body">
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/editUser') }}">
@@ -55,7 +54,6 @@
                                 <button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "findUserByEmail()"></button>
                             </div>
                         </div>    
-                        <br>
 
                         <h3>Datos a Editar del Usuario</h3>
                         <br>

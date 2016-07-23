@@ -333,7 +333,8 @@
 			<br>
 			<div class = "row">
 				<div class= "col-md-12">
-						{!! Form::label('', 'Relación del Rep. Legal con el Alumno: (Sí es Padre o Madre la información sera llenada automáticamente para luego ser almacenada en el registro. Asegurese de haber llenado todos los datos del Rep. Legal antes de seleccionar algúna de las opciones) ') !!}
+						<!-- {!! Form::label('', 'Relación del Rep. Legal con el Alumno: (Sí es Padre o Madre la información sera llenada automáticamente para luego ser almacenada en el registro. Asegurese de haber llenado todos los datos del Rep. Legal antes de seleccionar algúna de las opciones) ') !!} -->
+						{!! Form::label('', 'Relación del Rep. Legal con el Alumno:') !!}
 				</div>
 				<!-- OJOOO SI ES PADRE O MADRE TENEMOS QUE VER QUIE EN EL CONTROLADOR STORE GUARDE A LA PERSON UNA SOLA VEZ Y LA USE TANTO PARA REP LEG COMO PARA PADRE O MADRE -->
 			</div>
@@ -366,15 +367,15 @@
 				</div>
 			</div>
 			<div class = "row">
-				<div class= "col-md-6">
+				<div class= "col-md-6" ng-show="legRepNeedsAuthorization">
 				{!! Form::label('authorizedBy', 'Autorizado Por: ') !!}
-					<input type="text" class="form-control"  id="authorizedBy" name="authorizedBy" placeholder="¿Quien Autoriza a Ser Representante Legal del Alumno?" value="{{Request::old('authorizedBy')}}" ng-model= "authorizedBy">
+					<input type="text" class="form-control"  id="authorizedBy" name="authorizedBy" placeholder="¿Quién Autoriza a Ser Representante Legal del Alumno?" value="{{Request::old('authorizedBy')}}" ng-model= "authorizedBy">
 				</div>	
 
 			</div>
 
 			<br>
-			<div class = "row">
+	<!-- 		<div class = "row">
 				<div class= "col-md-12" >
 					<label>¿Desea Registrar Información de los Padres? (Sí en la Opción Anterior Selecciono el Padre o Madre Solo Se le Permitira Registrar Al Otro Padre No Seleccionado)</label>
 				</div>
@@ -537,7 +538,7 @@
 							<input type="text" data-toggle="tooltip" title="Teléfono del Trabajo de la Madre" class="form-control"  id="motherWorkPhone" name="mmotherWorkPhone" placeholder="Teléfono del Trabajo de la Madre" value="{{Request::old('motherWorkPhone')}}" ng-model= "motherWorkPhone">
 					</div>
 				</div>		
-			</div>	
+			</div>	 -->
 
 	    	<br>
 	    	<div class = "row">

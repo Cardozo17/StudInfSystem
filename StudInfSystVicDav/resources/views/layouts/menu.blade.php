@@ -1,5 +1,7 @@
 <style>
+
 </style>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3">
@@ -12,8 +14,6 @@
                             </span>Vicente Dávila</a>
                         </h4>
                     </div>
-
-
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
@@ -87,7 +87,7 @@
                                 </tr>
                                 @endif
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')) 
-                                <tr>
+                                 <tr>
                                     <td>
                                         <a href="/students">Ver Lista de Alumnos</a>
                                     </td>
@@ -108,11 +108,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-duplicate">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-duplicate">
                             </span> Gestión de Documentos</a>
                         </h4>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
+                    <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')
@@ -139,15 +139,48 @@
                     </div>
                 </div>
                 @endif
+                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
+                 || Auth::user()->hasRole('administrativePersonLevel2'))
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="   glyphicon glyphicon-signal">
+                            </span> Estadísticas Institucionales</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="/repStudyConstancy">Estadística 1</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/repCitation">Estadística 2</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/repAuthorization">Estadística 3</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 @if(Auth::user()->hasRole('admin'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-user">
                             </span>Gestión de Usuarios</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
+                    <div id="collapseFive" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
@@ -175,11 +208,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-floppy-save">
-                            </span> Gestión de Respaldo del Sistema</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix"><span class="glyphicon glyphicon-floppy-save">
+                            </span> Gestión de Respaldo</a>
                         </h4>
                     </div>
-                    <div id="collapseFive" class="panel-collapse collapse">
+                    <div id="collapseSix" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>

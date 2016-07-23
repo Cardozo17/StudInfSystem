@@ -7,6 +7,8 @@
 	<h1>Autorización a Alumno</h1>
 
 	<div ng-controller="authorizationController">
+
+		<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 	    
 	    {!! Form::open(array('url' => '/repAuthorization')) !!}
 

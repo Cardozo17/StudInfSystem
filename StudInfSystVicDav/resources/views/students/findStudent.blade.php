@@ -16,7 +16,7 @@
 	    </div>
 
 	    <div class= "form-group">
-
+	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
    		
 			<h3>Indique la Cédula</h3>    
 			<br>
@@ -88,10 +88,16 @@
 			<h3>Datos del Representante Legal</h3>    
 			<br>
 			<div class = "row">
-				<div class= "col-md-3">
+				<div class= "col-md-4">
 					{!! Form::label('personIdLR', 'Cedula de Identidad: ') !!}
 					{!!Form::text('personIdLR', null, ['class'=> 'form-control', 'ng-model'=>'personIdLR','ng-disabled'=>'true', 'ng-change' => 'inputEdited()','data-toggle'=>"tooltip", 'title'=>"Cédula: V00000000 ó &#013; Escolar: 116V00000000"]) !!}
 				</div>
+				<div class= "col-md-4 col-md-push-1" >
+					 <img ng-src="<%legRepPicture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Rep. Legal"> 	
+				</div>
+			</div>	
+			<br>	
+			<div class = "row">
 	    		<div class= "col-md-4">
 					{!! Form::label('firstNameLR', 'Nombres: ') !!}
 					{!!Form::text('firstNameLR', null, ['class'=> 'form-control', 'ng-model'=>'firstNameLR','ng-disabled'=>'true']) !!}
@@ -111,7 +117,7 @@
 				
 				
 				<div class= "col-md-4">
-					{!! Form::label('relationshipLR', 'Parentesco: ') !!}
+					{!! Form::label('relationshipLR', 'Parentesco con Alumno: ') !!}
 					{!!Form::text('relationshipLR', null, ['class'=> 'form-control','ng-model'=>'relationshipLR', 'ng-disabled'=>'true']) !!}
 				</div>
 			</div>

@@ -10,7 +10,6 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
     $scope.email= oldInput.email;
     $scope.emailToChange= oldInput.emailToChange;
 
-
     $('#errorAlert').hide();
     
     $scope.emailInputChange = function()
