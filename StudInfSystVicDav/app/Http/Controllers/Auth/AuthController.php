@@ -104,7 +104,7 @@ class AuthController extends Controller
       
         $this->create($request->all());
        
-        return redirect('register')->with('message', 'El usuario ha sido creado exitosamente');;
+        return redirect('registerUser')->with('message', 'El usuario ha sido creado exitosamente');;
     }
 
     public function showEditUserWindow()
