@@ -1,5 +1,5 @@
 angular.module('SIEApp', ['ngRoute'])
-  .controller('showStudentsController', function($scope, $http) {
+  .controller('showStudentsController', ['$scope', '$http', function($scope, $http) {
 
   			//default values.
 			$scope.table= {};
@@ -149,4 +149,4 @@ angular.module('SIEApp', ['ngRoute'])
 				console.log("Error obteniendo los estudiantes");
 			})
 
-  });
+  }]);

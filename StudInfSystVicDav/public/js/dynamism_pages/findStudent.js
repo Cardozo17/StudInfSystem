@@ -2,7 +2,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     })
-  .controller('findStudentController', function($scope, $http) {
+    .controller('findStudentController', ['$scope', '$http', function($scope, $http) {
 
 
     $('#errorAlert').hide();
@@ -104,4 +104,4 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
       
     }
     
-  });
+  }]);

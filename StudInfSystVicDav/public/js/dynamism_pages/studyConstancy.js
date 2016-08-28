@@ -4,7 +4,7 @@
     });
 
 angular.module('SIEApp', ['ngRoute'])
-  .controller('studyConstancyController', function($scope, $http) {
+    .controller('studyConstancyController', ['$scope','$http', function($scope, $http) {
 
     $scope.prueba= function(){
 
@@ -124,7 +124,7 @@ angular.module('SIEApp', ['ngRoute'])
 
 
 
-  });
+  }]);
 
 /*
  var app = angular.module('myApp', []);

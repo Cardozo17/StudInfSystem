@@ -4,7 +4,7 @@
     });
 
 angular.module('SIEApp', ['ngRoute'])
-  .controller('authorizationController', function($scope, $http) {
+    .controller('authorizationController', ['$scope', '$http', function($scope, $http) {
 
     $scope.prueba= function(){
 
@@ -124,4 +124,4 @@ angular.module('SIEApp', ['ngRoute'])
 
 
 
-  });
+  }]);

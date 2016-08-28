@@ -2,7 +2,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     })
-  .controller('findUserController', function($scope, $http) {
+    .controller('findUserController', ['$scope', '$http', function($scope, $http) {
 
      console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
     //Form Old Input To Use if Validation Fails:
@@ -62,4 +62,4 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
       
     }
 
-  });
+  }]);

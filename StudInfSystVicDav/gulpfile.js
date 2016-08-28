@@ -23,7 +23,7 @@ elixir(function(mix) {
     mix.sass('app.scss');
 });
 
-gulp.task('minify', function() {
+gulp.task('obfuscate', function() {
     return gulp.src(jsSrc)
         .pipe(newer(jsDest))
         .pipe(filelog())

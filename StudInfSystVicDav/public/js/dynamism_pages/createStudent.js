@@ -42,7 +42,7 @@
     });
 
 angular.module('SIEApp', ['ngRoute'])
-  .controller('createStudentController', function($scope) 
+    .controller('createStudentController', ['$scope', function($scope) 
   {
     console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
     
@@ -161,4 +161,4 @@ angular.module('SIEApp', ['ngRoute'])
           } 
     }
 
-  });
+  }]);

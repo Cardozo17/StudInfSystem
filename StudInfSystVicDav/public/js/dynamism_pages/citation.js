@@ -4,7 +4,7 @@
     });
 
 angular.module('SIEApp', ['ngRoute'])
-  .controller('citationController', function($scope, $http) {
+    .controller('citationController', ['$scope', '$http', function($scope, $http) {
 
     $scope.prueba= function(){
 
@@ -119,4 +119,4 @@ angular.module('SIEApp', ['ngRoute'])
 
     }
 
-  });
+  }]);
