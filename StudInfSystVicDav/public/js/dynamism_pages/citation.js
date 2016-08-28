@@ -8,40 +8,39 @@ angular.module('SIEApp', ['ngRoute'])
 
     $scope.prueba= function(){
 
-        $scope.dataToSend = {};
-        $scope.dataToSend.personId = $scope.personId;
-
-         $scope.firstName= "";
-         $scope.lastName= "";
+    $scope.dataToSend = {};
+    $scope.dataToSend.personId = $scope.personId;
+    $scope.firstName= "";
+    $scope.lastName= "";
         
-        console.log($scope.personId);
+    console.log($scope.personId);
       
-      $http({
-        method : 'POST',
-        url: 'studentById',
-        data: $scope.dataToSend,
-        responseType:'json'
-      }).success(function(data, status, headers, config)
-      {
+    $http({
+      method : 'POST',
+      url: 'studentById',
+      data: $scope.dataToSend,
+      responseType:'json'
+    }).success(function(data, status, headers, config)
+    {
 
-        console.log("post hecho de buena forma");
-        console.log(data);
+      console.log("post hecho de buena forma");
+      console.log(data);
 
-        if(data == "" || data == null)
-          console.log("No se encontro el Alumno");
-        else if(data != "" || data != null)
-            {
-              $scope.firstName = data.name;
-              $scope.lastName = data.last_name;
-              $scope.age =  "NO";
-              $scope.picture= data.picture;
-            }
+      if(data == "" || data == null)
+        console.log("No se encontro el Alumno");
+      else if(data != "" || data != null)
+          {
+            $scope.firstName = data.name;
+            $scope.lastName = data.last_name;
+            $scope.age =  "NO";
+            $scope.picture= data.picture;
+          }
 
 
-      }).error(function(){
+    }).error(function(){
 
-        console.log("Error obteniendo el Alumno");
-      })
+      console.log("Error obteniendo el Alumno");
+    })
       
     }
 
@@ -50,7 +49,6 @@ angular.module('SIEApp', ['ngRoute'])
        console.log("here"); 
        console.log($scope.personId);
        $scope.personId= "20847147";
-
 
        var params= {};
 
@@ -120,8 +118,5 @@ angular.module('SIEApp', ['ngRoute'])
       })
 
     }
-
-
-
 
   });
