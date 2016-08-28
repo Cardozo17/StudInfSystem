@@ -59,5 +59,5 @@
 
 	</div>
 
-	<script src="/js/dynamism_pages/citation.js"></script>
+	<script src="/js/min/citation.js"></script>
 @endsection

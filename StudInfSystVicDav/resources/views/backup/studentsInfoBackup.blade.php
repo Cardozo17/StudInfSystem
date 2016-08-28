@@ -42,6 +42,6 @@
 		</div>
 	</div>	
 
-	<script src="/js/dynamism_pages/studentsInfoBackUp.js"></script>
+	<script src="/js/min/studentsInfoBackUp.js"></script>
 
 @endsection

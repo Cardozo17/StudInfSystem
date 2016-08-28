@@ -151,5 +151,5 @@
 
 	</div>
 
-	<script src="/js/dynamism_pages/findStudent.js"></script>
+	<script src="/js/min/findStudent.js"></script>
 @endsection

@@ -63,6 +63,6 @@
 					@endforeach -->
 	</div>
 
-	<script src="/js/dynamism_pages/showStudents.js"></script>
+	<script src="/js/min/showStudents.js"></script>
 
 @endsection

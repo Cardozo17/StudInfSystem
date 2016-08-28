@@ -61,5 +61,5 @@
 
 	</div>
 
-	<script src="/js/dynamism_pages/authorization.js"></script>
+	<script src="/js/min/authorization.js"></script>
 @endsection

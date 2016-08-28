@@ -552,5 +552,5 @@
 
 	</div>
 	
-	<script src="/js/dynamism_pages/createStudent.js"></script>  
+	<script src="/js/min/createStudent.js"></script>  
 @endsection

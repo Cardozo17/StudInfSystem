@@ -61,5 +61,5 @@
 
 	</div>
 
-	<script src="/js/dynamism_pages/studyConstancy.js"></script>
+	<script src="/js/min/studyConstancy.js"></script>
 @endsection
