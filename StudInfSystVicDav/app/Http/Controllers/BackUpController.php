@@ -10,6 +10,6 @@ class BackUpController extends Controller
 {
 	public function showBackUpWindow()
     {
-        return view('backup.studentsInfoBackUp');
+        return view('backup.studentsInfoBackup');
     }    
 }

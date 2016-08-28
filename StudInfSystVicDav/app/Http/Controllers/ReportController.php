@@ -99,7 +99,7 @@ class ReportController extends Controller
             false,
             false
         )->execute();
- 
+        
         header('Content-Description: File Transfer');
         header('Content-type: application/pdf');
         //header('Content-Type: application/octet-stream');
