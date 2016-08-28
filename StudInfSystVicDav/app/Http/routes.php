@@ -124,6 +124,18 @@ Route::group(['middleware' => ['auth']], function ()
 
     /**********************************************************/
 
+    /**********************************************************/
+        Route::get('systemParameters', [
+                'middleware' => 'is_admin',
+                'uses' => 'SystemController@showSystemParametersWindow'
+            ]);
+
+         Route::post('setSystemParameters', 'SystemController@store');
+
+
+
+    /**********************************************************/
+
 });
 
 Route::group(['middleware' => 'web'], function () 

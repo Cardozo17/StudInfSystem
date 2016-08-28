@@ -224,7 +224,28 @@
                         </div>
                     </div>
                 </div>
-                @endif 
+                @endif
+                @if(Auth::user()->hasRole('admin'))
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven"><span class="glyphicon glyphicon-cog">
+                            </span>Configuración del Sistema</a>
+                        </h4>
+                    </div>
+                    <div id="collapseSeven" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="{{ url('/systemParameters') }}">Parametros del Sistema</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif  
             </div>
         </div>
     </div>

@@ -6,6 +6,8 @@
 
 	<h1>Inscribir Alumno</h1>
 
+	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
+
 	<div ng-controller="createStudentController">
 
 		{!! Form::open(array('url' => 'students', 'files'=>true)) !!}
@@ -31,7 +33,6 @@
 
 	    <div class= "form-group">
 
-	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 			<h3>Información del Alumno</h3>    
 			<br>
 	    	<div class = "row">
