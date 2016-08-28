@@ -3,6 +3,7 @@ var elixir = require('laravel-elixir');
 var newer = require('gulp-newer');
 var filelog = require('gulp-filelog');
 var uglify = require('gulp-uglify');
+var obfuscator = require('gulp-js-obfuscator');
 
 jsSrc = 'public/js/dynamism_pages/*.js';
 jsDest = 'public/js/min';
@@ -27,5 +28,6 @@ gulp.task('minify', function() {
         .pipe(newer(jsDest))
         .pipe(filelog())
         .pipe(uglify())
+        .pipe(obfuscator())
         .pipe(gulp.dest(jsDest));
 });
