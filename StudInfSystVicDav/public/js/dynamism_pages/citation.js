@@ -18,7 +18,7 @@ angular.module('SIEApp', ['ngRoute'])
       
       $http({
         method : 'POST',
-        url: 'studentsById',
+        url: 'studentById',
         data: $scope.dataToSend,
         responseType:'json'
       }).success(function(data, status, headers, config)
