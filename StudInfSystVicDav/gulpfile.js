@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var elixir = require('laravel-elixir');
 var newer = require('gulp-newer');
+var filelog = require('gulp-filelog');
 var uglify = require('gulp-uglify');
 
 jsSrc = 'public/js/dynamism_pages/*.js';
@@ -24,6 +25,7 @@ elixir(function(mix) {
 gulp.task('minify', function() {
     return gulp.src(jsSrc)
         .pipe(newer(jsDest))
+        .pipe(filelog())
         .pipe(uglify())
         .pipe(gulp.dest(jsDest));
 });
