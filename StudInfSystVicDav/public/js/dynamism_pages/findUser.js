@@ -11,7 +11,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
     $scope.emailToChange= oldInput.emailToChange;
 
     $('#errorAlert').hide();
-    
+
     $scope.emailInputChange = function()
     {
          $scope.userId= "";
@@ -29,7 +29,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
 
         $scope.dataToSend = {};
         $scope.dataToSend.email = $scope.email;
-        
+
         $http({
           method : 'POST',
           url: 'userByEmail',
@@ -42,24 +42,24 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
           console.log(data);
 
           if(data.error_status != null)
-          {  
+          {
             console.log("No se encontro el usuario");
             $scope.error_status= data.error_status;
             $('#errorAlert').show();
-          }  
-          else 
+          }
+          else
             {
                 $scope.userId= data.id;
                 $scope.name = data.name;
                 $scope.emailToChange = data.email;
-            }  
-              
+            }
+
 
         }).error(function(status)
         {
             console.log("Error obteniendo usuario");
         })
-      
+
     }
 
   }]);

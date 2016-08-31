@@ -90,20 +90,20 @@ class AuthController extends Controller
             'type' => $data['type'],
         ]);
     }
-    
+
    public function register(Request $request)
     {
         $validator = $this->validator($request->all());
-        
-        if ($validator->fails()) 
+
+        if ($validator->fails())
         {
             $this->throwValidationException(
                 $request, $validator
             );
         }
-      
+
         $this->create($request->all());
-       
+
         return redirect('registerUser')->with('message', 'El usuario ha sido creado exitosamente');;
     }
 
@@ -119,7 +119,7 @@ class AuthController extends Controller
         $user= User::where('email', $userEmail)->first();
 
         if($user==null)
-        {   
+        {
              return ['error_status' => 'Usuario no encontrado'];
         }
 
@@ -134,12 +134,12 @@ class AuthController extends Controller
 
         if($currentUser== null)
         {
-             return ['error_status' => 'EL usuario que desea editar no se encuentra en la base de datos'];    
-        }   
+             return ['error_status' => 'EL usuario que desea editar no se encuentra en la base de datos'];
+        }
 
         $validator = $this->validatorEdit($request->all());
-        
-        if ($validator->fails()) 
+
+        if ($validator->fails())
         {
              return redirect('editUser')->withInput()->withErrors($validator);
         }

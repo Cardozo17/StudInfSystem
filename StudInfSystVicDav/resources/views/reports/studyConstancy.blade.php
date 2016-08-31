@@ -9,12 +9,12 @@
 	<div ng-controller="studyConstancyController">
 
 		<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
-	    
+
 	    {!! Form::open(array('url' => '/repStudyConstancy')) !!}
 
 	    <div class= "form-group">
-	   	
-			<h3>Indique la Cédula del Alumno</h3>    
+
+			<h3>Indique la Cédula del Alumno</h3>
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3"  >
@@ -23,7 +23,7 @@
 				</div>
 				<br>
 				<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "prueba()"></button>
-				
+
 	    	</div>
 
 	    	<br>
@@ -48,13 +48,13 @@
 	    	<div class = "row">
 	    		<div class= "col-md-12">
 	    			{!!Form::submit('Generar Constancia', ['class'=> 'btn btn-primary form-control'])!!}
-	    		</div>	
+	    		</div>
 	    	</div>
 
 	    	<br>
 
 		</div>
-		
+
 		{!! Form::close() !!}
 
 

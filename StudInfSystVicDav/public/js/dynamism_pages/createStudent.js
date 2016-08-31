@@ -1,11 +1,11 @@
-  	function readURLStudent(input) 
+  	function readURLStudent(input)
   	{
         console.log(input);
-        if (input.files && input.files[0]) 
+        if (input.files && input.files[0])
         {
             var reader = new FileReader();
 
-            reader.onload = function (e) 
+            reader.onload = function (e)
             {
                 $('#studentPicture')
                     .attr('src', e.target.result)
@@ -17,14 +17,14 @@
         }
     }
 
-    function readURLRepLeg(input) 
+    function readURLRepLeg(input)
     {
         console.log(input);
-        if (input.files && input.files[0]) 
+        if (input.files && input.files[0])
         {
             var reader = new FileReader();
 
-            reader.onload = function (e) 
+            reader.onload = function (e)
             {
                 $('#repPicture')
                     .attr('src', e.target.result)
@@ -38,14 +38,14 @@
 
     $(document).ready(function()
     {
-      $('[data-toggle="tooltip"]').tooltip();   
+      $('[data-toggle="tooltip"]').tooltip();
     });
 
 angular.module('SIEApp', ['ngRoute'])
-    .controller('createStudentController', ['$scope', function($scope) 
+    .controller('createStudentController', ['$scope', function($scope)
   {
     console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
-    
+
     //Form Old Input To Use if Validation Fails:
     $scope.documentId= oldInput.document_id;
     $scope.picture= oldInput.picture;
@@ -108,7 +108,7 @@ angular.module('SIEApp', ['ngRoute'])
       console.log($scope.relationshipWithStudent);
 
       if($scope.relationshipWithStudent== "isDad")
-      {  
+      {
         $scope.selectedRelationshipWithStudent= "PADRE";
         $scope.informationFromFather=true;
         $scope.informationFromMother= false;
@@ -127,10 +127,10 @@ angular.module('SIEApp', ['ngRoute'])
 
          $scope.legRepNeedsAuthorization= false;
 
-      } 
+      }
       else
         if($scope.relationshipWithStudent=="isMom")
-         { 
+         {
           $scope.selectedRelationshipWithStudent= "MADRE";
           $scope.informationFromMother=true;
           $scope.informationFromFather=false;
@@ -152,13 +152,13 @@ angular.module('SIEApp', ['ngRoute'])
          }
         else
           if($scope.relationshipWithStudent== "isOther")
-          { 
+          {
             $scope.selectedRelationshipWithStudent= "";
             $scope.informationFromFather=false;
             $scope.informationFromMother= false;
 
             $scope.legRepNeedsAuthorization= true;
-          } 
+          }
     }
 
   }]);

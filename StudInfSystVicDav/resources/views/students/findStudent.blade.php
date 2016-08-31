@@ -7,18 +7,17 @@
 	<h1>Consulta de Alumno</h1>
 
 	<div ng-controller="findStudentController">
-	    
+
 	    {!! Form::open(array('action' => array('StudentController@findStudentById'))) !!}
 
-
-	    <!-- Error Message -->    
+	    <!-- Error Message -->
 	    <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlert">
 	    </div>
 
 	    <div class= "form-group">
 	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
-   		
-			<h3>Indique la Cédula</h3>    
+
+			<h3>Indique la Cédula</h3>
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-3" >
@@ -30,7 +29,7 @@
 					<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "findStudentInformation()"></button>
 				</div>
 				<div class= "col-md-4 col-md-push-1" >
-					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Alumno"> 	
+					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Alumno">
 				</div>
 	    	</div>
 
@@ -53,7 +52,7 @@
 	    			{!! Form::label('gradeToBeRegister', 'Grado que Cursa: ') !!}
 					{!!Form::text('gradeToBeRegister', null, ['class'=> 'form-control','ng-model'=>'gradeToBeRegister','ng-disabled'=>'true']) !!}
 				</div>
-				
+
 			</div>
 
 			<br>
@@ -85,7 +84,7 @@
 
 			</div>
 			<br>
-			<h3>Datos del Representante Legal</h3>    
+			<h3>Datos del Representante Legal</h3>
 			<br>
 			<div class = "row">
 				<div class= "col-md-4">
@@ -93,10 +92,10 @@
 					{!!Form::text('personIdLR', null, ['class'=> 'form-control', 'ng-model'=>'personIdLR','ng-disabled'=>'true', 'ng-change' => 'inputEdited()','data-toggle'=>"tooltip", 'title'=>"Cédula: V00000000 ó &#013; Escolar: 116V00000000"]) !!}
 				</div>
 				<div class= "col-md-4 col-md-push-1" >
-					 <img ng-src="<%legRepPicture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Rep. Legal"> 	
+					 <img ng-src="<%legRepPicture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Rep. Legal">
 				</div>
-			</div>	
-			<br>	
+			</div>
+			<br>
 			<div class = "row">
 	    		<div class= "col-md-4">
 					{!! Form::label('firstNameLR', 'Nombres: ') !!}
@@ -106,7 +105,7 @@
 				<div class= "col-md-4" ng-disabled = "true">
 					{!! Form::label('lastNameLR', 'Apellidos: ') !!}
 					{!!Form::text('lastNameLR', null, ['class'=> 'form-control','ng-model'=>'lastNameLR', 'ng-disabled'=>'true']) !!}
-				</div>				
+				</div>
 			</div>
 			<br>
 			<div class = "row">
@@ -114,8 +113,8 @@
 					{!! Form::label('mailLR', 'Correo: ') !!}
 					{!!Form::text('mailLR', null, ['class'=> 'form-control','ng-model'=>'mailLR', 'ng-disabled'=>'true']) !!}
 				</div>
-				
-				
+
+
 				<div class= "col-md-4">
 					{!! Form::label('relationshipLR', 'Parentesco con Alumno: ') !!}
 					{!!Form::text('relationshipLR', null, ['class'=> 'form-control','ng-model'=>'relationshipLR', 'ng-disabled'=>'true']) !!}
@@ -146,7 +145,7 @@
 			<br>
 
 		</div>
-		
+
 		{!! Form::close() !!}
 
 	</div>

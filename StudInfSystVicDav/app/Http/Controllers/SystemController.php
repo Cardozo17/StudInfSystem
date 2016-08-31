@@ -10,10 +10,10 @@ use App\Http\Requests;
 
 class SystemController extends Controller
 {
-     public function showSystemParametersWindow() 
+     public function showSystemParametersWindow()
     {
         return  view('system.systemParameters');
-    } 
+    }
 
 
       public function store (Request $request) //StudentFormRequest $request
@@ -27,7 +27,7 @@ class SystemController extends Controller
         'school_address'=>'required',
         ]);
 
-      if ($validator->fails()) 
+      if ($validator->fails())
       {
         return redirect('systemParameters')->withInput()->withErrors($validator);
       }
@@ -36,10 +36,10 @@ class SystemController extends Controller
       $input= $request->all();
 
     	//registering the systemParameters in the table system_parameters
-      $systemParameters= new SystemParameters (['school_name'=> $input['school_name'], 'school_principal'=> $input['school_principal'], 
+      $systemParameters= new SystemParameters (['school_name'=> $input['school_name'], 'school_principal'=> $input['school_principal'],
         'school_address'=> $input['school_address']]);
 
-      $systemParameters->save();			 
+      $systemParameters->save();
 
       return redirect('systemParameters')->with('status','Parametros del Sistema Establecidos Satisfactoriamente');
 

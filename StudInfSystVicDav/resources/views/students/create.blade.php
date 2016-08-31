@@ -29,11 +29,11 @@
 		<script>
 			var oldInput = <?php echo json_encode($oldInput); ?>;
 		</script>
-		<!-- ////////////////////////////////////////////////////////////////// -->		
+		<!-- ////////////////////////////////////////////////////////////////// -->
 
 	    <div class= "form-group">
 
-			<h3>Información del Alumno</h3>    
+			<h3>Información del Alumno</h3>
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-4">
@@ -55,7 +55,7 @@
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
 					<input type="file" id="picture" name="picture" ng-model="picture"  onchange="readURLStudent(this);">
 	   				 <img  id="studentPicture" name="studentPicture" ng-model="studentPicture" src="picture" alt="Foto del Alumno" />
-	   			</div>	 
+	   			</div>
 	    	</div>
 
 	    	<br>
@@ -69,13 +69,13 @@
 	    				<span class="help-block">
 	    					<strong>{{ $errors->first('name') }}</strong>
 	    				</span>
-	    				@endif 
+	    				@endif
 	    			</div>
-	    		</div>	 
+	    		</div>
 
-	    		
+
 	    		<div class= "col-md-4">
-	    			<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">	
+	    			<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
 	    				{!! Form::label('last_name', 'Apellido: ') !!}
 	    				<input type="text" data-toggle="tooltip" title="Apellido del Alumno" class="form-control"  id="last_name" name="last_name" placeholder="Apellido del Alumno" value="{{Request::old('last_name')}}" ng-model= "lastName">
 
@@ -85,7 +85,7 @@
 	    				</span>
 	    				@endif
 	    			</div>
-	    		</div>	
+	    		</div>
 
 	    		<br>
 				<div class = "col-md-4">
@@ -100,7 +100,7 @@
 					<div class="form-group{{ $errors->has('born_place') ? ' has-error' : '' }}">
 						{!! Form::label('born_place', 'Lugar de Nacimiento: ') !!}
 						<input type="text" data-toggle="tooltip" title="Lugar de Nacimiento del Alumno" class="form-control"  id="born_place" name="born_place" placeholder="Lugar de Nacimiento del Alumno" value="{{Request::old('born_place')}}" ng-model= "bornPlace">
-					
+
 						@if ($errors->has('born_place'))
 						<span class="help-block">
 							<strong>{{ $errors->first('born_place') }}</strong>
@@ -110,7 +110,7 @@
 					</div>
 				</div>
 
-				
+
 				<div class= "col-md-6">
 					<div class="form-group{{ $errors->has('born_date') ? ' has-error' : '' }}">
 						{!! Form::label('born_date', 'Fecha de Nacimiento: (AAAA-MM-DD) ') !!}
@@ -202,7 +202,7 @@
 					{!! Form::label('studentPicture', 'Fotografía: ') !!}
 					<input type="file" id="repLegPicture" name="repLegPicture" ng-model="repLegPicture" onchange="readURLRepLeg(this);">
 	   				 <img  id="repPicture" name="repPicture" ng-model="repPicture" src="repPicture" alt="Foto del Rep. Legal" />
-	   			</div>	 
+	   			</div>
 	    	</div>
 	    	<br>
 	    	<div class = "row">
@@ -239,7 +239,7 @@
 					{!!Form::select('repLegGender', array('MALE' => 'Masculino', 'FEMALE' => 'Femenino')) !!}
 				</div>
 			</div>
-	
+
 			<br>
 			<div class = "row">
 				<div class= "col-md-6">
@@ -253,7 +253,7 @@
 						</span>
 						@endif
 
-					</div>	
+					</div>
 				</div>
 			</div>
 
@@ -314,7 +314,7 @@
 							<strong>{{ $errors->first('repLegMobilePhone') }}</strong>
 						</span>
 						@endif
-					</div>	
+					</div>
 				</div>
 				<div class= "col-md-4">
 					<div class="form-group{{ $errors->has('repLegWorkPhone') ? ' has-error' : '' }}">
@@ -326,7 +326,7 @@
 							<strong>{{ $errors->first('repLegWorkPhone') }}</strong>
 						</span>
 						@endif
-						
+
 					</div>
 				</div>
 			</div>
@@ -339,31 +339,31 @@
 				</div>
 				<!-- OJOOO SI ES PADRE O MADRE TENEMOS QUE VER QUIE EN EL CONTROLADOR STORE GUARDE A LA PERSON UNA SOLA VEZ Y LA USE TANTO PARA REP LEG COMO PARA PADRE O MADRE -->
 			</div>
-				
-			<div class = "row">			
+
+			<div class = "row">
 				<div class= "col-md-2" >
 						<input  type="radio" name="relationshipWithStudent"
-						 ng-model= "relationshipWithStudent" checked 
-						 ng-change= "relationshipWithStudentChange()" 
+						 ng-model= "relationshipWithStudent" checked
+						 ng-change= "relationshipWithStudentChange()"
 						 value="isDad"> Padre
 				</div>
-				<div class= "col-md-2" >		
+				<div class= "col-md-2" >
 						<input   type="radio" name="relationshipWithStudent"
 						 ng-model= "relationshipWithStudent" ng-change= "relationshipWithStudentChange()"
 						  value="isMom"> Madre
 				</div>
-				<div class= "col-md-2" >		
-						<input  type="radio" name="relationshipWithStudent" 
+				<div class= "col-md-2" >
+						<input  type="radio" name="relationshipWithStudent"
 						ng-model= "relationshipWithStudent" ng-change= "relationshipWithStudentChange()"
 						value="isOther"> Otra
 				</div>
-				<div class= "col-md-4">		
+				<div class= "col-md-4">
 						{!! Form::label('selectedRelationshipWithStudent', 'Especifique Relación: ') !!}
-					
-						 <input type="text" class="form-control"  id="selectedRelationshipWithStudent" 
+
+						 <input type="text" class="form-control"  id="selectedRelationshipWithStudent"
 						 name="selectedRelationshipWithStudent" placeholder="Relación Seleccionada"
 						  value="{{Request::old('selectedRelationshipWithStudent')}}"
-						  ng-model= "selectedRelationshipWithStudent" 
+						  ng-model= "selectedRelationshipWithStudent"
 						  ng-readonly= 'relationshipWithStudent==null||relationshipWithStudent=="isDad"||relationshipWithStudent=="isMom"' >
 				</div>
 			</div>
@@ -371,7 +371,7 @@
 				<div class= "col-md-6" ng-show="legRepNeedsAuthorization">
 				{!! Form::label('authorizedBy', 'Autorizado Por: ') !!}
 					<input type="text" class="form-control"  id="authorizedBy" name="authorizedBy" placeholder="¿Quién Autoriza a Ser Representante Legal del Alumno?" value="{{Request::old('authorizedBy')}}" ng-model= "authorizedBy">
-				</div>	
+				</div>
 
 			</div>
 
@@ -384,20 +384,20 @@
 
 
 			<div class = "row">
-				<div class= "col-md-4" >		
-							<input  type="checkbox" ng-change="" 
+				<div class= "col-md-4" >
+							<input  type="checkbox" ng-change=""
 							ng-model= "informationFromFather"  id="infFather" name="infFather" value="true"> Información del Padre
 				</div>
-				<div class= "col-md-4" >		
-							<input  type="checkbox" ng-change="" 
+				<div class= "col-md-4" >
+							<input  type="checkbox" ng-change=""
 							ng-model= "informationFromMother" id="infMother" name="infMother" value="true"> Información de la Madre
 				</div>
-			</div>				
+			</div>
 
 			<br>
 	    	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 	    	<h3 ng-show= "informationFromFather||informationFromMother">Información de los Padres</h3>
-	    	
+
 	    	<br>
 	    	<div ng-show= "informationFromFather">
 	    		<hr>
@@ -408,10 +408,10 @@
 						{!!Form::text('fatherDocId', null, ['class'=> 'form-control', 'ng-model'=>'fatherDocId',  'placeholder'=>'Cédula del Padre']) !!}
 					</div>
 
-					<div class= "col-md-3">	
-						<input name="fatherLiveWithTheStudent" ng-model= "fatherLiveWithStudent" type="checkbox" value="true"> 
+					<div class= "col-md-3">
+						<input name="fatherLiveWithTheStudent" ng-model= "fatherLiveWithStudent" type="checkbox" value="true">
 						Vive con el Alumno
-					</div>	
+					</div>
 		    	</div>
 		    	<br>
 		    	<div class = "row">
@@ -478,10 +478,10 @@
 		    			<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 &#013; Escolar: 116V00000000" id="motherDocId" name="motherDocId"
 		    			value="{{old('motherDocId')}}"  placeholder="Cédula de la Madre" ng-model= "motherDocId">
 		    		</div>
-					<div class= "col-md-3">	
-						<input name="motherLiveWithTheStudent" ng-model= "motherLiveWithStudent" type="checkbox" value="true"> 
+					<div class= "col-md-3">
+						<input name="motherLiveWithTheStudent" ng-model= "motherLiveWithStudent" type="checkbox" value="true">
 						Vive con el Alumno
-					</div>	
+					</div>
 		    	</div>
 		    	<br>
 		    	<div class = "row">
@@ -538,20 +538,20 @@
 							{!! Form::label('motherWorkPhone', 'Teléfono de Trabajo: ') !!}
 							<input type="text" data-toggle="tooltip" title="Teléfono del Trabajo de la Madre" class="form-control"  id="motherWorkPhone" name="mmotherWorkPhone" placeholder="Teléfono del Trabajo de la Madre" value="{{Request::old('motherWorkPhone')}}" ng-model= "motherWorkPhone">
 					</div>
-				</div>		
+				</div>
 			</div>	 -->
 
 	    	<br>
 	    	<div class = "row">
 	    		<div class= "col-md-12">
 	    			{!!Form::submit('Registrar Alumno', ['class'=> 'btn btn-primary form-control'])!!}
-	    		</div>	
+	    		</div>
 	    	</div>
 		</div>
-		
+
 		{!! Form::close() !!}
 
 	</div>
-	
-	<script src="/js/min/createStudent.js"></script>  
+
+	<script src="/js/min/createStudent.js"></script>
 @endsection

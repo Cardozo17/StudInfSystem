@@ -2,8 +2,8 @@
 
 @section('title', 'Parametros del Sistema')
 
-@section('content')	
-	
+@section('content')
+
 	<h1>Parametros del Sistema</h1>
 
 	<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
@@ -26,11 +26,11 @@
 		<script>
 			var oldInput = <?php echo json_encode($oldInput); ?>;
 		</script>
-		<!-- ////////////////////////////////////////////////////////////////// -->		
+		<!-- ////////////////////////////////////////////////////////////////// -->
 
 	    <div class= "form-group">
 
-			<h3>Parametros de la Escuela</h3>    
+			<h3>Parametros de la Escuela</h3>
 			<br>
 	    	<div class = "row">
 	    		<div class= "col-md-6">
@@ -52,7 +52,7 @@
 					{!! Form::label('school_logo', 'Logo de la Institución: ') !!}
 					<input type="file" id="school_logo" name="school_logo" ng-model="schoolLogo"  onchange="readURLStudent(this);">
 	   				<img  id="schoolLogo" name="schoolLogo" ng-model="schoolLogo" src="schoolLogo" alt="Logo de la Escuela" />
-	   			</div>	 
+	   			</div>
 	    	</div>
 
 	    	<br>
@@ -66,7 +66,7 @@
 	    				<span class="help-block">
 	    					<strong>{{ $errors->first('school_principal') }}</strong>
 	    				</span>
-	    				@endif 
+	    				@endif
 	    			</div>
 	    		</div>
 			</div>
@@ -81,10 +81,10 @@
 	    				<span class="help-block">
 	    					<strong>{{ $errors->first('school_address') }}</strong>
 	    				</span>
-	    				@endif 
+	    				@endif
 	    			</div>
 	    		</div>
-			</div>		 		 
+			</div>
 
 			<br>
 
@@ -92,10 +92,10 @@
 	    	<div class = "row">
 	    		<div class= "col-md-12">
 	    			{!!Form::submit('Establecer Parametros del Sistema', ['class'=> 'btn btn-primary form-control'])!!}
-	    		</div>	
+	    		</div>
 	    	</div>
 		</div>
-		
+
 		{!! Form::close() !!}
 
 	</div>

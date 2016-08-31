@@ -1,6 +1,6 @@
  $(document).ready(function()
     {
-      $('[data-toggle="tooltip"]').tooltip();   
+      $('[data-toggle="tooltip"]').tooltip();
     });
 
 angular.module('SIEApp', ['ngRoute'])
@@ -12,9 +12,9 @@ angular.module('SIEApp', ['ngRoute'])
     $scope.dataToSend.personId = $scope.personId;
     $scope.firstName= "";
     $scope.lastName= "";
-        
+
     console.log($scope.personId);
-      
+
     $http({
       method : 'POST',
       url: 'studentById',
@@ -41,12 +41,12 @@ angular.module('SIEApp', ['ngRoute'])
 
       console.log("Error obteniendo el Alumno");
     })
-      
+
     }
 
     $scope.postToMakeConstancy= function ()
     {
-       console.log("here"); 
+       console.log("here");
        console.log($scope.personId);
        $scope.personId= "20847147";
 
@@ -54,10 +54,10 @@ angular.module('SIEApp', ['ngRoute'])
 
        params: {
                     id: $scope.personId
-            
+
                 }
 
-       console.log(params);         
+       console.log(params);
 
       var path= "/reporting"
       var method = "post"; // Set method to post by default if not specified.
@@ -68,9 +68,9 @@ angular.module('SIEApp', ['ngRoute'])
       form.setAttribute("method", method);
       form.setAttribute("action", path);
 
-     for(var key in params) 
+     for(var key in params)
       {
-          if(params.hasOwnProperty(key)) 
+          if(params.hasOwnProperty(key))
           {
               var hiddenField = document.createElement("input");
               hiddenField.setAttribute("type", "hidden");
@@ -91,7 +91,7 @@ angular.module('SIEApp', ['ngRoute'])
     {
         $scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
-      
+
       console.log("data a enviar ");
       console.log($scope.dataToSend);
 
@@ -100,7 +100,7 @@ angular.module('SIEApp', ['ngRoute'])
         url: '/reporting',
         params: {
                     id: $scope.personId
-            
+
                 }
       }).success(function(data, status, headers, config)
       {
@@ -111,7 +111,7 @@ angular.module('SIEApp', ['ngRoute'])
         /*var file = new Blob([data], {type: 'application/pdf'});
        var fileURL = URL.createObjectURL(file);
        window.open(fileURL);*/
-       
+
       }).error(function(){
 
         console.log("Error obteniendo el Alumno");

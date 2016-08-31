@@ -16,7 +16,7 @@ use  App\PhoneNumbers;
 */
 
 //Home and / pages routes and logic
-Route::get('/', function () 
+Route::get('/', function ()
 {
     if(Auth::check())
      return view('home');
@@ -24,7 +24,7 @@ Route::get('/', function ()
         return view('welcome');
 });
 
-Route::get('/home', function () 
+Route::get('/home', function ()
 {
     if(Auth::check())
      return view('home');
@@ -32,7 +32,7 @@ Route::get('/home', function ()
         return view('welcome');
 });
 
- // Authentication Routes...   
+ // Authentication Routes...
  Route::get('login', 'Auth\AuthController@getLogin');
  Route::post('login', 'Auth\AuthController@postLogin');
 
@@ -50,10 +50,10 @@ Route::get('/home', function ()
 |--------------------------------------------------------------------------
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.  
+| kernel and includes session state, CSRF protection, and more.
 */
 
-Route::group(['middleware' => ['auth']], function () 
+Route::group(['middleware' => ['auth']], function ()
 {
     /**********************************************************/
         Route::get('about', 'HomeController@showAboutUsWindow');
@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth']], function ()
 
         Route::get('students','StudentController@index');
         Route::get('students/list', 'StudentController@listStudents');
-        
+
         Route::post('students', 'StudentController@store');
         Route::post('studentById','StudentController@findStudentById');
 
@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('repCitation', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
             'uses' =>'ReportController@showMakeCitationWindow', 'as' => 'Report2']);
-       
+
         Route::get('repAuthorization', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
             'uses' =>'ReportController@showMakeAuthorizationWindow', 'as' => 'Report3']);
@@ -98,7 +98,7 @@ Route::group(['middleware' => ['auth']], function ()
     /**********************************************************/
 
     /**********************************************************/
-        
+
         Route::get('registerUser', [
             'middleware' => 'is_admin',
             'uses' => 'Auth\AuthController@showRegistrationForm'
@@ -138,7 +138,7 @@ Route::group(['middleware' => ['auth']], function ()
 
 });
 
-Route::group(['middleware' => 'web'], function () 
+Route::group(['middleware' => 'web'], function ()
 {
 	// Logout Routes...
     Route::get('logout', 'Auth\AuthController@logout');

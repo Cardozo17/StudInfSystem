@@ -8,18 +8,18 @@ angular.module('SIEApp', ['ngRoute'])
 			$http({
 				method : 'GET',
 				url: 'students/list',
-				
+
 			}).success(function(data){
 
 				$scope.students= data;
 				console.log($scope.students)
 
-				//Initializing Table to show all inventoryMasters 
-				// Data Grid(DataTables)  Settings 
-				$(document).ready( function () 
+				//Initializing Table to show all inventoryMasters
+				// Data Grid(DataTables)  Settings
+				$(document).ready( function ()
 				{
 				   	$scope.table= $('#table_id').DataTable({
-				    	
+
 			    	data: $scope.students,
 			    	"dom": 'ZlfrtipB',  //Columns Resizable
 			    	 buttons: [
@@ -30,7 +30,7 @@ angular.module('SIEApp', ['ngRoute'])
 			    	},
 			        colReorder: true,
 			    	columns: [
-			    			  { data: 'person.document_id'},	
+			    			  { data: 'person.document_id'},
 			    	          { data: 'person.name' },
 			    	          { data: 'person.last_name' },
 			    	          { data: 'grade_to_be_register'},
@@ -46,40 +46,40 @@ angular.module('SIEApp', ['ngRoute'])
 			    	          { data: 'teacher.person.name', "defaultContent": ""},
 			    	          { data: 'teacher.person.last_name', "defaultContent": ""},
 			    	      ],
-					"columnDefs": [	 
+					"columnDefs": [
 						      { "targets": 0},
 						      { "targets": 1,
-						      	"render": function ( data, type, row ) 
+						      	"render": function ( data, type, row )
 						      	{
 						      				if(row.person!=null)
-						      				{	
+						      				{
                    							 	return data +' '+ row.person.last_name;
-                   							}	
+                   							}
                 				}
 						  	  },
 						      { "targets": 2, "visible": false},
 						      { "targets": 3, "className": "text-center" },
-						      { "targets": 4, 
+						      { "targets": 4,
 						      	"render": function ( data, type, row ) {
 
 						      				//console.log(data)
 						      				if(data.length>0)
-						      				{	
+						      				{
 						      					var aux= "";
 							      				for(var i=0; i<data.length; i++)
-							      				{	
-							      					if(data[i].person!= null)	
+							      				{
+							      					if(data[i].person!= null)
 	                   							 		aux+= data[i].person.name +' '+ data[i].person.last_name + '<br>';
 	                   							}
                    							}
 
-                   							data= aux;	
-                   							return data ;	
+                   							data= aux;
+                   							return data ;
                 				}
 
 						  	  },
 						      { "targets": 5, "visible": false},
-						      { "targets": 6, 
+						      { "targets": 6,
 						      		"render": function ( data, type, row ) {
 
                    							 return data +' '+ row.legal_representative.person.last_name;
@@ -91,9 +91,9 @@ angular.module('SIEApp', ['ngRoute'])
 						      		"render": function ( data, type, row ) {
 
 						      				if(row.parent!=null)
-						      				{	
+						      				{
                    							 	return data +' '+ row.parent.person.last_name;
-                   							}	
+                   							}
                 						}
                 			  },
 						      { "targets": 10, "visible": false},
@@ -101,7 +101,7 @@ angular.module('SIEApp', ['ngRoute'])
 						      { "targets": 12, "visible": false},
 						      { "targets": 13},
 						      { "targets": 14, "visible": false},
-						     ],     
+						     ],
 			    	language:      {                      //Translating DataTable to Spanish Language
 			    	    	    "sProcessing":     "Procesando...",
 			    	    	    "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -125,7 +125,7 @@ angular.module('SIEApp', ['ngRoute'])
 			    	    	        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 			    	    	        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			    	    	    }
-			    	    	}, 	       	    	
+			    	    	},
 			    	paging: true,
 			    	scrollY: true,
 			    	scrollX: true,
@@ -133,19 +133,19 @@ angular.module('SIEApp', ['ngRoute'])
 			    	select:							//Setting you can select only one row at the time option(Need to download something)
 			    		{
 			    			style: 'single'
-			    		} 
+			    		}
 			    });
-			   
+
 			   //Getting the Selected Row
 			   $scope.table
 		        .on( 'select', function ( e, dt, type, indexes ) {
-		        	
+
 		        	 $scope.selectedRow= $scope.table.rows( {selected: true} ).data().toArray();
 		        	 console.log($scope.selectedRow);
 
 		        })
-			        
-				}); 
+
+				});
 
 			}).error(function(){
 

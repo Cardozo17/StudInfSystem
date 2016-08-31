@@ -40,17 +40,17 @@ class ReportController extends Controller
 
         $input= $request->all();
 
-        $personId = $input['document_id']; 
-      
+        $personId = $input['document_id'];
+
         $database = config('database.connections.mysql');
 
         $output = public_path().time().'_constancy';
-        
+
         $ext = "pdf";
-      
+
         $jasper->process(
-            public_path().'/reportJasperVD/constancy.jasper', 
-            $output, 
+            public_path().'/reportJasperVD/constancy.jasper',
+            $output,
             array($ext),
             array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
             $database,
@@ -70,7 +70,7 @@ class ReportController extends Controller
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext); // deletes the temporary file
-        
+
         return Redirect::to('/showMakeStudyConstancyWindow');
     }
 
@@ -82,24 +82,24 @@ class ReportController extends Controller
 
         $input= $request->all();
 
-        $personId = $input['document_id']; 
-      
+        $personId = $input['document_id'];
+
         $database = config('database.connections.mysql');
 
         $output = public_path().time().'_citation';
-        
+
         $ext = "pdf";
- 
+
         $jasper->process(
-            public_path().'/reportJasperVD/citacion.jasper', 
-            $output, 
+            public_path().'/reportJasperVD/citacion.jasper',
+            $output,
             array($ext),
             array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
             $database,
             false,
             false
         )->execute();
-        
+
         header('Content-Description: File Transfer');
         header('Content-type: application/pdf');
         //header('Content-Type: application/octet-stream');
@@ -112,7 +112,7 @@ class ReportController extends Controller
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext); // deletes the temporary file
-        
+
         return Redirect::to('/showMakeCitationWindow');
     }
 
@@ -123,23 +123,23 @@ class ReportController extends Controller
         $input= $request->all();
 
         $personId = $input['document_id'];
-      
+
         $database = config('database.connections.mysql');
 
         $output = public_path().time().'_authorization';
-        
+
         $ext = "pdf";
- 
+
         $jasper->process(
-            public_path().'/reportJasperVD/autorizacion.jasper', 
-            $output, 
+            public_path().'/reportJasperVD/autorizacion.jasper',
+            $output,
             array($ext),
             array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
             $database,
             false,
             false
         )->execute();
- 
+
         header('Content-Description: File Transfer');
         header('Content-type: application/pdf');
         //header('Content-Type: application/octet-stream');
@@ -152,7 +152,7 @@ class ReportController extends Controller
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext); // deletes the temporary file
-        
+
         return Redirect::to('/showMakeAuthorizationWindow');
     }
 

@@ -35,7 +35,7 @@
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-fire text-success"></span><a href="">Misión</a>
-                                      
+
                                     </td>
                                 </tr> -->
                             </table>
@@ -70,7 +70,7 @@
                                         <a href="">Inscribir Alumno Inscripción Tardía</a>
                                     </td>
                                 </tr>
-                                 @endif 
+                                 @endif
                                  @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
                                  || Auth::user()->hasRole('administrativePersonLevel2'))
                                  <tr>
@@ -78,7 +78,7 @@
                                         <a href="/showFindStudent">Consultar Alumno</a>
                                     </td>
                                 </tr>
-                                @endif 
+                                @endif
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
                                     <td>
@@ -86,7 +86,7 @@
                                     </td>
                                 </tr>
                                 @endif
-                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')) 
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
                                     <td>
                                         <a href="/students">Ver Lista de Alumnos</a>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                @endif 
+                @endif
                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
                  || Auth::user()->hasRole('administrativePersonLevel2'))
                 <div class="panel panel-default">
@@ -190,7 +190,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="/editUser">Editar Usuario</a> 
+                                        <a href="/editUser">Editar Usuario</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 @endif
-                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1')) 
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1'))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -245,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                @endif  
+                @endif
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
 
 
     $('#errorAlert').hide();
-    
+
     $scope.inputEdited = function()
     {
         $('#errorAlert').hide();
@@ -41,7 +41,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
       $scope.dataToSend.personId = $scope.personId;
 
       $scope.inputEdited();
-      
+
       $http({
         method : 'POST',
         url: 'studentById',
@@ -54,12 +54,12 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         console.log(data);
 
         if(data.error_status!=null)
-        { 
+        {
           console.log("No se encontro el estudiante");
           $scope.error_status= data.error_status;
           $('#errorAlert').show();
-        } 
-        else 
+        }
+        else
             {
               $scope.firstName = data.name;
               $scope.lastName = data.last_name;
@@ -84,7 +84,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
                 $scope.home_phoneLR = data.student.legal_representative.person.phone_numbers.home_phone;
                 $scope.mobile_phoneLR = data.student.legal_representative.person.phone_numbers.mobile_phone;
                 $scope.work_phoneLR = data.student.legal_representative.person.phone_numbers.work_phone;
-              }  
+              }
               else
               {
                 $scope.home_phoneLR ="";
@@ -92,7 +92,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
                 $scope.work_phoneLR = "";
               }
 
-             
+
               $scope.directionLR = data.student.legal_representative.person.home_address;
 
             }
@@ -101,7 +101,7 @@ angular.module('SIEApp', ['ngRoute'], function($interpolateProvider) {
         $('#showAlert').show();
         console.log("Error obteniendo estudiante");
       })
-      
+
     }
-    
+
   }]);
