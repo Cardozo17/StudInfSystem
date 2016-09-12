@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Registro de Usuario del Sistema</div>
-            
+
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/registerUser') }}">
                         {!! csrf_field() !!}
@@ -24,7 +24,7 @@
 
                     <h3>Datos para Crear el Usuario</h3>
                     <br>
-                   
+
                     <div class = "row">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Nombre</label>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
 
-                    <div class = "row">    
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Correo Electrónico</label>
 
@@ -57,9 +57,9 @@
                         </div>
                     </div>
                     <div class = "row">
-                           <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}"> 
+                           <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                                <label class="col-md-4 control-label">Tipo de Usuario</label>
-                               <div class="col-md-6">   
+                               <div class="col-md-6">
                                 <div class="form-group">
                                     <select name="type" class="form-control">
                                         <option value="" disabled selected>Seleccione el Tipo</option>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row"> 
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Contraseña</label>
 
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row"> 
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Confirmar Contraseña</label>
 
@@ -107,7 +107,7 @@
                                 @endif
                             </div>
                         </div>
-                    <div class = "row"> 
+                    <div class = "row">
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

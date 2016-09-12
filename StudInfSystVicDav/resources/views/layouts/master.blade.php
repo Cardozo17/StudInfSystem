@@ -27,7 +27,7 @@
 
 
 </head>
-<body ng-app="SIEApp">
+<body ng-app="SISApp">
 
 	<div class= "row">
 		<div class= "col-md-12">
@@ -55,4 +55,5 @@
 	</div>
 
 </body>
+
 </html>

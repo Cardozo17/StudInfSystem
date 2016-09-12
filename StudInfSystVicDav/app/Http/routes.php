@@ -130,9 +130,8 @@ Route::group(['middleware' => ['auth']], function ()
                 'uses' => 'SystemController@showSystemParametersWindow'
             ]);
 
-         Route::post('setSystemParameters', 'SystemController@store');
-
-
+        Route::get('getSystemParameters','SystemController@getSystemParameters');
+        Route::post('setSystemParameters', 'SystemController@store');
 
     /**********************************************************/
 

@@ -50,7 +50,7 @@
 
 				<div class= "col-md-4 col-md-push-2">
 					{!! Form::label('school_logo', 'Logo de la Institución: ') !!}
-					<input type="file" id="school_logo" name="school_logo" ng-model="schoolLogo"  onchange="readURLStudent(this);">
+					<input type="file" id="school_logo" name="school_logo" ng-model="schoolLogo"  onchange="readURLLogo(this);">
 	   				<img  id="schoolLogo" name="schoolLogo" ng-model="schoolLogo" src="schoolLogo" alt="Logo de la Escuela" />
 	   			</div>
 	    	</div>
@@ -100,5 +100,5 @@
 
 	</div>
 
-
+<script src="/js/dynamism_pages/systemParameters.js"></script>
 @endsection

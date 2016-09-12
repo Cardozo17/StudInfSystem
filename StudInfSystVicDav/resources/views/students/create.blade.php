@@ -16,7 +16,7 @@
 	    	<p class="alert alert-danger">{{ $error }}</p>
 		@endforeach -->
 		@if(session('status'))
-			<div class="alert alert-success">
+			<div id= "successAlert" class="alert alert-success">
 				{{ session('status') }}
 			</div>
 		@endif
@@ -39,7 +39,7 @@
 	    		<div class= "col-md-4">
 	    			<div class="form-group{{ $errors->has('document_id') ? ' has-error' : '' }}">
 	    				{!! Form::label('document_id', 'Cédula de Identidad ó Escolar: ') !!}
-	    				<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 ó &#013; Escolar: 116V00000000" id="document_id" name="document_id"
+	    				<input type="text" class="form-control" data-toggle="tooltip" title="Cédula: V00000000 ó &#013; Escolar: 116V00000000" id="document_id" name="document_id" ng-change= "documentIdChange()"
 	    				value="{{old('document_id')}}"  placeholder="Cédula del Alumno" ng-model= "documentId">
 	    				<!--  {!! var_dump(old())!!} -->
 
@@ -553,5 +553,5 @@
 
 	</div>
 
-	<script src="/js/min/createStudent.js"></script>
-@endsection
+	<script src="/js/dynamism_pages/createStudent.js"></script>
+	@endsection

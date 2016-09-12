@@ -29,7 +29,7 @@
 					<button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "findStudentInformation()"></button>
 				</div>
 				<div class= "col-md-4 col-md-push-1" >
-					 <img ng-src="<%picture%>"  class="img-circle"  height: "200" width= "200" alt="Foto del Alumno">
+					 <img ng-src="<%picture%>"  class="img-circle"  height= "200" width= "200" alt="Foto del Alumno">
 				</div>
 	    	</div>
 
@@ -150,5 +150,5 @@
 
 	</div>
 
-	<script src="/js/min/findStudent.js"></script>
+	<script src="/js/dynamism_pages/findStudent.js"></script>
 @endsection

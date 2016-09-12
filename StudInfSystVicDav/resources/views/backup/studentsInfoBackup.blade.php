@@ -2,15 +2,15 @@
 
 @section('title', 'Respaldo')
 
-@section('content')	
-	
+@section('content')
+
 	<h1>Respaldo de Alumnos Inscritos en la Institución</h1>
 
 	<div ng-controller="showStudentsController">
 
 		<hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
 
-		<br>	
+		<br>
 		<div class="row">
 			<div class=" col-md-12">
 				<div style="overflow-x: auto;">
@@ -31,17 +31,17 @@
 								<th>Madre</th>
 								<th>Madre Apellido</th>
 								<th> Profesor </th>
-								<th> Profesor Apellido </th>  
-							</tr>	
+								<th> Profesor Apellido </th>
+							</tr>
 						</thead>
 						<tbody>
 						</tbody>
 					</table>
-				</div>	
+				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 
-	<script src="/js/min/studentsInfoBackUp.js"></script>
+	<script src="/js/dynamism_pages/studentsInfoBackUp.js"></script>
 
 @endsection

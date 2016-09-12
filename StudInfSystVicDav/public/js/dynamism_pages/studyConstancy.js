@@ -1,12 +1,24 @@
  $(document).ready(function()
+  {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+MySIS.controller('studyConstancyController', ['$scope','$http', function($scope, $http) 
+{
+    $('#errorAlert').hide();
+
+     $scope.studentIdInputChange = function()
+      {
+           $scope.document_id = "";
+           $scope.name = "";
+           $scope.last_name = "";
+           $scope.age = "";
+
+           $('#errorAlert').hide();
+      }
+
+    $scope.prueba= function()
     {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-
-angular.module('SIEApp', ['ngRoute'])
-    .controller('studyConstancyController', ['$scope','$http', function($scope, $http) {
-
-    $scope.prueba= function(){
 
         $scope.dataToSend = {};
         $scope.dataToSend.personId = $scope.personId;
@@ -27,8 +39,12 @@ angular.module('SIEApp', ['ngRoute'])
         console.log("post hecho de buena forma");
         console.log(data);
 
-        if(data == "" || data == null)
-          console.log("No se encontro el Alumno");
+        if(data.error_status != null)
+        {
+              console.log("No se encontro el alumno");
+              $scope.error_status= data.error_status;
+              $('#errorAlert').show();
+        }
         else if(data != "" || data != null)
             {
               $scope.firstName = data.name;
@@ -91,8 +107,8 @@ angular.module('SIEApp', ['ngRoute'])
 
     $scope.makeConstancy = function()
     {
-        $scope.dataToSend = {};
-        $scope.dataToSend.personId = $scope.personId;
+      $scope.dataToSend = {};
+      $scope.dataToSend.personId = $scope.personId;
 
       console.log("data a enviar ");
       console.log($scope.dataToSend);
@@ -121,20 +137,4 @@ angular.module('SIEApp', ['ngRoute'])
 
     }
 
-
-
-
   }]);
-
-/*
- var app = angular.module('myApp', []);
-app.controller('studyConstancyController', function($scope) {
-   console.log("esto es una prueba de angular jesus");
-
-    $scope.prueba= function(){
-
-        console.log("probando angular");
-
-      }
-
-});*/

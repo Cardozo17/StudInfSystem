@@ -22,27 +22,26 @@
                         <script>
                             var oldInput = <?php echo json_encode($oldInput); ?>;
                         </script>
-                        <!-- ////////////////////////////////////////////////////////////////// -->     
+                        <!-- ////////////////////////////////////////////////////////////////// -->
 
-<!-- 
+<!--
                         @foreach ($errors->all() as $error)
                             <p class="alert alert-danger">{{ $error }}</p>
                         @endforeach -->
-    
+
                         @if(session('message'))
                             <div class="alert alert-success" id="successAlert">
                                 {{ session('message') }}
                             </div>
                         @endif
 
-                       <!--  <!-- Success Message 
-                        <div class="alert alert-success" ng-model= "success_status" ng-bind="success_status" id = "successAlert">    
+                       <!--  <!-- Success Message
+                        <div class="alert alert-success" ng-model= "success_status" ng-bind="success_status" id = "successAlert">
                         </div> -->
 
-                        <!-- Error Message -->    
-                        <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlert">
+                        <!-- Error Message -->
+                        <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id= "errorAlert">
                         </div>
-
 
                         <div class = "row">
                             <div class= "col-md-4" >
@@ -53,7 +52,7 @@
                             <div class= "col-md-1" >
                                 <button type="button" class="btn btn-primary glyphicon glyphicon-search" ng-click= "findUserByEmail()"></button>
                             </div>
-                        </div>    
+                        </div>
 
                         <h3>Datos a Editar del Usuario</h3>
                         <br>
@@ -74,7 +73,7 @@
                             </div>
                         </div>
 
-                        <div class = "row">    
+                        <div class = "row">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Correo Electrónico</label>
 
@@ -90,9 +89,9 @@
                             </div>
                         </div>
                         <div class = "row">
-                           <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}"> 
+                           <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                                <label class="col-md-4 control-label">Tipo de Usuario</label>
-                               <div class="col-md-6">   
+                               <div class="col-md-6">
                                 <div class="form-group">
                                     <select name="type" class="form-control">
                                         <option value="" disabled selected>Seleccione el Tipo</option>
@@ -111,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row"> 
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label"> Contraseña</label>
 
@@ -126,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row"> 
+                    <div class = "row">
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Confirmar Contraseña</label>
 
@@ -140,8 +139,8 @@
                                 @endif
                             </div>
                         </div>
-                    </div>  
-                    <div class = "row"> 
+                    </div>
+                    <div class = "row">
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -149,7 +148,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>     
+                    </div>
                 </form>
             </div>
         </div>
@@ -158,5 +157,5 @@
 
 </div>
 
-<script src="/js/min/findUser.js"></script>
+<script src="/js/dynamism_pages/findUser.js"></script>
 @endsection

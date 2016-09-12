@@ -112,9 +112,9 @@ class StudentController extends Controller
       //registering the student picture in person table
       if($request->hasFile('picture')&&$request->file('picture')->isValid())
       {
-          $destinationPath = 'uploads'; // upload path
-          //$extension = $request->file('picture')->getClientOriginalExtension(); // getting image extension
-          $fileName = $request->file('picture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+          $destinationPath = 'studentsPictures'; // upload path
+          $extension = $request->file('picture')->getClientOriginalExtension(); // getting image extension
+          $fileName = $request->document_id.'.'.$extension; /*$request->file('picture')->getCLientOriginalName();.'.'.$extension*/; // renaming image
           $personStudentInfo->picture= $request->file('picture')->move($destinationPath, $fileName); // uploading file to given path
       }
 
@@ -143,9 +143,9 @@ class StudentController extends Controller
           //registering the legRepresentative picture in person table
           if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
           {
-              $destinationPath = 'uploads'; // upload path
-              //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
-              $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+              $destinationPath = 'legalRepresentativePictures'; // upload path
+              $extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+              $fileName = $request->repLegDocId.'.'.$extension; /*$request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
               $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
 
               $repLegPerson->save();
@@ -171,9 +171,9 @@ class StudentController extends Controller
             //registering the legRepresentative picture in person table
             if($request->hasFile('repLegPicture')&&$request->file('repLegPicture')->isValid())
             {
-                $destinationPath = 'uploads'; // upload path
-                //$extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
-                $fileName = $request->file('repLegPicture')->getCLientOriginalName()/*.'.'.$extension*/; // renaming image
+                $destinationPath = 'legalRepresentativePictures'; // upload path
+                $extension = $request->file('repLegPicture')->getClientOriginalExtension(); // getting image extension
+                $fileName = $request->repLegDocId.'.'.$extension;/*$request->file('repLegPicture')->getCLientOriginalName().'.'.$extension*/; // renaming image
                 $repLegPerson->picture= $request->file('repLegPicture')->move($destinationPath, $fileName); // uploading file to given path
             }
 

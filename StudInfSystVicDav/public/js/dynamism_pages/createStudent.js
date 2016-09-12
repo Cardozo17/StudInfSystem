@@ -41,8 +41,7 @@
       $('[data-toggle="tooltip"]').tooltip();
     });
 
-angular.module('SIEApp', ['ngRoute'])
-    .controller('createStudentController', ['$scope', function($scope)
+  MySIS.controller('createStudentController', ['$scope', function($scope)
   {
     console.log(oldInput); //RECORDAR BORRAR POR SEGURIDAD
 
@@ -76,6 +75,11 @@ angular.module('SIEApp', ['ngRoute'])
     //Defaults
     $scope.legRepNeedsAuthorization= false;
 
+    $scope.documentIdChange = function()
+    {
+       $('#successAlert').hide();
+    }
+
     $scope.clearFatherInformation = function()
     {
           $scope.fatherDocId= "";
@@ -103,7 +107,8 @@ angular.module('SIEApp', ['ngRoute'])
 
     }
 
-    $scope.relationshipWithStudentChange= function(){
+    $scope.relationshipWithStudentChange= function()
+    {
 
       console.log($scope.relationshipWithStudent);
 
