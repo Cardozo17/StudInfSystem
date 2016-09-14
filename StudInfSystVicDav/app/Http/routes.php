@@ -44,6 +44,9 @@ Route::get('/home', function ()
  //Not Authorized Message
  Route::get('notAutorized', 'ErrorsController@showNotAutorized');
 
+ //Get Control Parameters Route
+ Route::get('getSystemParameters','SystemController@getSystemParameters');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -109,9 +112,15 @@ Route::group(['middleware' => ['auth']], function ()
             'uses' => 'Auth\AuthController@showEditUserWindow'
         ]);
 
+        Route::get('deleteUser', [
+            'middleware' => 'is_admin',
+            'uses' => 'Auth\AuthController@showDeleteUserWindow'
+        ]);
+
         Route::post('registerUser', 'Auth\AuthController@register');
         Route::post('userByEmail','Auth\AuthController@findUserByEmail');
         Route::post('editUser','Auth\AuthController@editUser');
+        Route::post('deleteUser','Auth\AuthController@deleteUser');
 
 
     /**********************************************************/
@@ -130,7 +139,6 @@ Route::group(['middleware' => ['auth']], function ()
                 'uses' => 'SystemController@showSystemParametersWindow'
             ]);
 
-        Route::get('getSystemParameters','SystemController@getSystemParameters');
         Route::post('setSystemParameters', 'SystemController@store');
 
     /**********************************************************/

@@ -11,7 +11,7 @@
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                             <span class="glyphicon glyphicon-info-sign">
-                            </span>Vicente Dávila</a>
+                            </span>La Escuela</a>
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
@@ -195,7 +195,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="" class="text-danger">
+                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="/deleteUser" class="text-danger">
                                             Eliminar Usuario</a>
                                     </td>
                                 </tr>

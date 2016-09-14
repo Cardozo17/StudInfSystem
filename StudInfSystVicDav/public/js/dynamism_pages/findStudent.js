@@ -88,7 +88,7 @@
                   $scope.mobile_phoneLR = "";
                   $scope.work_phoneLR = "";
                 }
-                
+
                 $scope.directionLR = data.student.legal_representative.person.home_address;
 
               }

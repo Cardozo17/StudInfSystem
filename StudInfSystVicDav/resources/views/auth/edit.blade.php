@@ -157,5 +157,5 @@
 
 </div>
 
-<script src="/js/dynamism_pages/findUser.js"></script>
+<script src="/js/dynamism_pages/editUser.js"></script>
 @endsection

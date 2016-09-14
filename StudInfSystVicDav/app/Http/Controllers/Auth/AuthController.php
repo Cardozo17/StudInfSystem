@@ -74,6 +74,20 @@ class AuthController extends Controller
         ]);
     }
 
+     /**
+     * Get a validator for an incoming delete User request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validatorDelete(array $data)
+    {
+        return Validator::make($data, [
+            'email' => 'required|email',
+            'name'=> 'required'
+        ]);
+    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -88,6 +102,7 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'type' => $data['type'],
+            'status'=> 1
         ]);
     }
 
@@ -134,7 +149,7 @@ class AuthController extends Controller
 
         if($currentUser== null)
         {
-             return ['error_status' => 'EL usuario que desea editar no se encuentra en la base de datos'];
+             return redirect ('editUser')->with('error_status', 'EL usuario que desea editar no se encuentra en la base de datos');
         }
 
         $validator = $this->validatorEdit($request->all());
@@ -152,6 +167,37 @@ class AuthController extends Controller
         $currentUser->save();
 
         return redirect('editUser')->with('message', 'El usuario ha sido editado exitosamente');;
+
+    }
+
+     public function showDeleteUserWindow()
+    {
+        return view('auth.delete');
+    }
+
+     public function deleteUser (Request $request)
+    {
+        $currentUserEmail= $request->input('email');
+        $currentUser= User::where('email', $currentUserEmail)->first();
+
+        if($currentUser== null)
+        {
+             return  redirect('deleteUser')->with('error_status', 'EL usuario que desea eliminar no se encuentra en la base de datos');
+        }
+
+        $validator = $this->validatorDelete($request->all());
+
+        if ($validator->fails())
+        {
+            dd("entro aqui");
+             return redirect('deleteUser')->with('error_status', 'Debe buscar un usuario valido antes de eliminar');
+        }
+
+        $currentUser->status= 0;
+
+        $currentUser->save();
+
+        return redirect('deleteUser')->with('message', 'El usuario ha sido eliminado exitosamente');
 
     }
 
