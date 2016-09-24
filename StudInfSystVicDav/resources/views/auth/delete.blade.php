@@ -26,7 +26,7 @@
                         </div>
                         @endif
 
-                       <!--  <!-- Error Message 
+                       <!--  <!-- Error Message
                         <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id= "errorAlert">
                         </div> -->
 

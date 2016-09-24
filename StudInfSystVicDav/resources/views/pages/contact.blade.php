@@ -4,10 +4,13 @@
 
 @section('content')
 
-<h1 style="color:grey;"> Información de contacto de la escuela</h1>
-<br>
-<h2>Teléfono: </h2>
-<h2>Fax: </h2>
-<h2>Correo Electrónico: </h2>
-<h2>Dirección: </h2>
+<div ng-controller="contactController">
+	<h1 style="color:grey;"> Información de contacto de la <%schoolName%></h1>
+	<br>
+	<h2>Teléfono: <%schoolPhone%> </h2>
+	<h2>Correo Electrónico: <%schoolEmail%> </h2>
+	<h2>Dirección: <%schoolAddress%> </h2>
+</div>
+
+<script src="/js/dynamism_pages/contact.js"></script>
 @stop

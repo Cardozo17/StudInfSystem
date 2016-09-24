@@ -1,5 +1,5 @@
  MySIS.controller('deleteUserController', ['$scope', '$http', function($scope, $http)
-    {
+{
 
       //$('#errorAlert').hide();
 
