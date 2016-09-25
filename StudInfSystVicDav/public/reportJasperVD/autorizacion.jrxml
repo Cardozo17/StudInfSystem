@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-05-02T07:53:40 -->
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-09-24T21:40:41 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="autorizacion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5b84bd12-06a8-48ad-8131-f7b463c7a95b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -42,7 +42,7 @@ MÉRIDA ESTADO MÉRIDA]]></text>
 			</staticText>
 			<image>
 				<reportElement x="505" y="0" width="50" height="50" uuid="9901e7ec-0285-45cf-b0d8-b09827fdbe4b"/>
-				<imageExpression><![CDATA[$P{realPath}+"escudoPng.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{realPath}+"SchoolLogo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

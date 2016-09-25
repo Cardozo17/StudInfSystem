@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-05-02T05:37:21 -->
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-09-24T21:27:28 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="constancy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92b011eb-89a7-4cf0-b3d5-86233864e73e">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="parameterDocumentId" class="java.lang.String"/>
 	<parameter name="realPath" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select i.name,i.last_name,i.document_id from vicentedavila.person i,vicentedavila.student j where i.id = j.id and i.document_id = $P{parameterDocumentId}]]>
+		<![CDATA[select p.name, p.document_id, p.last_name , par.school_name, par.school_principal, par.school_logo from vicentedavila.person p
+join vicentedavila.student s join vicentedavila.system_parameters par
+where p.id = s.id and par.id = 1 and p.document_id= $P{parameterDocumentId} ]]>
 	</queryString>
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -18,6 +19,9 @@
 	<field name="document_id" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="school_name" class="java.lang.String"/>
+	<field name="school_principal" class="java.lang.String"/>
+	<field name="school_logo" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -155,6 +159,15 @@ Directora(E)]]></text>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="70" width="165" height="16" uuid="e5f48129-39fa-45ba-8f25-72f8c7840c02">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{school_principal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -38,7 +38,6 @@
 	    				{!! Form::label('school_name', 'Nombre de la Escuela: ') !!}
 	    				<input type="text" class="form-control" data-toggle="tooltip" title="Nombre de la Escuela" id="school_name" name="school_name"
 	    				value="{{old('school_name')}}"  placeholder="Nombre de la escuela" ng-model= "documentId">
-	    				<!--  {!! var_dump(old())!!} -->
 
 	    				@if ($errors->has('school_name'))
 	    				<span class="help-block">

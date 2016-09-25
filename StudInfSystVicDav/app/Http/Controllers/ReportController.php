@@ -52,7 +52,7 @@ class ReportController extends Controller
             public_path().'/reportJasperVD/constancy.jasper',
             $output,
             array($ext),
-            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
+            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/schoolLogo/'),
             $database,
             false,
             false
@@ -94,7 +94,7 @@ class ReportController extends Controller
             public_path().'/reportJasperVD/citacion.jasper',
             $output,
             array($ext),
-            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
+            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/schoolLogo/'),
             $database,
             false,
             false
@@ -120,6 +120,8 @@ class ReportController extends Controller
     {
         $jasper= new JasperPHP;
 
+         $jasper->compile(public_path().'/reportJasperVD/autorizacion.jrxml')->execute();
+
         $input= $request->all();
 
         $personId = $input['document_id'];
@@ -134,7 +136,7 @@ class ReportController extends Controller
             public_path().'/reportJasperVD/autorizacion.jasper',
             $output,
             array($ext),
-            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
+            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/schoolLogo/'),
             $database,
             false,
             false
