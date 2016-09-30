@@ -38,6 +38,8 @@ class ReportController extends Controller
     {
         $jasper= new JasperPHP;
 
+        $jasper->compile(public_path().'/reportJasperVD/constancy.jrxml')->execute();
+
         $input= $request->all();
 
         $personId = $input['document_id'];
@@ -52,7 +54,7 @@ class ReportController extends Controller
             public_path().'/reportJasperVD/constancy.jasper',
             $output,
             array($ext),
-            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/schoolLogo/'),
+            array("parameterDocumentId"=>$personId, "realPath"=>public_path().'/images/'),
             $database,
             false,
             false
