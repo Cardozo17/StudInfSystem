@@ -10,17 +10,17 @@ class Teacher extends Model
       public $timestamps = false;
 
     protected $fillable= [
-     
-     'id',
-     'grade',
 
-     ];  
+     'id',
+     'teacher_code',
+
+     ];
 
     public function person()
     {
         return $this->hasOne('App\Person', 'id');
     }
-  
+
     public function students()
     {
         return $this->hasMany('App\Student', 'teacher_id');

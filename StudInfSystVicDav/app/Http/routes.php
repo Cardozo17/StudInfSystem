@@ -63,6 +63,24 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('contact', 'HomeController@showContactWindow');
     /**********************************************************/
 
+       /**********************************************************/
+        Route::get('teachers/create', [
+            'middleware' => 'is_adminAdministrativePersonLevel1and2',
+            'uses' => 'TeacherController@showCreateTeacherWindow'
+        ]);
+
+        Route::get('teachers/assign', [
+            'middleware' => 'is_adminAdministrativePersonLevel1and2',
+            'uses' => 'TeacherController@showAssignTeacherWindow'
+        ]);
+
+         Route::post('teachers', 'TeacherController@store');
+         Route::post('/teacherById','TeacherController@findTeacherById');
+         Route::post('assignTeacher', 'TeacherController@assignTeacher');
+
+
+    /**********************************************************/
+
     /**********************************************************/
         Route::get('students/create', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',

@@ -42,6 +42,35 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::user()->hasRole('admin')  || Auth::user()->hasRole('administrativePersonLevel1')
+                || Auth::user()->hasRole('administrativePersonLevel2'))
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight"><span class="glyphicon glyphicon-pencil">
+                            </span>Gestión de Docentes</a>
+                        </h4>
+                    </div>
+                    <div id="collapseEight" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                @if(Auth::user()->hasRole('admin')  || Auth::user()->hasRole('administrativePersonLevel1') || Auth::user()->hasRole('administrativePersonLevel2'))
+                                <tr>
+                                    <td>
+                                        <a href="/teachers/create">Registrar Docente</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/teachers/assign">Asignación de Docente</a>
+                                    </td>
+                                </tr>
+                                 @endif
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
                 || Auth::user()->hasRole('administrativePersonLevel2'))
                 <div class="panel panel-default">
