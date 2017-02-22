@@ -115,6 +115,13 @@
                                     </td>
                                 </tr>
                                 @endif
+                                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
+                                 <tr>
+                                    <td>
+                                        <a href="/students/putGrades">Asignar Literales a Alumnos</a>
+                                    </td>
+                                </tr>
+                                @endif
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
                                     <td>

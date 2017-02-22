@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Validator;
 use App\Person;
 use App\Teacher;
+use App\GradeSection;
 
 class TeacherController extends Controller
 {
@@ -82,7 +83,26 @@ class TeacherController extends Controller
 
     public function assignTeacher(Request $request)
     {
-        
+         $personDocId = $request->input('document_id');
+         $grade = $request ->input('grade_to_be_assigned');
+         $section = $request ->input('section_to_be_assigned');
+
+         $person = Person::with('teacher')->where('document_id', $personDocId)->first();
+
+         if($person == null)
+        {
+        	return redirect('teachers/assign')->with('error_status','El docente no fue encontrado en la base de datos');
+        }
+
+        if($person->teacher== null)
+        {
+        	return redirect('teachers/assign')->with('error_status','Esta persona esta en el sistema pero no es un docente');
+        }
+
+        $gradeSectionAssignment= new GradeSection(['teacher_id'=>$person['id'], 'grade' => $grade, 'section_letter' =>$section ]);
+      	$gradeSectionAssignment->save();
+
+      	 return redirect('teachers/assign')->with('status', "Docente asignado correctamente");
     }
 
 

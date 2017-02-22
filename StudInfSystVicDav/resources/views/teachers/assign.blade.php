@@ -10,8 +10,20 @@
 
 	    {!! Form::open(array('action' => array('TeacherController@assignTeacher'))) !!}
 
+	    @if(session('status'))
+			<div id= "successAlert" class="alert alert-success">
+				{{ session('status') }}
+			</div>
+		@endif
+
+		 @if(session('error_status'))
+			<div id= "errorAlertFromForm" class="alert alert-danger fade in">
+				{{ session('error_status') }}
+			</div>
+		@endif
+
 	    <!-- Error Message -->
-	    <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlert">
+	    <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlertFromJS">
 	    </div>
 
 	    <div class= "form-group">

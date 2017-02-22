@@ -1,11 +1,12 @@
    MySIS.controller('assignTeacherController', ['$scope', '$http', function($scope, $http)
     {
 
-      $('#errorAlert').hide();
+      $('#errorAlertFromJS').hide();
 
       $scope.inputEdited = function()
       {
-          $('#errorAlert').hide();
+          $('#errorAlertFromJS').hide();
+          $('#errorAlertFromForm').hide();
 
           $scope.firstName = "";
           $scope.lastName = "";
@@ -33,7 +34,7 @@
           {
             console.log("No se encontro el docente");
             $scope.error_status= data.error_status;
-            $('#errorAlert').show();
+            $('#errorAlertFromJS').show();
           }
           else
               {
@@ -43,7 +44,7 @@
               }
 
         }).error(function(status){
-          $('#showAlert').show();
+          $('#errorAlertFromJS').show();
           console.log("Error obteniendo docente");
         })
 
