@@ -32,6 +32,7 @@
 		    	          { data: 'person.name' },
 		    	          { data: 'person.last_name' },
 		    	          { data: 'grade_to_be_register'},
+		    	          { data: 'grade_section.section_letter',  "defaultContent": ""},
 		    	          { data: 'brothers', "defaultContent": ""},
 		    	          { data: 'brothers', "defaultContent": ""},
 		    	          { data: 'legal_representative.person.name'},
@@ -41,8 +42,8 @@
 		    	          { data: 'parent.person.last_name', "defaultContent": ""},
 		    	          { data: 'parent.person.name', "defaultContent": ""}, //Mother
 		    	          { data: 'parent.person.last_name', "defaultContent": ""},
-		    	          { data: 'teacher.person.name', "defaultContent": ""},
-		    	          { data: 'teacher.person.last_name', "defaultContent": ""},
+		    	          { data: 'grade_section.teacher.person.name', "defaultContent": ""},
+		    	          { data: 'grade_section.teacher.person.last_name', "defaultContent": ""},
 		    	      ],
 				"columnDefs": [
 					      { "targets": 0},
@@ -57,7 +58,8 @@
 					  	  },
 					      { "targets": 2, "visible": false},
 					      { "targets": 3, "className": "text-center" },
-					      { "targets": 4,
+					      { "targets": 4, "className": "text-center" },
+					      { "targets": 5,
 					      	"render": function ( data, type, row ) {
 
 					      				//console.log(data)
@@ -76,16 +78,16 @@
             				}
 
 					  	  },
-					      { "targets": 5, "visible": false},
-					      { "targets": 6,
+					      { "targets": 6, "visible": false},
+					      { "targets": 7,
 					      		"render": function ( data, type, row ) {
 
                							 return data +' '+ row.legal_representative.person.last_name;
             							}
             			  },
-            			  { "targets": 7, "visible": false},
-					      { "targets": 8},
-					      { "targets": 9,
+            			  { "targets": 8, "visible": false},
+					      { "targets": 9},
+					      { "targets": 10,
 					      		"render": function ( data, type, row ) {
 
 					      				if(row.parent!=null)
@@ -94,11 +96,19 @@
                							}
             						}
             			  },
-					      { "targets": 10, "visible": false},
-					      { "targets": 11},
-					      { "targets": 12, "visible": false},
-					      { "targets": 13},
-					      { "targets": 14, "visible": false},
+					      { "targets": 11, "visible": false},
+					      { "targets": 12},
+					      { "targets": 13, "visible": false},
+					      { "targets": 14, 
+					      "render": function ( data, type, row ) {
+
+					      				if(row.grade_section!=null){
+					      					if(row.grade_section.teacher!= null){
+               							 		return data +' '+ row.grade_section.teacher.person.last_name;
+               								}
+               							}
+            						}},
+					      { "targets": 15, "visible": false},
 					     ],
 		    	language:      {                      //Translating DataTable to Spanish Language
 		    	    	    "sProcessing":     "Procesando...",

@@ -21,22 +21,23 @@ class Student extends Model
     public $timestamps = false;
 
     protected $fillable= [
-    
-     'id',       
+
+     'id',
      'height',
      'weight',
      'born_place',
      'born_date',
      'pedagogical_difficulties',
-     'diseases_affecting', 
+     'diseases_affecting',
      'afters_school_activities',
      'status',
      'teacher_id',
      'relationship_with_legal_representative',
      'parent_id',
      'legal_representative_id',
-     'grade_to_be_register'
-     
+     'grade_to_be_register',
+     'grade_section_id',
+
      ];
 
     //protected $guarded= ['id'];
@@ -56,18 +57,15 @@ class Student extends Model
         return $this->belongsTo('App\Paternity');
     }
 
-     public function teacher()
-    {
-        return $this->belongsTo('App\Teacher');
-    }
-
-
      public function brothers()
     {
         return $this->belongsToMany('App\Student', 'brotherhood', 'student_id', 'student_id1' );
     }
 
-
+         public function gradeSection()
+    {
+        return $this->belongsTo('App\GradeSection');
+    }
 
 
 

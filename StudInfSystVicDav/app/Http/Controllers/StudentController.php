@@ -12,6 +12,7 @@ use App\Person;
 use App\LegalRepresentative;
 use App\Student;
 use App\PhoneNumbers;
+use App\GradeSection;
 
 use DB;
 
@@ -59,7 +60,8 @@ class StudentController extends Controller
 
      public function listStudents ()
     {
-        $students = Student::with('person', 'legalRepresentative.person', 'parent.person', 'teacher.person', 'brothers.person')->get();
+        $students = Student::with('person', 'legalRepresentative.person', 'parent.person',
+         'brothers.person', 'gradeSection.teacher.person' )->get();
 
         return $students->toJson();
 
@@ -187,14 +189,20 @@ class StudentController extends Controller
 
         }
 
+        //Logica para asignacion de estudiante a seccion y grado
+       $grade = $input['grade_to_be_register'];
+       $section = $input['section_to_be_register'];
+
+       $gradeSectionAssignment = GradeSection::where('grade', $grade)->where('section_letter', $section)->first();
+
     	//now that I have the student person Id and the legal representative Id I can register the student
-      $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
+       $student= new Student(['id'=>$personStudentInfo['id'], 'legal_representative_id'=>$repLegPerson['id'],
          'height'=>$input['height'], 'weight'=>$input['weight'],
          'born_place'=>$input['born_place'],'born_date'=>$input['born_date'], 'status'=>1,
-         'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent'], 'grade_to_be_register'=>$input['grade_to_be_register']]);
+         'relationship_with_legal_representative'=>$input['selectedRelationshipWithStudent'], 'grade_to_be_register'=>$input['grade_to_be_register'], 'grade_section_id'=>$gradeSectionAssignment['id']]);
        $student->save();
 
-        return redirect('students/create')->with('status','Estudiante Inscrito Satisfactoriamente');
+       return redirect('students/create')->with('status','Estudiante Inscrito Satisfactoriamente');
 
     }
 

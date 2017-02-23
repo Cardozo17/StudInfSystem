@@ -22,6 +22,7 @@
 								<th>Alumno</th>
 								<th>Apellido</th>
 								<th>Grado</th>
+								<th>Sección</th>
 								<th>Hermanos en la Institución</th>
 								<th>Hermanos en la Institución Apellido</th>
 								<th> Representante Legal</th>

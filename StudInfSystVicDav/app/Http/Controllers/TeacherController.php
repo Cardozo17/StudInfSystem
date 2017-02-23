@@ -99,7 +99,11 @@ class TeacherController extends Controller
         	return redirect('teachers/assign')->with('error_status','Esta persona esta en el sistema pero no es un docente');
         }
 
-        $gradeSectionAssignment= new GradeSection(['teacher_id'=>$person['id'], 'grade' => $grade, 'section_letter' =>$section ]);
+        $gradeSectionAssignment = GradeSection::where('grade', $grade)->where('section_letter', $section)->first();
+
+        	//Logica para crear grado y seccion
+        //$gradeSectionAssignment= new GradeSection(['teacher_id'=>$person['id'], 'grade' => $grade, 'section_letter' =>$section ]);
+      	$gradeSectionAssignment->teacher_id = $person['id'];
       	$gradeSectionAssignment->save();
 
       	 return redirect('teachers/assign')->with('status', "Docente asignado correctamente");

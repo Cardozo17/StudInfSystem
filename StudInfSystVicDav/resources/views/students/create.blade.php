@@ -147,7 +147,11 @@
 			<div class = "row">
 					<div class = "col-md-6">
 						{!! Form::label('grade_to_be_register', 'Grado Donde se Inscribe el Alumno: ') !!}
-						{!!Form::select('grade_to_be_register', array('1°' => '1°', '2°' => '2°', '3°' => '3°', '4°' => '4°', '5°' => '5°', '6°' => '6°')) !!}
+						{!!Form::select('grade_to_be_register', array('1' => '1°', '2' => '2°', '3' => '3°')) !!}
+					</div>
+					<div class = "col-md-6">
+						{!! Form::label('section_to_be_register', 'Grado Donde se Inscribe el Alumno: ') !!}
+						{!!Form::select('section_to_be_register', array('A' => 'A', 'B' => 'B',  )) !!}
 					</div>
 			</div>
 

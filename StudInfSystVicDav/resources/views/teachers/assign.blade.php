@@ -61,11 +61,11 @@
 			<div class = "row">
 					<div class = "col-md-6">
 						{!! Form::label('grade_to_be_assigned', 'Grado:&nbsp;&nbsp;&nbsp;&nbsp; ') !!}
-						{!!Form::select('grade_to_be_assigned', array('1°' => '1°', '2°' => '2°', '3°' => '3°', '4°' => '4°', '5°' => '5°', '6°' => '6°')) !!}
+						{!!Form::select('grade_to_be_assigned', array('1' => '1°', '2' => '2°', '3' => '3°')) !!}
 					</div>
 					<div class = "col-md-6">
 						{!! Form::label('section_to_be_assigned', 'Sección:&nbsp;&nbsp;&nbsp;&nbsp; ') !!}
-						{!!Form::select('section_to_be_assigned', array('A' => 'A', 'B' => 'B', 'C' => 'C', 'D' => 'D', 'E' => 'E', 'F' => 'F')) !!}
+						{!!Form::select('section_to_be_assigned', array('A' => 'A', 'B' => 'B')) !!}
 					</div>
 			</div>
 			<br>

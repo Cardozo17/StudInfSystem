@@ -21,10 +21,9 @@ class Teacher extends Model
         return $this->hasOne('App\Person', 'id');
     }
 
-    public function students()
+     public function gradeSection()
     {
-        return $this->hasMany('App\Student', 'teacher_id');
+        return $this->hasOne('App\GradeSection', 'teacher_id');
     }
-
 
 }

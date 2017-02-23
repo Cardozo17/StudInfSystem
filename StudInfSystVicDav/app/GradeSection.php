@@ -19,7 +19,7 @@ class GradeSection extends Model
 
     public function teacher()
     {
-        return $this->hasOne('App\Teacher', 'teacher_id');
+        return $this->belongsTo('App\Teacher');
     }
 
     public function students()
