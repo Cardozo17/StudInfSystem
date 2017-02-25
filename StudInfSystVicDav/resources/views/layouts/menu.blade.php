@@ -86,19 +86,19 @@
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                 <tr>
                                     <td>
-                                        <a href="/students/create">Inscribir Alumno Nuevo Ingreso</a>
+                                        <a href="/students/create">Inscribir Alumno</a>
                                     </td>
                                 </tr>
-                                <tr>
+                               <!--  <tr>
                                     <td>
                                         <a href="">Inscribir Alumno Regular</a>
                                     </td>
-                                </tr>
-                                 <tr>
+                                </tr> -->
+<!--                                  <tr>
                                     <td>
                                         <a href="">Inscribir Alumno Inscripción Tardía</a>
                                     </td>
-                                </tr>
+                                </tr> -->
                                  @endif
                                  @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1')
                                  || Auth::user()->hasRole('administrativePersonLevel2'))
@@ -111,7 +111,7 @@
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
                                     <td>
-                                        <a href="/students/{id}/edit">Editar Alumno</a>
+                                        <a href="/students/edit">Editar Alumno</a>
                                     </td>
                                 </tr>
                                 @endif
@@ -181,7 +181,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="   glyphicon glyphicon-signal">
-                            </span> Estadísticas Institucionales</a>
+                            </span> Estadísticas Escolares</a>
                         </h4>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
@@ -189,10 +189,10 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="/repStudyConstancy">Estadística 1</a>
+                                        <a href="/repStudyConstancy">Estadística de Notas Por Seccion</a>
                                     </td>
                                 </tr>
-                                <tr>
+<!--                                 <tr>
                                     <td>
                                         <a href="/repCitation">Estadística 2</a>
                                     </td>
@@ -202,7 +202,7 @@
                                         <a href="/repAuthorization">Estadística 3</a>
                                     </td>
                                 </tr>
-
+ -->
                             </table>
                         </div>
                     </div>

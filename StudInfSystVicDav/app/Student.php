@@ -67,6 +67,9 @@ class Student extends Model
         return $this->belongsTo('App\GradeSection');
     }
 
-
+    public function studentGrades()
+    {
+        return $this->hasMany('App\StudentGrades');
+    }
 
 }

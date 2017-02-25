@@ -17,12 +17,11 @@ class Person extends Model
      'name',
      'last_name',
      'gender',
-     'email', 
+     'email',
      'picture',
      'phone_numbers_id'
 
      ];
-
 
     public function phoneNumbers()
     {
@@ -38,7 +37,6 @@ class Person extends Model
     {
         return $this->belongsTo('App\LegalRepresentative', 'id');
     }
-
 
     public function parent()
     {

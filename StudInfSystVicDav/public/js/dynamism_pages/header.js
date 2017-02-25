@@ -12,7 +12,7 @@ MySIS.controller('headerController', ['$scope', '$http', function($scope, $http)
     {
       $http({
         method : 'GET',
-        url: 'getSystemParameters',
+        url: '/getSystemParameters',
         responseType:'json'
       }).success(function(data, status, headers, config)
       {

@@ -206,24 +206,37 @@ class StudentController extends Controller
 
     }
 
-        public function show($id)
+
+     public function showPutGrades()
     {
-        //
+        return  view('students.putGrades');
     }
 
-      public function edit($id)
-    {
-        //
-    }
+    public function listStudentsBySectionGrade(Request $request){
 
-     public function update($id)
-    {
-        //
-    }
+       $grade = $request->input('grade');
+       $section = $request->input('section');
 
-     public function destroy($id)
-    {
-        //
+       /*$students = Person::with(['student.gradeSection' => function ($query) {
+        $query->where('grade_section.grade', '1');
+      }], 'person')->get();*/
+
+      $students = Person::with('student.gradeSection')->whereHas('student.gradeSection', function ($query) use ($grade, $section)
+      {
+        $query->where('grade_section.grade',  $grade);
+        $query->where('grade_section.section_letter',  $section);
+      })->get();
+
+
+  //     $students->gradeSection()->where('grade', $grade)->get();
+/*
+       $students = Student::with('person','gradeSection')->where('gradeSection.grade',  $grade)
+       ->where('gradeSection.section_letter', $section)->get();
+       dd($students);*/
+
+      
+      return $students->toJson();
+
     }
 
 

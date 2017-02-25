@@ -92,11 +92,19 @@ Route::group(['middleware' => ['auth']], function ()
             'uses' => 'StudentController@showFindOneStudentWindow'
         ]);
 
-        Route::get('students','StudentController@index');
-        Route::get('students/list', 'StudentController@listStudents');
+        Route::get('students',[
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+            'uses'=>'StudentController@index']);
 
-        Route::post('students', 'StudentController@store');
+        Route::get('students/putGrades',[
+            'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
+            'uses'=>'StudentController@showPutGrades']);
+
+        Route::get('students/list', 'StudentController@listStudents');
+        
+        Route::post('/students/listBySectionGrade', 'StudentController@listStudentsBySectionGrade');
         Route::post('studentById','StudentController@findStudentById');
+        Route::post('students', 'StudentController@store');
 
     /**********************************************************/
 
