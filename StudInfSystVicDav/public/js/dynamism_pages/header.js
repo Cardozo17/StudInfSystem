@@ -25,7 +25,7 @@ MySIS.controller('headerController', ['$scope', '$http', function($scope, $http)
         else if(data != "" || data != null)
         {
               $scope.schoolName= data.school_name;
-              $scope.schoolLogo= data.school_logo;
+              $scope.schoolLogo= "/"+data.school_logo;
 
         }
 

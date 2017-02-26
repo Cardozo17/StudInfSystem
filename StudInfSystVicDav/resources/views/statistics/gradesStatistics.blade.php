@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Asignar Literales')
+@section('title', 'Estadísticas de Notas')
 
 @section('content')
 
-	<h1>Asignar Literales a Alumnos</h1>
+	<h1>Estadísticas de Notas por Grado  Sección</h1>
 
-	<div ng-controller="putGradesStudentController">
+	<div ng-controller="gradesStatisticsController">
 
 		 <!-- Error Message -->
 	    <div class="alert alert-danger fade in" ng-model= "error_status" ng-bind="error_status" id = "errorAlert">
@@ -68,6 +68,6 @@
 		</div>
 	</div>
 
-	<script src="/js/dynamism_pages/putGradesStudents.js"></script>
+	<script src="/js/dynamism_pages/gradesStatistics.js"></script>
 
 @endsection

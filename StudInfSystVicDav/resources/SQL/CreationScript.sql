@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `StudentInformationSystem`.`student` (
   `after_school_activities` VARCHAR(45) NULL COMMENT '',
   `status` INT(1) NULL COMMENT '',
   `relationship_with_legal_representative` VARCHAR(45) NULL COMMENT '',
-  `grade_to_be_register` ENUM('1°', '2°', '3°', '4°', '5°', '6°') NULL COMMENT '',
+  `grade_to_be_register` ENUM('1', '2', '3', '4', '5', '6') NULL COMMENT '',
   `parent_id` INT UNSIGNED NULL COMMENT '',
   `legal_representative_id` INT UNSIGNED NOT NULL COMMENT '',
   `grade_section_id` INT UNSIGNED NULL COMMENT '',
@@ -272,7 +272,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `StudentInformationSystem`.`student_grades` ;
 
 CREATE TABLE IF NOT EXISTS `StudentInformationSystem`.`student_grades` (
-  `id` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `period` INT(1) NOT NULL COMMENT '',
   `value` INT(1) NOT NULL COMMENT '',
   `student_id` INT UNSIGNED NOT NULL COMMENT '',
@@ -382,8 +382,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `StudentInformationSystem`;
-INSERT INTO `StudentInformationSystem`.`student` (`id`, `height`, `weight`, `born_place`, `born_date`, `pedagogical_difficulties`, `diseases_affecting`, `after_school_activities`, `status`, `relationship_with_legal_representative`, `grade_to_be_register`, `parent_id`, `legal_representative_id`, `grade_section_id`) VALUES (2, 1.73, 65, 'Mérida', '1991-09-17', NULL, NULL, NULL, 1, NULL, '3°', NULL, 3, NULL);
-INSERT INTO `StudentInformationSystem`.`student` (`id`, `height`, `weight`, `born_place`, `born_date`, `pedagogical_difficulties`, `diseases_affecting`, `after_school_activities`, `status`, `relationship_with_legal_representative`, `grade_to_be_register`, `parent_id`, `legal_representative_id`, `grade_section_id`) VALUES (1, 1.77, 71, 'Mérida', '1991-04-17', NULL, NULL, NULL, 1, NULL, '5°', NULL, 4, NULL);
+INSERT INTO `StudentInformationSystem`.`student` (`id`, `height`, `weight`, `born_place`, `born_date`, `pedagogical_difficulties`, `diseases_affecting`, `after_school_activities`, `status`, `relationship_with_legal_representative`, `grade_to_be_register`, `parent_id`, `legal_representative_id`, `grade_section_id`) VALUES (2, 1.73, 65, 'Mérida', '1991-09-17', NULL, NULL, NULL, 1, NULL, '3', NULL, 3, 2);
+INSERT INTO `StudentInformationSystem`.`student` (`id`, `height`, `weight`, `born_place`, `born_date`, `pedagogical_difficulties`, `diseases_affecting`, `after_school_activities`, `status`, `relationship_with_legal_representative`, `grade_to_be_register`, `parent_id`, `legal_representative_id`, `grade_section_id`) VALUES (1, 1.77, 71, 'Mérida', '1991-04-17', NULL, NULL, NULL, 1, NULL, '5', NULL, 4, 1);
 
 COMMIT;
 

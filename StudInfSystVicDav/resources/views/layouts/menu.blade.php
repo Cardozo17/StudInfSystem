@@ -189,7 +189,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="/repStudyConstancy">Estadística de Notas Por Seccion</a>
+                                        <a href="/statistics/grades">Estadística de Notas Por Sección</a>
                                     </td>
                                 </tr>
 <!--                                 <tr>
@@ -245,7 +245,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix"><span class="glyphicon glyphicon-floppy-save">
-                            </span> Gestión de Respaldo</a>
+                            </span> Gestión de Datos</a>
                         </h4>
                     </div>
                     <div id="collapseSix" class="panel-collapse collapse">
@@ -253,7 +253,7 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        </span><a href="/studentsInfoBackUp">Respaldar Información de Estudiantes</a>
+                                        </span><a href="/studentsInfoBackUp">Extraer Información en Archivos</a>
                                     </td>
                                 </tr>
                             </table>

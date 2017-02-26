@@ -13,6 +13,7 @@ use App\LegalRepresentative;
 use App\Student;
 use App\PhoneNumbers;
 use App\GradeSection;
+use App\StudentGrades;
 
 use DB;
 
@@ -234,8 +235,31 @@ class StudentController extends Controller
        ->where('gradeSection.section_letter', $section)->get();
        dd($students);*/
 
-      
       return $students->toJson();
+
+    }
+
+    public function assignGradeToStudent(Request $request){
+
+       $studentId = $request->input('studentId');
+       $literal = $request->input('literal');
+
+       //TODO Validate if student has already a grade assigned
+
+       $studentGrade= new StudentGrades(['student_id'=>$studentId, 'value'=>$literal]);
+       $studentGrade->save();
+
+         if($studentGrade== null)
+        {
+            return ['error_status' => 'Error asignando nota al alumno'];
+        }
+
+        if($studentGrade != null)
+        {
+            return ['success_status' => 'Nota asignada exitosamente'];
+        }
+
+        return $studentGrade->toJson();
 
     }
 

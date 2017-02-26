@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
-<!-- 2016-09-30T00:00:43 -->
+<!-- 2017-02-26T03:38:16 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="constancy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92b011eb-89a7-4cf0-b3d5-86233864e73e">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -15,9 +15,9 @@
 	<parameter name="parameterDocumentId" class="java.lang.String"/>
 	<parameter name="realPath" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select s.grade_to_be_register, p.name, p.document_id, p.last_name , par.school_name, par.school_principal, par.school_logo, par.school_address from vicentedavila.person p
-join vicentedavila.student s join vicentedavila.system_parameters par
-where p.id = s.id and par.id = 1 and p.document_id= $P{parameterDocumentId} ]]>
+		<![CDATA[select s.grade_to_be_register, p.name, p.document_id, p.last_name , par.school_name, par.school_principal, par.school_logo, par.school_address from studentinformationsystem.person p
+join studentinformationsystem.student s join studentinformationsystem.system_parameters par
+where p.id = s.id and par.id = 1 and p.document_id= $P{parameterDocumentId}]]>
 	</queryString>
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -92,7 +92,7 @@ where p.id = s.id and par.id = 1 and p.document_id= $P{parameterDocumentId} ]]>
 				<textElement textAlignment="Justified">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Que el(a) alumno(a): " + $F{name} +" " + $F{last_name} + " titular de la cédula de identidad N°: "+ $F{document_id} + " de " + "(edad) " + "años de edad, cursa el " + $F{grade_to_be_register}+ " grado de educación primaria, durante el año escolar: "+ " (añoIn/añoOut). "+ "\n"+"\n"+"Constancia que se expide a petición de parte interesada en" +"(lugar)"+ "a los " +" (fechaDía) " + "del mes de" + " (fechaMes) " + "del año " + "(fechaAño)"+ "." ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Que el(a) alumno(a): " + $F{name} +" " + $F{last_name} + " titular de la cédula de identidad N°: "+ $F{document_id} + " de " + "(edad) " + "años de edad, cursa el " + $F{grade_to_be_register}+ " grado de educación primaria, durante el año escolar: "+ " (añoIn/añoOut). "+ "\n"+"\n"+"Constancia que se expide a petición de parte interesada en" +"(lugar)"+ "a los " +" (fechaDía) " + "del mes de" + " (fechaMes) " + "del año " + "(fechaAño)"+ "."]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

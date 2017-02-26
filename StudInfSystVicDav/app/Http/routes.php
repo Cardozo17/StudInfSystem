@@ -105,6 +105,7 @@ Route::group(['middleware' => ['auth']], function ()
         Route::post('/students/listBySectionGrade', 'StudentController@listStudentsBySectionGrade');
         Route::post('studentById','StudentController@findStudentById');
         Route::post('students', 'StudentController@store');
+        Route::post('/students/assignGrade', 'StudentController@assignGradeToStudent');
 
     /**********************************************************/
 
@@ -124,6 +125,14 @@ Route::group(['middleware' => ['auth']], function ()
         Route::post('repStudyConstancy', ['uses' =>'ReportController@makeStudyConstancy']);
         Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
         Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
+    /**********************************************************/
+
+    /**********************************************************/
+       Route::get('statistics/grades', [
+            'middleware' => 'is_adminAdministrativePersonLevel1and2',
+            'uses' => 'StatisticsController@showGradesStatistics'
+        ]);
+
     /**********************************************************/
 
     /**********************************************************/

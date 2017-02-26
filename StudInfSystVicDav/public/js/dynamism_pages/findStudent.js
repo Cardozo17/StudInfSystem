@@ -41,7 +41,7 @@
 
         $http({
           method : 'POST',
-          url: 'students/studentById',
+          url: '/studentById',
           data: $scope.dataToSend,
           responseType:'json'
         }).success(function(data, status, headers, config)
