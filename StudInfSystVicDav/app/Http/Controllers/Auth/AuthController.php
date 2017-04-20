@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -40,6 +41,22 @@ class AuthController extends Controller
     {
        // $this->middleware('guest', ['except' => 'logout']);
        // $this->middleware('is_admin', ['except' => 'auth/login']);
+    }
+
+     /**
+     * Allows only one user per session.
+     *
+     */
+    public function authenticated(Request $request,User $user){
+        $previous_session = $user->session_id;
+
+        if ($previous_session) {
+            \Session::getHandler()->destroy($previous_session);
+        }
+
+        Auth::user()->session_id = \Session::getId();
+        Auth::user()->save();
+        return redirect()->intended($this->redirectPath());
     }
 
     /**
