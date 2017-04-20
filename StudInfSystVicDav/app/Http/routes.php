@@ -32,20 +32,6 @@ Route::get('/home', function ()
         return view('welcome');
 });
 
- // Authentication Routes...
- Route::get('login', 'Auth\AuthController@getLogin');
- Route::post('login', 'Auth\AuthController@postLogin');
-
- // Password Reset Routes...
- Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
- Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
- Route::post('password/reset', 'Auth\PasswordController@reset');
-
- //Not Authorized Message
- Route::get('notAutorized', 'ErrorsController@showNotAutorized');
-
- //Get Control Parameters Route
- Route::get('getSystemParameters','SystemController@getSystemParameters');
 
 /*
 |--------------------------------------------------------------------------
@@ -182,6 +168,21 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['middleware' => 'web'], function ()
 {
+    // Authentication Routes...
+     Route::get('login', 'Auth\AuthController@getLogin');
+     Route::post('login', 'Auth\AuthController@postLogin');
+
+     // Password Reset Routes...
+     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+     Route::post('password/reset', 'Auth\PasswordController@reset');
+
+     //Not Authorized Message
+     Route::get('notAutorized', 'ErrorsController@showNotAutorized');
+
+     //Get Control Parameters Route
+     Route::get('getSystemParameters','SystemController@getSystemParameters');
+     
 	// Logout Routes...
     Route::get('logout', 'Auth\AuthController@logout');
 
