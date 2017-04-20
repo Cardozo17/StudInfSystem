@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `studentinformationsystem`.`users` (
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '',
   `type` ENUM('admin', 'teacher', 'administrativePersonLevel1', 'administrativePersonLevel2') NOT NULL COMMENT '',
   `status` INT(1) NOT NULL COMMENT '',
+  `session_id` INT(1) NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
 ENGINE = InnoDB;
 
@@ -272,8 +273,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `studentinformationsystem`.`student_grades` ;
 
 CREATE TABLE IF NOT EXISTS `studentinformationsystem`.`student_grades` (
+<<<<<<< HEAD
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `period` INT(1) NOT NULL COMMENT '',
+=======
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `period` INT(1) NULL COMMENT '',
+>>>>>>> a275eeef936bd56b30cd8beca59fef27513d5077
   `value` INT(1) NOT NULL COMMENT '',
   `student_id` INT UNSIGNED NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
@@ -343,7 +349,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `studentinformationsystem`;
+<<<<<<< HEAD
 INSERT INTO `studentinformationsystem`.`users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `type`, `status`) VALUES (1, 'Administrador', 'admin@admin.com', '$2y$10$uBNbcDO24s/zP5zeGaOJCe0lzhRtuR2cgxoG6OLkVBw/j9nV982gm', '', '2016-04-13 18:43:00', '2016-04-13 18:43:00', 'admin', 1);
+=======
+INSERT INTO `studentinformationsystem`.`users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `type`, `status`, `session_id`) VALUES (1, 'Administrador', 'admin@admin.com', '$2y$10$uBNbcDO24s/zP5zeGaOJCe0lzhRtuR2cgxoG6OLkVBw/j9nV982gm', '', '2016-04-13 18:43:00', '2016-04-13 18:43:00', 'admin', 1, NULL);
+>>>>>>> a275eeef936bd56b30cd8beca59fef27513d5077
 
 COMMIT;
 
