@@ -25,8 +25,43 @@ use  App\PhoneNumbers;
 | kernel and includes session state, CSRF protection, and more.
 */
 
-Route::group(['middleware' => ['auth']], function ()
+Route::group(['middleware' => ['web']], function ()
 {
+    //Home and / pages routes and logic
+    Route::get('/', function ()
+    {
+            if(Auth::check())
+               return view('home');
+           else
+            return view('welcome');
+    });
+
+        Route::get('/home', function ()
+        {
+            if(Auth::check())
+               return view('home');
+           else
+            return view('welcome');
+    });
+
+     // Authentication Routes...
+     Route::get('login', 'Auth\AuthController@getLogin');
+     Route::post('login', 'Auth\AuthController@postLogin');
+
+     // Password Reset Routes...
+     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+     Route::post('password/reset', 'Auth\PasswordController@reset');
+
+     //Not Authorized Message
+     Route::get('notAutorized', 'ErrorsController@showNotAutorized');
+
+     //Get Control Parameters Route
+     Route::get('getSystemParameters','SystemController@getSystemParameters');
+
+     // Logout Routes...
+     Route::get('logout', 'Auth\AuthController@logout');
+
     /**********************************************************/
         Route::get('about', 'HomeController@showAboutUsWindow');
         Route::get('contact', 'HomeController@showContactWindow');
@@ -70,7 +105,7 @@ Route::group(['middleware' => ['auth']], function ()
             'uses'=>'StudentController@showPutGrades']);
 
         Route::get('students/list', 'StudentController@listStudents');
-        
+
         Route::post('/students/listBySectionGrade', 'StudentController@listStudentsBySectionGrade');
         Route::post('studentById','StudentController@findStudentById');
         Route::post('students', 'StudentController@store');
@@ -151,39 +186,5 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['middleware' => 'web'], function ()
 {
-    //Home and / pages routes and logic
-    Route::get('/', function ()
-    {
-            if(Auth::check())
-               return view('home');
-           else
-            return view('welcome');
-    });
-
-        Route::get('/home', function ()
-        {
-            if(Auth::check())
-               return view('home');
-           else
-            return view('welcome');
-    });
-
-    // Authentication Routes...
-     Route::get('login', 'Auth\AuthController@getLogin');
-     Route::post('login', 'Auth\AuthController@postLogin');
-
-     // Password Reset Routes...
-     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-     Route::post('password/reset', 'Auth\PasswordController@reset');
-
-     //Not Authorized Message
-     Route::get('notAutorized', 'ErrorsController@showNotAutorized');
-
-     //Get Control Parameters Route
-     Route::get('getSystemParameters','SystemController@getSystemParameters');
-
-	// Logout Routes...
-    Route::get('logout', 'Auth\AuthController@logout');
 
 });
