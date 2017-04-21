@@ -15,23 +15,6 @@ use  App\PhoneNumbers;
 |
 */
 
-//Home and / pages routes and logic
-Route::get('/', function ()
-{
-    if(Auth::check())
-     return view('home');
-    else
-        return view('welcome');
-});
-
-Route::get('/home', function ()
-{
-    if(Auth::check())
-     return view('home');
-    else
-        return view('welcome');
-});
-
 
 /*
 |--------------------------------------------------------------------------
@@ -168,6 +151,23 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['middleware' => 'web'], function ()
 {
+    //Home and / pages routes and logic
+    Route::get('/', function ()
+    {
+            if(Auth::check())
+               return view('home');
+           else
+            return view('welcome');
+    });
+
+        Route::get('/home', function ()
+        {
+            if(Auth::check())
+               return view('home');
+           else
+            return view('welcome');
+    });
+
     // Authentication Routes...
      Route::get('login', 'Auth\AuthController@getLogin');
      Route::post('login', 'Auth\AuthController@postLogin');
@@ -182,7 +182,7 @@ Route::group(['middleware' => 'web'], function ()
 
      //Get Control Parameters Route
      Route::get('getSystemParameters','SystemController@getSystemParameters');
-     
+
 	// Logout Routes...
     Route::get('logout', 'Auth\AuthController@logout');
 
