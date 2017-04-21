@@ -4,7 +4,6 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="panel panel-default">
                 <div class="panel-heading">Página Principal del Sistema de Información Estudiantil</div>
                 <br>

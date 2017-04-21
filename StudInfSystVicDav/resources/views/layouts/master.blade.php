@@ -41,6 +41,7 @@
 				@include('layouts.menu')
 			</div>
 			<div class= "col-md-9" id="content" style=" padding-left: 0%; padding-right: 2%">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				@yield('content')
 			</div>
 		</div>
