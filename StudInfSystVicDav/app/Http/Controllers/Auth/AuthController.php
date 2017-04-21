@@ -47,7 +47,7 @@ class AuthController extends Controller
      * Allows only one user per session.
      *
      */
-    public function authenticated(Request $request,User $user){
+/*    public function authenticated(Request $request,User $user){
         $previous_session = $user->session_id;
 
         if ($previous_session) {
@@ -57,7 +57,7 @@ class AuthController extends Controller
         Auth::user()->session_id = \Session::getId();
         Auth::user()->save();
         return redirect()->intended($this->redirectPath());
-    }
+    }*/
 
     /**
      * Get a validator for an incoming registration request.
