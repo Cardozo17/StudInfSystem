@@ -17,9 +17,8 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Bienvenido</div>
-                    {{ csrf_field() }}
+                   
                     <div class="panel-body">
-
                         <h1>Bienvenido al Sistema de Información Estudiantil</h1>
                         <h5> Debe iniciar sesión con una cuenta de usuario validada para poder tener acceso a este sistema.
                             <br> Lo invitamos a iniciar sesión si tiene una cuenta y contraseña asignadas.<br>
