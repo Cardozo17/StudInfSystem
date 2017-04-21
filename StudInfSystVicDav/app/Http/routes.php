@@ -28,8 +28,6 @@ use  App\PhoneNumbers;
 Route::group(['middleware' => 'web'], function ()
 {
 
-});
-
 //Home and / pages routes and logic
 Route::get('/', function ()
 {
@@ -64,6 +62,10 @@ Route::get('/', function ()
 
  // Logout Routes...
  Route::get('logout', 'Auth\AuthController@logout');
+
+});
+
+
 
 Route::group(['middleware' => ['auth']], function ()
 {
