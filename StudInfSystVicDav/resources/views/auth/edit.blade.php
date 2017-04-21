@@ -12,7 +12,6 @@
                 <div class="panel-body">
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/editUser') }}">
-                        {!! csrf_field() !!}
 
                         <!-- Getting the oldInput if form fails to use it to repopulate the form -->
                         <?php

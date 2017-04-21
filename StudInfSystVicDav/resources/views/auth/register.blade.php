@@ -10,8 +10,6 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/registerUser') }}">
-                        {!! csrf_field() !!}
-
 
                   <!--   @foreach ($errors->all() as $error)
                         <p class="alert alert-danger">{{ $error }}</p>

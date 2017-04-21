@@ -12,7 +12,6 @@
                 <div class="panel-body">
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/deleteUser') }}">
-                    {!! csrf_field() !!}
 
                         @if(session('message'))
                         <div class="alert alert-success" id="successAlert">
