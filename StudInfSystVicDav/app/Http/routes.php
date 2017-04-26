@@ -15,19 +15,6 @@ use  App\PhoneNumbers;
 |
 */
 
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-*/
-
-Route::group(['middleware' => 'web'], function ()
-{
-
 //Home and / pages routes and logic
 Route::get('/', function ()
 {
@@ -63,9 +50,20 @@ Route::get('/', function ()
  // Logout Routes...
  Route::get('logout', 'Auth\AuthController@logout');
 
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+| This route group applies the "web" middleware group to every route
+| it contains. The "web" middleware group is defined in your HTTP
+| kernel and includes session state, CSRF protection, and more.
+*/
+
+Route::group(['middleware' => 'web'], function ()
+{
+
 });
-
-
 
 Route::group(['middleware' => ['auth']], function ()
 {
