@@ -14,6 +14,7 @@ use  App\PhoneNumbers;*/
 | and give it the controller to call when that URI is requested.
 |
 */
+
 //Home and / pages routes and logic
 Route::get('/', function ()
 {
@@ -22,6 +23,7 @@ Route::get('/', function ()
     else
         return view('welcome');
 });
+
 Route::get('/home', function ()
 {
     if(Auth::check())
@@ -29,15 +31,19 @@ Route::get('/home', function ()
     else
         return view('welcome');
 });
+
  // Authentication Routes...
  Route::get('login', 'Auth\AuthController@getLogin');
  Route::post('login', 'Auth\AuthController@postLogin');
+
  // Password Reset Routes...
  Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
  Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
  Route::post('password/reset', 'Auth\PasswordController@reset');
+
  //Not Authorized Message
  Route::get('notAutorized', 'ErrorsController@showNotAutorized');
+
  //Get Control Parameters Route
  Route::get('getSystemParameters','SystemController@getSystemParameters');
 /*
@@ -54,7 +60,8 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('about', 'HomeController@showAboutUsWindow');
         Route::get('contact', 'HomeController@showContactWindow');
     /**********************************************************/
-       /**********************************************************/
+
+    /**********************************************************/
         Route::get('teachers/create', [
             'middleware' => 'is_adminAdministrativePersonLevel1and2',
             'uses' => 'TeacherController@showCreateTeacherWindow'
@@ -67,6 +74,7 @@ Route::group(['middleware' => ['auth']], function ()
          Route::post('/teacherById','TeacherController@findTeacherById');
          Route::post('assignTeacher', 'TeacherController@assignTeacher');
     /**********************************************************/
+
     /**********************************************************/
         Route::get('students/create', [
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
@@ -83,12 +91,13 @@ Route::group(['middleware' => ['auth']], function ()
             'middleware' => 'is_adminTeacherAdminitrativePersonLevel1and2',
             'uses'=>'StudentController@showPutGrades']);
         Route::get('students/list', 'StudentController@listStudents');
-        
+
         Route::post('/students/listBySectionGrade', 'StudentController@listStudentsBySectionGrade');
         Route::post('studentById','StudentController@findStudentById');
         Route::post('students', 'StudentController@store');
         Route::post('/students/assignGrade', 'StudentController@assignGradeToStudent');
     /**********************************************************/
+
     /**********************************************************/
         Route::get('repStudyConstancy', [
             'middleware' => 'is_adminAdministrativePersonLevel1and2',
@@ -103,12 +112,14 @@ Route::group(['middleware' => ['auth']], function ()
         Route::post('repCitation', ['uses' =>'ReportController@makeCitation']);
         Route::post('repAuthorization', ['uses' =>'ReportController@makeAuthorization']);
     /**********************************************************/
+
     /**********************************************************/
        Route::get('statistics/grades', [
             'middleware' => 'is_adminAdministrativePersonLevel1and2',
             'uses' => 'StatisticsController@showGradesStatistics'
         ]);
     /**********************************************************/
+
     /**********************************************************/
         Route::get('registerUser', [
             'middleware' => 'is_admin',
@@ -127,12 +138,14 @@ Route::group(['middleware' => ['auth']], function ()
         Route::post('editUser','Auth\AuthController@editUser');
         Route::post('deleteUser','Auth\AuthController@deleteUser');
     /**********************************************************/
+
     /**********************************************************/
         Route::get('studentsInfoBackUp', [
                 'middleware' => 'is_adminTeacherAdminitrativePersonLevel1',
                 'uses' => 'BackUpController@showBackUpWindow'
             ]);
     /**********************************************************/
+    
     /**********************************************************/
         Route::get('systemParameters', [
                 'middleware' => 'is_admin',
