@@ -20,7 +20,7 @@
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Correo Electrónico TAAAALLL</label>
+                                <label class="col-md-4 control-label">Correo Electrónico</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id= "email" name="email" value="{{ old('email') }}">

@@ -25,7 +25,6 @@ use  App\PhoneNumbers;*/
 | kernel and includes session state, CSRF protection, and more.
 */
 
-
 Route::group(['middleware' => 'web'], function ()
 {
     //Home and / pages routes and logic
