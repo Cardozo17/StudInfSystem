@@ -10,7 +10,7 @@
 								<!-- {{ Html::image('images/escudo.jpg', 'Logo' )}} -->
 							</a></div>
 							<div id="center" ><h3><%schoolName%></h3></div>
-							<div id="right">	<h5 >Usuarioaaar:  {{ Auth::user()->name }}</h5>
+							<div id="right">	<h5 >Usuario:  {{ Auth::user()->name }}</h5>
 								<a  type="button" id="closeSessionButton" class="btn btn-danger btn-xs" href="/logout" onclick="">Cerrar Sesión</a>
 							</div>
 						</div>
