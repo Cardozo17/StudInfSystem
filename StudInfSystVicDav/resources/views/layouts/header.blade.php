@@ -6,7 +6,7 @@
 						<div id="container">
 							<div id="left">
 							<a href="/home" >
-								<img ng-src="<%schoolLogo%>" alt="Logo" id="headerImg">
+								<img ng-src="<%schoolLogo%>" alt="Logo" id="headerImg" height="50" width="50">
 								<!-- {{ Html::image('images/escudo.jpg', 'Logo' )}} -->
 							</a></div>
 							<div id="center" ><h3><%schoolName%></h3></div>
