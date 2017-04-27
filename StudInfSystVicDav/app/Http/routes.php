@@ -59,8 +59,8 @@ Route::group(['middleware' => 'web'], function ()
      //Get Control Parameters Route
      Route::get('getSystemParameters','SystemController@getSystemParameters');
 
-    //Route::group(['middleware' => ['auth']], function ()
-    //{
+    Route::group(['middleware' => ['auth']], function ()
+    {
         /**********************************************************/
             Route::get('about', 'HomeController@showAboutUsWindow');
             Route::get('contact', 'HomeController@showContactWindow');
@@ -158,7 +158,7 @@ Route::group(['middleware' => 'web'], function ()
                 ]);
             Route::post('setSystemParameters', 'SystemController@store');
         /**********************************************************/
-    //});
+    });
 
     // Logout Routes...
     Route::get('logout', 'Auth\AuthController@logout');
