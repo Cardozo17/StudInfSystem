@@ -6,11 +6,11 @@
 						<div id="container">
 							<div id="left">
 							<a href="/home" >
-								<img ng-src="<%schoolLogo%>" alt="Logo" id="headerImg" style="max-width: 80px;">
+								<img ng-src="<%schoolLogo%>" alt="Logo" id="headerImg" style="max-width: 70px;">
 								<!-- {{ Html::image('images/escudo.jpg', 'Logo' )}} -->
 							</a></div>
 							<div id="center" ><h3><%schoolName%></h3></div>
-							<div id="right">	<h5 >Usuario:  {{ Auth::user()->name }}</h5>
+							<div id="right">	<h5 >Usuarioaaar:  {{ Auth::user()->name }}</h5>
 								<a  type="button" id="closeSessionButton" class="btn btn-danger btn-xs" href="/logout" onclick="">Cerrar Sesión</a>
 							</div>
 						</div>
