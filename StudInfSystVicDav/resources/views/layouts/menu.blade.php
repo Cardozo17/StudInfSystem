@@ -109,11 +109,11 @@
                                 </tr>
                                 @endif
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
-                                 <tr>
+                              <!--    <tr>
                                     <td>
                                         <a href="/students/edit">Editar Alumno</a>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 @endif
                                 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') || Auth::user()->hasRole('administrativePersonLevel1'))
                                  <tr>
@@ -129,9 +129,9 @@
                                     </td>
                                 </tr>
                                  <tr>
-                                    <td>
+                                 <!--    <td>
                                         <a href="">Retirar Alumno</a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 @endif
                             </table>
@@ -187,11 +187,11 @@
                     <div id="collapseFour" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
-                                <tr>
+                             <!--    <tr>
                                     <td>
                                         <a href="/statistics/grades">Estadística de Notas Por Sección</a>
                                     </td>
-                                </tr>
+                                </tr> -->
 <!--                                 <tr>
                                     <td>
                                         <a href="/repCitation">Estadística 2</a>
