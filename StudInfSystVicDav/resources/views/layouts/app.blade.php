@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sistema de Información Estudiantil</title>
+    <title>SIEEB1.0</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -58,7 +58,7 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <h4 style="color: white">Sistema de Información Estudiantil</h4>
+                        <h4 style="color: white">Sistema de Información Estudiantil SIEEB1.0</h4>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

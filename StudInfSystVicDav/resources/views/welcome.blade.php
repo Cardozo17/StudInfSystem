@@ -18,11 +18,22 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Bienvenido</div>
                     <div class="panel-body">
-                        <h1>Bienvenido al Sistema de Información Estudiantil</h1>
-                        <h5> Debe iniciar sesión con una cuenta de usuario validada para poder tener acceso a este sistema.
-                            <br> Lo invitamos a iniciar sesión si tiene una cuenta y contraseña asignadas.<br>
-                            En caso de no tener una cuenta y contraseña dirijase con el administrador del sistema para que le sea asignada una sí realmente considera que cuenta con las credenciales para obtener acceso al sistema.
-                            <h5>
+                        <div  style="background-color: lightgrey; border: 10px solid #008B8B; padding: 25px; margin: 25px;">
+                            <h1><b>Bienvenido al Sistema de Información Estudiantil SIEEB1.0 </b></h1>
+                        </div>
+                        <h5>
+                            <div style="background-color: lightgrey;">
+                                <b>
+                                    <ul> 
+                                        <li> Debe iniciar sesión con una cuenta de usuario validada para poder tener acceso a este sistema.
+                                        </li>
+                                        <br>
+                                    <li>Lo invitamos a iniciar sesión si tiene una cuenta y contraseña asignadas.</li>
+                                    <br>
+                                    <li>En caso de no tener una cuenta y contraseña dirijase con el administrador del sistema para que le sea asignada una sí realmente considera que cuenta con las credenciales para obtener acceso al sistema. </li>
+                                </b>
+                            </div>
+                        <h5>
                     </div>
                 </div>
             </div>

@@ -5,11 +5,15 @@
 <div class="row">
     <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Página Principal del Sistema de Información Estudiantil</div>
+                <div class="panel-heading">
+                  <h1>
+                    <b>
+                      Página Principal del SIEEB1.0</div>
+                    </b>  
+                  </h1>
                 <br>
                 <div class="panel-body">
-                   Veo que iniciaste sesión exitosamente en el sistema de información estudiantil <br>
-                   <h3>Bienvenido al sistema, actualmente estas en la página principal. <br> Cuando quieras volver a esta página solo presiona el escudo de la escuela.</h3>
+                   <h3>Bienvenido al SIEEB1.0, actualmente estas en la página principal. <br> Cuando quieras volver a esta página solo presiona el escudo de la escuela.</h3>
                </div>
            </div>
        </div>
